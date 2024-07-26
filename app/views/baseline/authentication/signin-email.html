@@ -5,7 +5,7 @@ Enter your email address to sign in to GOV.UK One Login
 {% endblock %}
 
 {% block header %}
-{% include "../auth/_includes/header-auth-mvp.html" %}
+{% include "../authentication/_includes/header-auth-mvp.html" %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -24,12 +24,6 @@ Enter your email address to sign in to GOV.UK One Login
     <h1 class="govuk-heading-l">
       Enter your email address to sign in to your GOV.UK One Login
     </h1>
-
-    <!-- 
-      This URL would take you to the spinner page
-      /auth/mvp/signin-checking 
-    -->
-
     <form class="form" action="signin-password" method="post">
       <div class="govuk-form-group">
         <input class="govuk-input govuk-!-width-two-thirds" id="email" name="emailAddress" type="email" spellcheck="false" aria-label="Enter your email address to sign in to GOV.UK One Login" autocomplete="email">

@@ -7,7 +7,7 @@ You need a smartphone and photo ID to continue
 {% endblock %}
 
 {% block header %}
-{% include "../auth/_includes/header-auth-mvp.html" %}
+{% include "../authentication/_includes/header-auth-mvp.html" %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -24,7 +24,7 @@ You need a smartphone and photo ID to continue
 <a class="govuk-back-link" href="recovery-id-reprove">Back</a>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="/auth/mvp/create-email" method="post" class="form">
+    <form action="/authentication/mvp/create-email" method="post" class="form">
       <h1 class="govuk-heading-l">You cannot change how you get  security codes
       </h1>
       <p>Based on what you told us, you will not be able to prove your identity using the app.</a><p>
