@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Continue proving your identity online - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Continue proving your identity online</h1>
+    <p>You can continue proving your identity online if you: </p>
+    <p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>have a UK driving licence (full or provisional) or a UK passport</li>
+        <li>can answer some security questions</li>
+      </ul>
+    </p>
+    <p>We use security questions to stop anyone who might have your details from pretending to be you.</p>
+    <p>It takes about 10 minutes to prove your identity this way.</p>
+    <form class="form" action="online-buffer" method="post">
+      {{ govukRadios({
+        name: "online-buffer",
+        idPrefix: "online-buffer",
+        fieldset: {
+          legend: {
+          text: "Do you want to use your UK photocard driving licence or UK passport to prove your identity?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"}
+        },
+        hint: {
+          text: "You’ll need to have your photo ID ready. You cannot use a photocopy or digital copy."
+        },
+        items: [{
+          value: "driving-licence",
+          text: "UK photocard driving licence"
+          },
+          {
+          value: "passport",
+          text: "UK passport"
+          },
+          {
+          divider: "or"
+          },
+          {
+          value: "no",
+          text: "I do not have either of these types of photo ID",
+          hint: {
+            text: "There may be other ways to prove your identity if you have another type of photo ID."
+            }
+          }]
+      }) }}
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

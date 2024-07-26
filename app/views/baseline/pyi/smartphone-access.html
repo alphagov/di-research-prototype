@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Tell us if you have access to an iPhone or Android phone - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Tell us if you have access to an iPhone or Android phone</h1>
+    <p>To prove your identity with the GOV.UK One Login app, you need an iPhone or Android phone with a working camera. </p>
+    <h2 class="govuk-heading-s">If your photo ID is a UK photocard driving licence</h2>
+    <p>You need an iPhone 6s or newer, or an Android phone.</p>
+    <h2 class="govuk-heading-s">If your photo ID is a passport, BRP, BRC or FWP</h2>
+    <p>You need an iPhone 7 or newer, or an Android phone.</p>
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          How do I know which iPhone I have?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p>The iPhone 7 was released in 2016. If you bought your iPhone after 2016, you probably have an iPhone 7 or newer.</p>
+        <p>To check which iPhone you have, go to your phone settings. Select ‘General’ then ‘About’ and look for the ‘Model Name’.</p>
+      </div>
+    </details>
+    <form action="app-download" method="post">
+      {{ govukRadios({
+      classes: "govuk-radios",
+      idPrefix: "app-download-check",
+      name: "app-download-check",
+        fieldset: {
+          legend: {
+            text: "Do you have access to an iPhone or Android phone?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "iphone",
+            text: "Yes - I have access to an iPhone",
+            checked: checked("app-computer-check", "iphone")
+          },
+          {
+            value: "android",
+            text: "Yes - I have access to an Android phone (for example, Samsung or Google Pixel)",
+            checked: checked("app-computer-check", "android")
+          },
+          {
+            value: "no",
+            text: "No",
+            checked: checked("app-computer-check", "no")
+          }
+        ]
+      }) }}
+      <button class="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

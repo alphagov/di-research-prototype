@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Tell us if you have one of the following types of photo ID - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Tell us if you have one of the following types of photo ID</h1>
+    <p>This will help us find the best way for you to prove your identity.</p>
+    <p>You can use one of the following types of photo ID:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>UK photocard driving licence</li>
+        <li>UK passport</li>
+        <li>non-UK passport with a biometric chip</li>
+        <li>UK biometric residence permit (BRP)</li>
+        <li>UK biometric residence card (BRC)</li>
+        <li>UK Frontier Worker permit (FWP)</li>
+    </ul>
+    <p>Your photo ID must not have expired.</p>
+    <div class="govuk-inset-text">
+      Find out more about the different types of <a href="types-of-id">photo ID we accept (opens in a new tab)</a>.
+    </div>
+    <form class="form" action="online-photoid" method="post">
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "photo-id",
+        idPrefix: "photo-id",
+        fieldset: {
+          legend: {
+          text: "Do you have any of these types of photo ID?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"}
+        },
+        hint: {
+          text: "You’ll need to have your photo ID ready. You cannot use a photocopy or digital copy."
+        },
+        items: [{
+          value: "Yes",
+          text: "Yes"
+          },
+          {
+          value: "No",
+          text: "No"
+        }]
+      }) }}
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

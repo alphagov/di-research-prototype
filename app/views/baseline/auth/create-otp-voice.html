@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter your mobile phone number
+{% endblock %}
+
+{% block header %}
+{% include "../auth/_includes/header-auth-mvp.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+<a class="govuk-back-link" href="create-choose-otp-method">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Enter your phone number   
+    </h1>
+    <p class="govuk-body">You’ll get an automated phone call to the number you give us.</p>
+    <p class="govuk-body">The call may come from an unknown or withheld number.</p>
+    <form class="form" action="create-check-voice" method="post">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="mobileNumber">Phone number</label>
+        <div id="event-name-hint" class="govuk-hint">
+          Include the country code, for example +44 or 0044 for the UK 
+        </div>
+        <input class="govuk-input govuk-!-width-two-thirds" id="mobileNumber" name="mobileNumber" type="tel" spellcheck="false" autocomplete="tel">
+      </div>
+      <button class="govuk-button" data-module="govuk-button">Get a call from GOV.UK One Login</button>
+    </form> <!-- /. form -->
+  </div> <!-- /. govuk-grid-column-two-thirds -->
+</div> <!-- /. govuk-grid-row -->
+
+{% endblock %}

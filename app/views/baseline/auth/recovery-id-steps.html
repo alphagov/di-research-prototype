@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{# if coming in from a service - find out which one #}
+
+{% block pageTitle %}
+You can change how you get security codes to sign in to your GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "../auth/_includes/header-auth-mvp.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+
+  {% if data['use-govuk-account'] %}
+    <a class="govuk-back-link" href="signin-checkphone">Back</a>
+  {% else %}
+    <a href="signin-checkphone" class="govuk-back-link">Back</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="recovery-id-reprove" method="post" class="form">
+      <h1 class="govuk-heading-l">You can change how you get security codes to sign in to your GOV.UK One Login</h1>
+      <p>You will need to confirm this is your GOV.UK One Login first.</p>
+      <h2 class="govuk-heading-m">What you need to do</h2>
+      <ul class="govuk-list govuk-list--number"> 
+        <li>Prove your identity with the GOV.UK ID Check app.</li>
+        <li>Enter your current home address  (you may also need your previous address if you’ve recently moved).</li>
+        <li>We’ll check your identity matches the one on your GOV.UK One Login.</li>
+        <li>Set up a new way to get security codes - this can be a phone number or an authenticator app.</li>
+        <li>Sign in to GOV.UK One Login and continue to the service you are trying to use.</li>
+      </ul>
+      <div class="govuk-button-group"  href="recovery-id-reprove" >
+        <button class="govuk-button" data-module="govuk-button">
+          Continue to prove your identity
+        </button>  
+    </form> 
+  </div>
+</div>
+
+{% endblock %}

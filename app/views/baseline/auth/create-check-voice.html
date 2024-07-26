@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter the security code you hear on your phone
+{% endblock %}
+
+{% block header %}
+{% include "../auth/_includes/header-auth-mvp.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+<a class="govuk-back-link" onclick="history.back()" style="cursor: pointer;">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="create-success" method="post">
+      <h1 class="govuk-heading-l">Enter the security code you hear on your phone</h1>
+      <div class="govuk-inset-text">
+        We’ll call you now on your phone number ending with <span class="govuk-!-font-weight-bold">{{ data['obfNumber'] or '6789' }}</span>
+      </div>
+      <p class="govuk-body">When you answer the phone, you’ll hear an automated message reading the security code.</p>
+      <p class="govuk-body">The code will expire after 15 minutes.</p>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="otp">Enter the 6 digit security code</label>
+        <input class="govuk-input govuk-input--width-5" id="otp" name="create-voice-otp" type="text" autocomplete="one-time-code" inputmode="numeric" spellcheck="false" >
+      </div>
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Problems receiving the code?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">
+            You can 
+            <a href="">request another phone call</a> or you can
+            <a href="create-otp-voice">use a different phone number</a>. <br>
+            <br>
+            <a href="create-choose-otp-method">Get a code another way</a> 
+          </p>
+        </div>
+      </details>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

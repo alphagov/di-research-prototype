@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter your mobile phone number
+{% endblock %}
+
+{% block header %}
+{% include "../auth/_includes/header-auth-mvp.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+<a class="govuk-back-link" href="create-choose-otp-method.html">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Enter your mobile phone number
+    </h1>
+    <p class="govuk-body">We will send a 6 digit security code to the number you give us.</p>
+    <form class="form" action="create-check-sms" method="post">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="mobileNumber">UK mobile phone number</label>
+        <input class="govuk-input govuk-!-width-two-thirds" id="mobileNumber" name="mobileNumber" type="tel" spellcheck="false" autocomplete="tel">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          </legend>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="contact" name="contact" type="checkbox" value="phone" data-aria-controls="conditional-contact">
+              <label class="govuk-label govuk-checkboxes__label" for="contact">
+                I do not have a UK mobile number
+              </label>
+            </div>
+            <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-email">
+                  Mobile phone number
+                </label>
+                <div id="hint" class="govuk-hint">
+                  Include the country code, for example +447700 900000 or 00447700 900000 for the UK
+                </div>
+                <input class="govuk-input govuk-!-width-one-half" id="contact" name="contact-by-phone" type="phone" spellcheck="false" autocomplete="false">
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>     
+    </form>
+  </div> <!-- /. govuk-grid-column-two-thirds -->
+</div> <!-- /. govuk-grid-row -->
+
+{% endblock %}
