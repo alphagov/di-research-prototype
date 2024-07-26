@@ -1,0 +1,60 @@
+//
+// For guidance on how to add CSS and SCSS see:
+// https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
+// 
+
+// Import extra styles here
+@import "patterns/loading-spinner";
+
+// Add extra styles here
+
+// Masthead styling
+.app-masthead {
+	background-color: #1d70b8;
+	margin-top: -50px;
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+}
+
+@media (min-width: 40.0625em) {
+	.app-masthead {
+		padding-top: 40px;
+	}
+}
+
+@media (max-width: 640px) {
+	.app-masthead {
+		margin-top: -30px;
+		padding-top: 30px;
+	}
+}
+
+.app-masthead__title,
+.app-masthead__subtitle,
+.app-masthead p {
+	color: #ffffff;
+}
+
+// Custom grey styling component for contact us page reference number playback
+
+.contact-reference {
+	padding: 15px;
+	background-color: #f3f2f1;
+	border-left: 5px solid #b1b4b6
+}
+
+.contact-reference__code {
+	display: block;
+	margin: 10px 0;
+	font-family: "GDS Transport", arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: 700;
+	font-size: 32px;
+	font-size: 2rem;
+	line-height: 1.09375
+}

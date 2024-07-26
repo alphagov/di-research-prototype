@@ -1,0 +1,139 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="app-masthead govuk-!-padding-bottom-6 govuk-!-margin-bottom-6">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="app-masthead__title govuk-heading-xl govuk-!-margin-bottom-3">
+          {{ serviceName }}
+        </h1>
+        <h2 class="app-masthead__subtitle govuk-heading-l govuk-!-font-weight-regular">Prototype</h2>
+        <div class="app-masthead__description">
+          <p class="govuk-body">This site contains prototyping for the <strong>{{ serviceName }}</strong> part of the GOV.UK One Login service</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<body>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">Baseline journey</h2>
+      <div class="govuk-!-margin-bottom-6">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Summary
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>This is the baselined version of the {{ serviceName }} journey as of June 2024, when several changes were made to the beginning of the journey as part of the <b>Login to app</b> initiative.</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Last updated
+            </dt>
+            <dd class="govuk-summary-list__value">
+              12 June 2024
+            </dd>
+          </div>
+        </dl>
+        <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="http://localhost:3000/baseline/auth/gov-account">
+          View baseline version
+        </a>
+      </div>  
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Initiative hypotheses and experiments</h2>
+      <p>These are the prototypes for the current initiatives being tested with users.</p>
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Low confidence journey - Round 1
+          </h2>
+          <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="http://localhost:3000/low-confidence/preauth/identity-welcome">
+            View screens
+          </a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Phase
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <strong class="govuk-tag govuk-tag--orange">
+                  IN DESIGN
+                </strong>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Summary
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p>Users prove their identity using a web route (driving licence, passport or no photo ID) to a low level of confidence as part of the Lasting Power of Attorney service.</p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Related information
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <ul class="govuk-list govuk-list--bullet govuk-body govuk-!-margin-bottom-0">
+                  <li><a class="govuk-link" href="">Design history<span class="govuk-visually-hidden"> design history</span></a></li>
+                  <li><a class="govuk-link" href="">User research findings<span class="govuk-visually-hidden"> design history</span></a></li>
+                </ul>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               Last updated
+              </dt>
+              <dd class="govuk-summary-list__value">
+                June 2024
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  
+    <div class="govuk-grid-column-one-third">
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">Related content</h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list useful-links govuk-!-font-size-16">
+            <li>
+              <a href="" class="govuk-link--no-visited-state">
+                Design history
+              </a>
+            </li>
+            <li>
+              <a href="" class="govuk-link--no-visited-state">
+                Prototype GitHub repository
+              </a>
+            </li>
+            <li>
+              <a href="" target="_blank" class="govuk-link--no-visited-state">
+                Previous prototype GitHub repository (pre June 2024)
+              </a>
+            </li>
+            <li>
+              <a href="http://localhost:3000/manage-prototype" class="govuk-link--no-visited-state">
+                How to use and manage this prototype
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </div>
+</body>
+
+{% endblock %}
