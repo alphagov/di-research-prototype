@@ -5,7 +5,7 @@ const parentDir = '/baseline'
 // Add your routes here
 
 // Photo ID screener
-router.post(`${parentDir}/pyi/online-photoid`, function (request, response) {
+router.post(`${parentDir}/ipv-core/online-photoid`, function (request, response) {
 	var photoID = request.session.data['photo-id']
 	if (photoID == "Yes") {
 		response.redirect("computer-tablet")
@@ -15,7 +15,7 @@ router.post(`${parentDir}/pyi/online-photoid`, function (request, response) {
 })
 
 // Device screener
-router.post(`${parentDir}/pyi/device-check`, function (request, response) {
+router.post(`${parentDir}/ipv-core/device-check`, function (request, response) {
 	var appDeviceCheck = request.session.data['app-device-check']
 	if (appDeviceCheck == "yes") {
 		response.redirect("smartphone-access")
@@ -25,7 +25,7 @@ router.post(`${parentDir}/pyi/device-check`, function (request, response) {
 })
 
 // DAD App download screener
-router.post(`${parentDir}/pyi/app-download`, function (request, response) {
+router.post(`${parentDir}/ipv-core/app-download`, function (request, response) {
 	var appDeviceCheck = request.session.data['app-download-check']
 	if (appDeviceCheck == "iphone") {
 		response.redirect("../app-cri/app-download")
@@ -37,7 +37,7 @@ router.post(`${parentDir}/pyi/app-download`, function (request, response) {
 })
 
 // MAM App download screener
-router.post(`${parentDir}/pyi/app-download-smartphone`, function (request, response) {
+router.post(`${parentDir}/ipv-core/app-download-smartphone`, function (request, response) {
 	var appDeviceCheck = request.session.data['app-download-smartphone']
 	if (appDeviceCheck == "iphone") {
 		response.redirect("../app-cri/app-download-smartphone")

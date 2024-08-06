@@ -15,6 +15,6 @@ router.use('/', require('./views/baseline/routes/routes-support.js'))
 router.use('/', require('./views/baseline/routes/routes-auth.js'))
 
 // pull in pyi routes
-router.use('/', require('./views/baseline/routes/routes-pyi.js'))
+router.use('/', require('./views/baseline/routes/routes-ipv-core.js'))
 
 module.exports = router;
