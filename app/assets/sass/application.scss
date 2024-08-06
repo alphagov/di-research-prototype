@@ -58,3 +58,15 @@
 	font-size: 2rem;
 	line-height: 1.09375
 }
+
+// Error Notification banner
+.govuk-notification-banner--error {
+	border-color: $govuk-error-colour;
+	background-color: $govuk-error-colour;
+}
+
+// inline warning style
+.govuk-text--error {
+	font-weight: bold;
+	color: $govuk-error-colour;
+}

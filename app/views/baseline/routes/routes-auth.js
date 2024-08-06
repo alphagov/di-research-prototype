@@ -12,13 +12,10 @@ router.post(`${parentDir}/authentication/create-email-sms`, function (req, res) 
 router.post(`${parentDir}/authentication/choose-otp-method`, function (req, res) {
 	var otpMethod = req.session.data['security-code']
 	if (otpMethod == "otp-sms") {
-		// Send user to this page
 		res.redirect('create-otpsms')
 	} else if (otpMethod == "otp-voice") {
-		// Or send user to this page
 		res.redirect('create-otp-voice')
 	} else {
-		// Or send user to this page
 		res.redirect('create-otp-auth')
 	}
 })

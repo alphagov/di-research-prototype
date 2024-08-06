@@ -70,4 +70,14 @@ router.post(`${parentDir}/ipv-core/app-download-smartphone`, function (request, 
 	}
 })
 
+// Driving licence fail
+router.post(`${parentDir}/ipv-core/dl-fail`, function (request, response) {
+	var dlFail = request.session.data['dl-fail']
+	if (dlFail == "passport") {
+		response.redirect("../passport-cri/enter-passport-details")
+	} else {
+		response.redirect("../service/service-start")
+	}
+})
+
 module.exports = router;

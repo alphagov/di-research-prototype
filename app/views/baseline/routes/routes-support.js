@@ -8,7 +8,6 @@ router.post(`${parentDir}/support/support-start-post`, function (req, res) {
 
 	// routing depends on category selected
 	const category = req.session.data['support-main-cat']
-
 	if (category === 'suggestion-feedback') {
 		res.redirect('support-feedback')
 	} else if (category === 'problem-creating-account') {
@@ -35,7 +34,6 @@ router.post(`${parentDir}/support/support-account-post`, function (req, res) {
 
 	// routing depends on category selected
 	const account = req.session.data['support-account']
-
 	if (account === 'sign') {
 		res.redirect('support-problem-account-sign')
 	} else {

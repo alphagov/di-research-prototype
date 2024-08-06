@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+
+{% block pageTitle %}
+Find your address - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% if data.prototype['appComplete'] === 'true'%}
+  {% set input = 'LS1 2NE' %}
+{% endif %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="address-postcode-current-post" method="post">
+      <fieldset class="govuk-fieldset" aria-describedby="delivery-address-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Find your address
+          </h1>
+        </legend>
+        {# make app route conditional #}
+        {% if data.prototype['appComplete'] === 'true' or data['dl-postcode'] %}
+        <div class="govuk-inset-text">
+          We’ve used the postcode from your driving licence. You should change this if you do not live at this address anymore.
+        </div>
+        {% endif %}
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="postcode">
+            Enter your postcode
+          </label>
+        <div class="govuk-hint">
+          Enter the postcode of your current home address. This must be a UK postcode, for example SW1A 2AA.
+        </div>
+          <input class="govuk-input govuk-input--width-10" id="postcode" name="address-postcode-current" type="text" autocomplete="postal-code" value="{{ input or data['address-postcode-current'] or data['dl-postcode'] }}">
+        </div>
+      </fieldset>
+      <button class="govuk-button" type="submit" data-module="govuk-button">
+        Find address
+      </button>
+    </form>
+    <div class="govuk-notification-banner govuk-notification-banner--journey-options govuk-!-margin-top-9" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header govuk-notification-banner__header--journey-options">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Prototype options
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p><a href="#" class="govuk-link govuk-link--no-visited-state" target="_blank">Current address not found (opens in new tab)</a></p>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
