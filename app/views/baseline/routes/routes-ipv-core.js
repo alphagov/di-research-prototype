@@ -30,7 +30,7 @@ router.post(`${parentDir}/ipv-core/app-drop-off`, function (request, response) {
 	if (photoID == "driving-licence") {
 		response.redirect("../driving-licence-cri/photocard-authority")
 	} else if (photoID == "passport") {
-		response.redirect("")
+		response.redirect("../passport-cri/enter-passport-details")
 	} else {
 		response.redirect("f2f-screener")
 	}
@@ -75,6 +75,16 @@ router.post(`${parentDir}/ipv-core/dl-fail`, function (request, response) {
 	var dlFail = request.session.data['dl-fail']
 	if (dlFail == "passport") {
 		response.redirect("../passport-cri/enter-passport-details")
+	} else {
+		response.redirect("../service/service-start")
+	}
+})
+
+// Passport fail
+router.post(`${parentDir}/ipv-core/passport-fail`, function (request, response) {
+	var passportFail = request.session.data['passport-fail']
+	if (passportFail == "driving licence") {
+		response.redirect("../driving-licence-cri/photocard-authority")
 	} else {
 		response.redirect("../service/service-start")
 	}
