@@ -5,12 +5,12 @@ const parentDir = '/baseline'
 // Add your routes here
 
 // Online photo ID screener
-router.post(`${parentDir}/ipv-core/online-photoid`, function (request, response) {
+router.post(`${parentDir}/ipv-core/triage/online-photoid`, function (request, response) {
 	var photoID = request.session.data['photo-id']
 	if (photoID == "Yes") {
 		response.redirect("computer-tablet")
 	} else {
-		response.redirect("app-drop-off")
+		response.redirect("../app-drop-off")
 	}
 })
 
@@ -37,7 +37,7 @@ router.post(`${parentDir}/ipv-core/app-drop-off`, function (request, response) {
 })
 
 // Device screener
-router.post(`${parentDir}/ipv-core/device-check`, function (request, response) {
+router.post(`${parentDir}/ipv-core/triage/device-check`, function (request, response) {
 	var appDeviceCheck = request.session.data['app-device-check']
 	if (appDeviceCheck == "yes") {
 		response.redirect("smartphone-access")
@@ -47,24 +47,24 @@ router.post(`${parentDir}/ipv-core/device-check`, function (request, response) {
 })
 
 // DAD smartphone access
-router.post(`${parentDir}/ipv-core/app-download`, function (request, response) {
+router.post(`${parentDir}/ipv-core/triage/app-download`, function (request, response) {
 	var appDeviceCheck = request.session.data['app-download-check']
 	if (appDeviceCheck == "iphone") {
-		response.redirect("../app-cri/app-download")
+		response.redirect("../../app-cri/app-download")
 	} else if (appDeviceCheck == "android") {
-		response.redirect("../app-cri/app-download")
+		response.redirect("../../app-cri/app-download")
 	} else {
-		response.redirect("app-drop-off-buffer")
+		response.redirect("../app-drop-off-buffer")
 	}
 })
 
 // MAM smartphone type
-router.post(`${parentDir}/ipv-core/app-download-smartphone`, function (request, response) {
+router.post(`${parentDir}/ipv-core/triage/app-download-smartphone`, function (request, response) {
 	var appDeviceCheck = request.session.data['app-download-smartphone']
 	if (appDeviceCheck == "iphone") {
-		response.redirect("../app-cri/app-download-smartphone")
+		response.redirect("../../app-cri/app-download-smartphone")
 	} else if (appDeviceCheck == "android") {
-		response.redirect("../app-cri/app-download-smartphone")
+		response.redirect("../../app-cri/app-download-smartphone")
 	} else {
 		response.redirect("smartphone-access")
 	}

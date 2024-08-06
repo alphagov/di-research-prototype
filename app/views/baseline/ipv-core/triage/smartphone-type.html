@@ -1,11 +1,11 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Tell us if you have access to an iPhone or Android phone - GOV.UK One Login - GOV.UK
+Tell us what smartphone you are using now - GOV.UK One Login - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-{% include "../../_includes/phase-banner.html" %}
+{% include "../../../_includes/phase-banner.html" %}
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
@@ -13,7 +13,7 @@ Tell us if you have access to an iPhone or Android phone - GOV.UK One Login - GO
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Tell us if you have access to an iPhone or Android phone</h1>
+    <h1 class="govuk-heading-l">Tell us what smartphone you are using now</h1>
     <p>To prove your identity with the GOV.UK One Login app, you need an iPhone or Android phone with a working camera. </p>
     <h2 class="govuk-heading-s">If your photo ID is a UK photocard driving licence</h2>
     <p>You need an iPhone 6s or newer, or an Android phone.</p>
@@ -30,14 +30,14 @@ Tell us if you have access to an iPhone or Android phone - GOV.UK One Login - GO
         <p>To check which iPhone you have, go to your phone settings. Select ‘General’ then ‘About’ and look for the ‘Model Name’.</p>
       </div>
     </details>
-    <form action="app-download" method="post">
+    <form action="app-download-smartphone" method="post">
       {{ govukRadios({
       classes: "govuk-radios",
-      idPrefix: "app-download-check",
-      name: "app-download-check",
+      idPrefix: "app-download-smartphone",
+      name: "app-download-smartphone",
         fieldset: {
           legend: {
-            text: "Do you have access to an iPhone or Android phone?",
+            text: "Are you on one of these phones?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--m"
           }
@@ -45,17 +45,17 @@ Tell us if you have access to an iPhone or Android phone - GOV.UK One Login - GO
         items: [
           {
             value: "iphone",
-            text: "Yes - I have access to an iPhone",
+            text: "Yes - I am on an iPhone",
             checked: checked("app-computer-check", "iphone")
           },
           {
             value: "android",
-            text: "Yes - I have access to an Android phone (for example, Samsung or Google Pixel)",
+            text: "Yes - I am on an Android phone (for example, Samsung or Google Pixel)",
             checked: checked("app-computer-check", "android")
           },
           {
             value: "no",
-            text: "No",
+            text: "No - I’m on a computer, tablet or different phone",
             checked: checked("app-computer-check", "no")
           }
         ]
