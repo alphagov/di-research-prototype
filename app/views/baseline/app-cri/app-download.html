@@ -63,7 +63,7 @@ Tell us if you have access to an iPhone or Android phone - GOV.UK One Login - GO
       </summary>
       <div class="govuk-details__text">
 		<p>The face scan checks that you’re a real person. It uses different colours that change less than 3 times per second.</p>
-		<p>You can <a href="#">prove your identity another way if you think you might be sensitive to flashing colours</a>.</p>
+		<p>You can <a href="../ipv-core/app-drop-off">prove your identity another way if you think you might be sensitive to flashing colours</a>.</p>
       </div>
     </details>
 	<details class="govuk-details" data-module="govuk-details">
@@ -73,7 +73,7 @@ Tell us if you have access to an iPhone or Android phone - GOV.UK One Login - GO
         </span>
       </summary>
       <div class="govuk-details__text">
-		<p>If you’d prefer not to use the app, you may be able to <a href="#">prove your identity another way</a>.</p>
+		<p>If you’d prefer not to use the app, you may be able to <a href="../ipv-core/app-drop-off-buffer">prove your identity another way</a>.</p>
       </div>
     </details>
 	<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
@@ -92,9 +92,20 @@ Tell us if you have access to an iPhone or Android phone - GOV.UK One Login - GO
     <p>If we successfully match your face to your photo ID, you’ll finish proving your identity online.</p>
 	<p>Then you can continue to the government service you want to use. </p>
 	<p>If this page has not updated once you've finished using the app, you can <a href="#">refresh the page</a>.</p>
-	<form action="../ipv-core/app-complete" method="post">
+	<form action="../ipv-core/app-success" method="post">
 		<button class="govuk-button">Continue</button>
 	</form>
+	<div class="govuk-notification-banner govuk-notification-banner--journey-options govuk-!-margin-top-9" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+		<div class="govuk-notification-banner__header govuk-notification-banner__header--journey-options">
+			<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+			Prototype options
+			</h2>
+		</div>
+		<div class="govuk-notification-banner__content">
+			<p><a href="#" class="govuk-link govuk-link--no-visited-state" target="_blank">View GOV.UK ID Check iOS app screens (opens in new tab)</a></p>
+			<p><a href="#" class="govuk-link govuk-link--no-visited-state" target="_blank">View GOV.UK ID Check Android app screens (opens in new tab)</a></p>
+		</div>
+	</div>
   </div>
 </div>
 {% endblock %}

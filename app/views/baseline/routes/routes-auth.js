@@ -9,14 +9,8 @@ router.post(`${parentDir}/authentication/create-email-sms`, function (req, res) 
 })
 
 // choose how to get security codes in the create account journey
-
-// The content in the "" is the page where the radio buttons are
 router.post(`${parentDir}/authentication/choose-otp-method`, function (req, res) {
-
-	// The content in the "" is the name of the radio button
 	var otpMethod = req.session.data['security-code']
-
-	// The content in the "" is the value of the radio button
 	if (otpMethod == "otp-sms") {
 		// Send user to this page
 		res.redirect('create-otpsms')
