@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+When did you start living at this address? - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="address-year-current" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" id="address-year-current">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              When did you start living at your current home address?
+            </h1>
+          </legend>
+          <p>{% if data['address-city-current'] %}
+            {{ data['address-line1-current'] }}<br>
+            {% if data['address-line2-current'] %}
+              {{ data['address-line2-current'] }}<br>
+            {% endif %}
+            {{ data['address-city-current'] }}<br>
+            {% if data['address-county-current'] %}
+              {{ data['address-county-current'] }}<br>
+            {% endif %}
+            {{ data['address-postcode-current'] or 'LS1 3BE' }}
+
+            {% else %}
+              Office 14 <br>
+              New Station St <br>
+              Leeds <br>
+              LS1 5DL
+          {% endif %}</p>
+          <div class="govuk-date-input__item" id="address-year-current-input">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="address-year-current-year">
+                Year
+              </label>
+              <div id="address-year-current-year-hint" class="govuk-hint">
+                Enter the year you started living at this address, for example 2017
+              </div>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="address-year-current-year" name="address-year-current-year" type="text" inputmode="numeric"  value="{{ data['address-year-current-year'] }}">
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button class="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

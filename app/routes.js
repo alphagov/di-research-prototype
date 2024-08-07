@@ -20,4 +20,7 @@ router.use('/', require('./views/baseline/routes/routes-ipv-core.js'))
 // pull in driving licence routes
 router.use('/', require('./views/baseline/routes/routes-driving-licence.js'))
 
+// pull in address routes
+router.use('/', require('./views/baseline/routes/routes-address.js'))
+
 module.exports = router;
