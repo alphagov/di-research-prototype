@@ -289,6 +289,17 @@ router.post(`${parentDir}/address-cri/address-screen-previous`, function (req, r
 	}
 })
 
+// Try postcode again or enter manually
+router.post(`${parentDir}/address-cri/address-error-choice-post-prev`, function (req, res) {
+	const errorchoice = req.session.data['error-choice']
+	if (errorchoice === 'continue') {
+		res.redirect('find-previous-address-manual')
+	} else {
+		res.redirect('find-previous-address')
+	}
+})
+
+//
 router.post(`${parentDir}/address-cri/address-manual-prev-post`, function (req, res) {
 	const from = req.session.data['from']
 	let prototype = req.session.data['prototype'] || {} // set up if doesn't exist
