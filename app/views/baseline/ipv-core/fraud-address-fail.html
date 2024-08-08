@@ -1,0 +1,26 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Sorry, there is a problem - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Sorry, there is a problem</h1>
+    <p>We could not find a match when we checked your address with another organisation.</p>
+    <form class="form" action="#" method="post">
+      <h2 class="govuk-heading-m">What you can do</h2>
+      <p>You can check your current and any previous addresses are correct when you continue.</p>
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+    <p><a class="govuk-link" href="#" target="_blank">Contact the GOV.UK account team (opens in a new tab)</a></p>
+  </div>
+</div>
+
+{% endblock %}
