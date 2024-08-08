@@ -6,7 +6,7 @@ Check your address - GOV.UK One Login - GOV.UK
 
 {% block beforeContent %}
 {% include "../../_includes/phase-banner.html" %}
-<a class="govuk-back-link" href="address-picker-current">Back</a>
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -15,66 +15,56 @@ Check your address - GOV.UK One Login - GOV.UK
   <div class="govuk-grid-column-two-thirds">
     <form class="form" action="address-screen" method="post">
       <div class="govuk-form-group">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h1 class="govuk-fieldset__heading">
-            Check your address
-          </h1>
-        </legend>
-        <p>
-          <span class="govuk-!-margin-bottom-1 govuk-!-display-block">Postcode</span>
-          <strong>{{ data['address-postcode-current'] or 'LS1 3BE'}}</strong>
-          <a href="address-postcode-current" class="govuk-!-margin-left-5">
-            Change
-            <span class="govuk-visually-hidden">your postcode</span>
-          </a>
-        </p>
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Check your address
+            </h1>
+          </legend>
+          <p>Make sure there are no mistakes in your current home address before you continue.</p>
+          <p>
+            {% if data['address-city-current'] %}
+              {% if data['address-line1-current'] %}
+                {{ data['address-line1-current'] }}<br>
+              {% endif %}
+              {% if data['address-line2-current'] %}
+                {{ data['address-line2-current'] }}<br>
+              {% endif %}
+              {{ data['address-city-current'] }}<br>
+              {% if data['address-county-current'] %}
+                {{ data['address-county-current'] }}<br>
+              {% endif %}
+              {{ data['address-postcode-current'] or 'LS1 3BE' }}
 
-        <!-- Address Line 1-->
-        {{ govukInput({
-          label: {
-            text: "Address line 1"
-          },
-          classes: "govuk-input--width-20",
-          id: "address-line1-current",
-          value: data['address-line1-current'],
-          name: "address-line1-current"
-        }) }}
+              {% else %}
+                Office 14 <br>
+                New Station St <br>
+                Leeds <br>
+                LS1 5DL
+            {% endif %}
+          </p>
 
-        <!-- Address Line 2-->
-        {{ govukInput({
-          label: {
-            text: "Address line 2 (optional)"
-          },
-          classes: "govuk-input--width-20",
-          id: "address-line2-current",
-          value: data['address-line2-current'],
-          name: "address-line2-current"
-        }) }}
-
-        <!-- postTown-->
-        {{ govukInput({
-          label: {
-            text: "Town or city"
-          },
-          classes: "govuk-input--width-20",
-          id: "address-city-current",
-          value: data['address-city-current'],
-          name: "address-city-current"
-        }) }}
-
-        <!-- County-->
-        {{ govukInput({
-          label: {
-            text: "County (optional)"
-          },
-          classes: "govuk-input--width-20",
-          id: "address-county-current",
-          value: data['address-county-current'],
-          name: "address-county-current"
-        }) }}
-
-       
-
+          {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "correct-address",
+            name: "correct-address",
+            fieldset: {
+              legend: {
+                text: "Is your current home address correct?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No - there is a mistake"
+              }
+            ]
+          }) }}
       </div>
       <button class="govuk-button">Continue</button>
     </form>
