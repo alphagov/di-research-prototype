@@ -23,4 +23,7 @@ router.use('/', require('./views/baseline/routes/routes-driving-licence.js'))
 // pull in address routes
 router.use('/', require('./views/baseline/routes/routes-address.js'))
 
+// pull in nino routes
+router.use('/', require('./views/baseline/routes/routes-nino.js'))
+
 module.exports = router;

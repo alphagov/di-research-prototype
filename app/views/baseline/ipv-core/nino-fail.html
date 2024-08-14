@@ -1,0 +1,26 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Sorry, we cannot confirm your identity - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Sorry, we cannot confirm your identity</h1>
+    <p>We could not find a match for your National Insurance number when we checked your details with HMRC.</p>
+    <form class="form" action="../service/service-start" method="post">
+      <h2 class="govuk-heading-m">What you can do</h2>
+      <p>Continue to the service you were trying to use to find out if there are other ways to prove your identity.</p>
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue to service</button>
+    </form>
+    <p><a class="govuk-link" href="#" target="_blank">Contact the GOV.UK account team (opens in a new tab)</a></p>
+  </div>
+</div>
+
+{% endblock %}

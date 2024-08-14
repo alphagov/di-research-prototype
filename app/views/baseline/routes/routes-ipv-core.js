@@ -1,6 +1,8 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 const parentDir = '/baseline'
+const express = require('express');
+const app = express();
 
 // Add your routes here
 
@@ -33,6 +35,16 @@ router.post(`${parentDir}/ipv-core/app-drop-off`, function (request, response) {
 		response.redirect("../passport-cri/enter-passport-details")
 	} else {
 		response.redirect("f2f-screener")
+	}
+})
+
+// F2F ID screener
+router.post(`${parentDir}/ipv-core/f2f-screener`, function (request, response) {
+	var f2fID = request.session.data['f2f-screener']
+	if (f2fID == "yes") {
+		response.redirect("#")
+	} else {
+		response.redirect("../nino-cri/enter-ni-number")
 	}
 })
 
@@ -87,6 +99,31 @@ router.post(`${parentDir}/ipv-core/passport-fail`, function (request, response) 
 		response.redirect("../driving-licence-cri/photocard-authority")
 	} else {
 		response.redirect("../service/service-start")
+	}
+})
+
+// PIP payment pre-KBV question
+router.post(`${parentDir}/ipv-core/pip`, function (request, response) {
+	var pip = request.session.data['pip']
+	if (pip == "yes") {
+		response.redirect("page-pre-dwp-kbv-transition")
+	} else {
+		response.redirect("../nino-cri/enter-ni-number") // Temporary before f2f route
+	}
+})
+
+// Buffer page to go back to Nino or try another way
+router.post(`${parentDir}/ipv-core/nino-drop-off-buffer`, function (req, res) {
+	var ninoChoice = req.session.data['nino-drop-off-buffer']
+	var photoID = req.session.data['photo-id']
+	if (ninoChoice == "another way") {
+		if (photoID == "yes") {
+			res.redirect('../kbv-cri/experian-question1')
+		} else {
+			res.redirect('pyi-another-way')
+		}
+	} else {
+		res.redirect('../nino-cri/enter-ni-number')
 	}
 })
 

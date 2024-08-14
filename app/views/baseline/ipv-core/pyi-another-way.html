@@ -1,0 +1,26 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Prove your identity another way - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Prove your identity another way</h1>
+    <p>Based on what you told us, you cannot prove your identity online with GOV.UK One Login.</p>
+	<h2 class="govuk-heading-m">Prove your identity another way</h2>
+	<p>Continue to the service you were trying to use and look for other ways to prove your identity.</p>
+    <form class="form" action="../service/service-start" method="post">
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+    <p><a class="govuk-link" href="#">Contact the GOV.UK account team (opens in a new tab)</a></p>
+  </div>
+</div>
+
+{% endblock %}

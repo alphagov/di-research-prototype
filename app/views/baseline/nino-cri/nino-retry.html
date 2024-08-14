@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+We could not match your National Insurance number - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">We could not match your National Insurance number</h1>
+    <p>We could not find a match for your National Insurance number when we checked with HMRC.</p>
+    <p>You can check your National Insurance number and try again. You’ll only be able to do this once.</p>
+    <form class="form" action="nino-retry" method="post">
+      {{ govukRadios({
+        name: "nino-retry",
+        idPrefix: "nino-retry",
+        fieldset: {
+          legend: {
+          text: "What would you like to do?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m"}
+        },
+        items: [{
+          value: "back",
+          text: "Check your National Insurance number and try again"
+          },
+          {
+          value: "another way",
+          text: "Find another way to prove your identity",
+          hint: {
+            text: "Go back to the service you need to use or try photo ID."
+            }
+          }]
+      }) }}
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
