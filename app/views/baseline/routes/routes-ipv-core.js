@@ -42,7 +42,7 @@ router.post(`${parentDir}/ipv-core/app-drop-off`, function (request, response) {
 router.post(`${parentDir}/ipv-core/f2f-screener`, function (request, response) {
 	var f2fID = request.session.data['f2f-screener']
 	if (f2fID == "yes") {
-		response.redirect("#")
+		response.redirect("../f2f-cri/prove-identity-post-office")
 	} else {
 		response.redirect("../nino-cri/enter-ni-number")
 	}

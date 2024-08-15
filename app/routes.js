@@ -26,4 +26,7 @@ router.use('/', require('./views/baseline/routes/routes-address.js'))
 // pull in nino routes
 router.use('/', require('./views/baseline/routes/routes-nino.js'))
 
+// pull in kbv routes
+router.use('/', require('./views/baseline/routes/routes-kbv.js'))
+
 module.exports = router;
