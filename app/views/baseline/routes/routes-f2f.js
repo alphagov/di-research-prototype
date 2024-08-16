@@ -1,6 +1,7 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 const parentDir = '/baseline'
+const postcodeLookup = require("../../../api/postcode-lookup");
 
 // Add your routes here
 
@@ -81,12 +82,20 @@ router.post(`${parentDir}/f2f-cri/f2f-thin-file`, function (req, res) {
 
 // Email or post
 router.post(`${parentDir}/f2f-cri/customer-letter`, function (req, res) {
-	if (req.session.data['customer-letter'] === "Email only") {
+	if (req.session.data['customer-letter'] === "By email only") {
 		res.redirect('check-answers')
 	} else {
 		res.redirect('post-office-customer-letter-check-address')
 	}
 })
 
+// Letter address correct?
+router.post(`${parentDir}/f2f-cri/f2f-letter-address`, function (req, res) {
+	if (req.session.data['customer-letter-address'] == "yes") {
+		res.redirect('check-answers')
+	} else {
+		res.redirect('post-office-customer-letter-find-address')
+	}
+})
 
 module.exports = router;

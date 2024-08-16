@@ -1,0 +1,308 @@
+//email template
+
+.app-email,
+.app-email__body {
+  background-color: govuk-colour("light-grey");
+}
+
+.email-message {
+  margin-bottom: 30px;
+  border: 1px solid #b1b4b6
+}
+
+.email-message-meta {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25;
+  margin: 0
+}
+
+@media print {
+  .email-message-meta {
+    font-family: sans-serif
+  }
+}
+
+@media (min-width: 40.0625em) {
+  .email-message-meta {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1.3157894737
+  }
+}
+
+@media print {
+  .email-message-meta {
+    font-size: 14pt;
+    line-height: 1.15
+  }
+}
+
+.email-message-meta td,
+.email-message-meta th {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25;
+  border-top: 0;
+  border-bottom: 1px solid #b1b4b6;
+  vertical-align: top
+}
+
+@media print {
+
+  .email-message-meta td,
+  .email-message-meta th {
+    font-family: sans-serif
+  }
+}
+
+@media (min-width: 40.0625em) {
+
+  .email-message-meta td,
+  .email-message-meta th {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1.3157894737
+  }
+}
+
+@media print {
+
+  .email-message-meta td,
+  .email-message-meta th {
+    font-size: 14pt;
+    line-height: 1.15
+  }
+}
+
+.email-message-meta th {
+  color: #505a5f;
+  padding-left: 60px
+}
+
+.email-message-meta td {
+  width: 99%;
+  padding-right: 60px;
+  word-break: break-word
+}
+
+.email-message-meta td:last-child {
+  padding-right: 60px
+}
+
+.email-message-from {
+  padding-top: 15px
+}
+
+.email-message-body {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 60px 0 60px;
+  margin: 0;
+  clear: both;
+  position: relative;
+  word-wrap: break-word
+}
+
+.email-message-body table {
+  margin: 0 0 20px 0
+}
+
+.email-message-body table td {
+  border: 0;
+  padding: 0;
+  font-family: inherit !important
+}
+
+.email-message-body table li:first-child {
+  margin-top: 0 !important
+}
+
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table td,
+table th {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25;
+  padding: .6315789474em 1.0526315789em .4736842105em 0;
+  text-align: left;
+  border-bottom: 1px solid #b1b4b6
+}
+
+@media print {
+
+  table td,
+  table th {
+    font-family: sans-serif
+  }
+}
+
+@media (min-width: 40.0625em) {
+
+  table td,
+  table th {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1.3157894737
+  }
+}
+
+@media print {
+
+  table td,
+  table th {
+    font-size: 14pt;
+    line-height: 1.15
+  }
+}
+
+table thead th {
+  font-weight: 700
+}
+
+table td:last-child,
+table th:last-child {
+  padding-right: 0
+}
+
+table .numeric {
+  text-align: right
+}
+
+table td.numeric {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-feature-settings: "tnum" 1;
+  font-feature-settings: "tnum" 1;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25
+}
+
+@media print {
+  table td.numeric {
+    font-family: sans-serif
+  }
+}
+
+@supports (font-variant-numeric: tabular-nums) {
+  table td.numeric {
+    -webkit-font-feature-settings: normal;
+    font-feature-settings: normal;
+    font-variant-numeric: tabular-nums
+  }
+}
+
+@media (min-width: 40.0625em) {
+  table td.numeric {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1.3157894737
+  }
+}
+
+@media print {
+  table td.numeric {
+    font-size: 14pt;
+    line-height: 1.15
+  }
+}
+
+table caption {
+  text-align: left
+}
+
+.table-font-xsmall th {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  font-size: 14px;
+  font-size: .875rem;
+  line-height: 1.1428571429
+}
+
+@media print {
+  .table-font-xsmall th {
+    font-family: sans-serif
+  }
+}
+
+@media (min-width: 40.0625em) {
+  .table-font-xsmall th {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.25
+  }
+}
+
+@media print {
+  .table-font-xsmall th {
+    font-size: 14pt;
+    line-height: 1.2
+  }
+}
+
+.table-font-xsmall td {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 14px;
+  font-size: .875rem;
+  line-height: 1.1428571429
+}
+
+@media print {
+  .table-font-xsmall td {
+    font-family: sans-serif
+  }
+}
+
+@media (min-width: 40.0625em) {
+  .table-font-xsmall td {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.25
+  }
+}
+
+@media print {
+  .table-font-xsmall td {
+    font-size: 14pt;
+    line-height: 1.2
+  }
+}
+
+.table-font-xsmall td,
+.table-font-xsmall th {
+  padding: .75em 1.25em .5625em 0
+}
+
+.email-message-meta {
+  background-color: #ffffff;
+}
+
+.email-message {
+  background-color: #ffffff;
+}
