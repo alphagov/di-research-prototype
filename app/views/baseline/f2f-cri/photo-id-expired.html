@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Your photo ID has expired - GOV.UK One Login
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Your photo ID has expired</h1>
+      <p>You need valid photo ID to prove your identity.</p>
+      <form class="form" action="f2f-id-drop-off" method="post">
+        {{ govukRadios({
+          name: "f2f-id-drop-off",
+          idPrefix: "f2f-id-drop-off",
+          fieldset: {
+            legend: {
+            text: "What would you like to do?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"}
+          },
+          items: [{
+            value: "back",
+            text: "Check the expiry date and enter it again"
+            },
+            {
+            value: "different ID",
+            text: "Choose a different type of photo ID"
+            },
+            {
+            divider: "or"
+            },
+            {
+            value: "another way",
+            text: "Prove your identity another way"
+            }]
+        }) }}
+        <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+      </form>
+    </div> <!-- /. govuk-grid-column-two-thirds -->
+  </div> <!-- /. govuk-grid-row -->
+
+{% endblock %}

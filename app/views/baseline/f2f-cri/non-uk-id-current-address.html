@@ -1,0 +1,112 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Does your ID have your current address on it? - GOV.UK One Login
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+  }) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if (data['f2f-id'] == "European Union (EU) photocard driving licence") %}
+        <h1 class="govuk-heading-l">Does your driving licence have your current address on it?</h1>
+        <p>If your driving licence has your previous address on it, you'll need to choose another type of photo ID. </p>
+        <form class="form" action="id-current-address" method="post">
+
+          {{ govukRadios({
+            name: "id-current-address",
+            idPrefix: "id-current-address",
+            items: [{
+              value: "Yes, it has my current address on it",
+              text: "Yes, it has my current address on it"
+              },
+              {
+              value: "No, it has my previous address on it",
+              text: "No, it has my previous address on it"
+              },
+              {
+              divider: "or"
+              },
+              {
+              value: "another way",
+              text: "My driving licence does not have my address on it"
+              }]
+          }) }}
+
+          <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+        </form>
+      
+      {% elseif (data['f2f-id'] == "National identity card") %}
+        <h1 class="govuk-heading-l">Does your national identity card have your current address on it? </h1>
+        <p>If your national identity card has your previous address on it, you'll need to choose another type of photo ID. </p>
+        <form class="form" action="id-current-address" method="post">
+
+          {{ govukRadios({
+            name: "id-current-address",
+            idPrefix: "id-current-address",
+            items: [{
+              value: "yes",
+              text: "Yes, it has my current address on it"
+              },
+              {
+              value: "no",
+              text: "No, it has my previous address on it"
+              },
+              {
+              divider: "or"
+              },
+              {
+              value: "another way",
+              text: "My national identity card does not have my address on it"
+              }]
+          }) }}
+
+          <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+        </form>
+
+        {% elseif (data['f2f-id'] == "UK photocard driving licence") %}
+        <h1 class="govuk-heading-l">Does your driving licence have your current address on it? </h1>
+        <p>If your driving licence has your previous address on it, you'll need to choose another type of photo ID. </p>
+        <form class="form" action="id-current-address" method="post">
+
+          {{ govukRadios({
+            name: "id-current-address",
+            idPrefix: "id-current-address",
+            items: [{
+              value: "yes",
+              text: "Yes, it has my current address on it"
+              },
+              {
+              value: "no",
+              text: "No, it has my previous address on it"
+              }]
+          }) }}
+
+          <details class="govuk-details govuk-!-margin-bottom-4" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                How do I change the address on my driving licence?
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p>You must update your driving licence when you move. <a href="#">Tell DVLA you’ve changed address (opens in new tab)</a></p>
+            </div>
+          </details>
+          <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+        </form>
+
+      {% endif %}
+      
+    </div> <!-- /. govuk-grid-column-two-thirds -->
+  </div> <!-- /. govuk-grid-row -->
+
+{% endblock %}

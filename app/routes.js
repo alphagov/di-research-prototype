@@ -29,4 +29,7 @@ router.use('/', require('./views/baseline/routes/routes-nino.js'))
 // pull in kbv routes
 router.use('/', require('./views/baseline/routes/routes-kbv.js'))
 
+// pull in f2f routes
+router.use('/', require('./views/baseline/routes/routes-f2f.js'))
+
 module.exports = router;

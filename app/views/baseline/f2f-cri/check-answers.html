@@ -1,0 +1,105 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Check your answers - GOV.UK One Login
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../../_includes/phase-banner.html" %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-">
+      <form class="form" action="f2f-confirmation" method="post">
+        <h1 class="govuk-heading-l">Check your answers </h1>
+        {{ govukWarningText({
+          text: "Make sure your answers are correct before you continue.",
+          iconFallbackText: "Warning"
+        }) }}
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Chosen photo ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['f2f-id'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="choose-photo-id-post-office">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+          {% if data['expiry-day'] %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Expiry date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['expiry-day'] or '31' }} {{ data['expiry-month'] or '4' }} {{ data['expiry-year'] or '2025' }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="id-expire">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+              </dd>
+            </div>
+          {% endif %}
+          {% if data['id-current-address'] %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Does your {{ data['f2f-id'] }} have your current address on it?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['id-current-address'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="non-uk-id-current-address">Change<span class="govuk-visually-hidden"> customer reference</span></a>
+              </dd>
+            </div>
+          {% endif %}
+          {% if data['id-current-address'] or data['id-select-country'] %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Country
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['id-select-country'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="select-country">Change<span class="govuk-visually-hidden"> address</span></a>
+              </dd>
+            </div>
+          {% endif %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Post Office address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['post-office-branches'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="choose-post-office-prove-identity">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              How do you want to get your Post Office customer letter?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['customer-letter'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="post-office-customer-letter">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+        </dl>
+        <button class="govuk-button" type="submit" data-module="govuk-button">Confirm and submit</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
