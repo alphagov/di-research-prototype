@@ -127,4 +127,24 @@ router.post(`${parentDir}/ipv-core/nino-drop-off-buffer`, function (req, res) {
 	}
 })
 
+// COI update details
+router.post(`${parentDir}/ipv-core/continuity-of-identity/update-details`, function (request, response) {
+	var updateDetails = request.session.data['update-details']
+	if (updateDetails == "none") {
+		response.redirect("page-ipv-reuse")
+	} else {
+		response.redirect("#")
+	}
+})
+
+// COI confirm details
+router.post(`${parentDir}/ipv-core/continuity-of-identity/confirm-your-details`, function (request, response) {
+	var correctDetails = request.session.data['details-correct']
+	if (correctDetails == "Yes") {
+		response.redirect("../../fraud-cri/coi-fraud-check")
+	} else {
+		response.redirect("#")
+	}
+})
+
 module.exports = router;
