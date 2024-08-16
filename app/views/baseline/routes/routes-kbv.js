@@ -11,23 +11,27 @@ function loadJSONFromFile(fileName, path = 'app/data/') {
 	return JSON.parse(jsonFile) // Return JSON as object
 }
 
-router.get(`${parentDir}/kbv-cri/get-hmrc-question`, function (req, res) {
-	// if the journey hasn't got specific questions set
 
+// HMRC KBV routes
+
+// sets the tracker to 0 for 4 questions
+router.get(`${parentDir}/kbv-cri/hmrc-kbv-start`, function (req, res) {
+	req.session.data['progressTracker'] = 0;
+	res.render(`${parentDir}/kbv-cri/hmrc-kbv-start`)
+})
+
+// sets the questions
+router.get(`${parentDir}/kbv-cri/get-hmrc-question`, function (req, res) {
 	// create a default if the sequence isn’t set
 	if (req.session.data['sequence'] === undefined) {
 		req.session.data['sequence'] = 'payslip-ni,payslip-tax,taxcredit-1,taxcredit-2';
 	}
 
-	// Initialize journey length to 0
-	let journeyLength = 0;
-	console.log('journeyLength: ' + journeyLength);
-
 	// examine the sequence and start working through it
 	let progressTracker = req.session.data['progressTracker'];
 	let journeyTracker = req.session.data['sequence'].split(',');
-	let journeyLength2 = journeyTracker.length;
-	console.log('journeyLength: ' + journeyLength2);
+	let journeyLength = journeyTracker.length;
+	console.log('journeyLength: ' + journeyLength);
 
 	let currentQuestionType = journeyTracker[progressTracker];
 
@@ -88,7 +92,7 @@ router.get(`${parentDir}/kbv-cri/get-hmrc-question`, function (req, res) {
 
 	// send all the JSON data to the nunjucks template
 
-	return res.render('../kbv-cri/hmrc-question', {
+	return res.render(`${parentDir}/kbv-cri/hmrc-question`, {
 		'code': code,
 		'title': title,
 		'subtitle': subtitle,
