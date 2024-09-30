@@ -1,0 +1,130 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Archive" %}
+
+{% block content %}
+
+<body>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full-width">
+      <h1 class="govuk-heading-l">Archive</h1>
+      <div class="govuk-!-margin-bottom-6"></div>
+      <p>These are the archived summary cards for the previous initiatives that were tested with users.</p>
+      <!-- Hidden template card -->
+      <div class="govuk-summary-card govuk-visually-hidden">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Initiative name
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Phase
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <strong class="govuk-tag govuk-tag--orange">
+                  IN DESIGN
+                </strong>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Designers
+              </dt>
+              <dd class="govuk-summary-list__value">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Summary
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p>Summary information here</p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Related information
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <ul class="govuk-list govuk-list--bullet govuk-body govuk-!-margin-bottom-0">
+                  <li><a class="govuk-link" href="">Any related links<span class="govuk-visually-hidden"></span></a></li>
+                </ul>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               Last updated
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Month and year
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <!-- Login to app card -->
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Login to app
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Phase
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <strong class="govuk-tag govuk-tag--green">
+                  READY FOR BUILD
+                </strong>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Designers
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Leigh Christie, Sonya Vatomsky
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Summary
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p>This work was to streamline the way users go through the triage screens to promote use of the app as the preferred method as proving someone's identity. It relies on device sniffing which has eliminated a lot of screens from the previous triage version. It should be going live early 2025.</p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Related information
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <ul class="govuk-list govuk-list--bullet govuk-body govuk-!-margin-bottom-0">
+                  <li><a class="govuk-link" href="https://www.figma.com/design/nglBHtbzJYEeST43Iu1jW3/Identity-Pod---UCD-Hive?node-id=21825-69770&t=MwhyvxL7yoDDHGp0-4">Figma handover notes and designs<span class="govuk-visually-hidden"></span></a></li>
+                </ul>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               Last updated
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Sept 2024
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+{% endblock %}

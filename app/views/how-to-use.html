@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How to use and update this prototype
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<h1 class="govuk-heading-l">How to use and update this prototype</h1>
+		<p>The reason for creating this prototype was to enable a more simple process for creating user research prototypes, using a 'baseline' copy of a up-to-date identity journey.</p>
+		<h2 class="govuk-heading-m">Create a new version - step by step</h2>
+		<ol class="govuk-list govuk-list--number">
+			<li>Make a copy of the baseline folder within'app > views' by copy and pasting it into the views folder. By default it should be called 'baseline copy'.</li>
+			<li>Rename the folder something that is related to the initiative the user research is testing.
+				 <div class="govuk-inset-text">
+					For example, folder is renamed 'low confidence'
+				</div>
+			</li>
+			<li>Within the new folder you've created, navigate to the 'routes' folder. In each of the route files within the folder, you need to update the <i>parentDir</i> variable at the top of the code to reflect what you've updated the folder name to.
+				<div class="govuk-inset-text">
+					For example, each <i>parentDir</i> variable changes from '/baseline' to '/low confidence'
+				</div>
+			</li>
+			<li>
+				You will then need to update the routes.js file within the app folder to ensure these new routes are being pulled into the prototype. To do this, copy the baseline routes and paste them underneath the originals. Update the routes in the pasted section to reflect your folder name. Name the section after your folder name. 
+				<div class="govuk-inset-text">
+					<samp>router.use('/', require('./views/baseline/routes/routes-support.js'))<br><br></samp>
+					changes from '/baseline' to '/low confidence'
+				</div>
+			</li>
+			<li>
+				Finally, add a new section into the index.html file under the 'Initiative hypotheses and experiments' and fill it out with the details of the initiative. If you're copying and pasting the template, remember to remove the 'govuk-visually-hidden' class so you can see it.
+			</li>
+		</ol>
+		<p>For a more detailed step by step with tricks on how to do this quickly, watch the video.</p>
+		<iframe class="govuk-!-padding-bottom-6" width="560" height="315" src="https://www.youtube.com/embed/QEY8_HCdd3g?si=0Kkw11tG-ModhvqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+		<h2 class="govuk-heading-m">Updating the baseline version</h2>
+		<p>Once user research on a specific initiative has completed and the designs have been finalised, you should updated the baseline version with these new changes. You do not need to make a copy to do this, update directly into the baseline version for others to take a copy of when they next need to.</p>
+		<p>When you're finished with your initiative based version, move the card and information <a href="/archive">to the archive</a> where links to Figma/design histories can be accessed for documentation. You can then delete your initiative folder. If you are worried about deleting the folder for any reason, remember it can be accessed through GitHub history.</p>
+	</div>
+</div>
+
+{% endblock %}
