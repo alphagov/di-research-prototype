@@ -22,7 +22,7 @@ router.post(`${parentDir}/ipv-core/app-drop-off-buffer`, function (request, resp
 	if (photoID == "another way") {
 		response.redirect("app-drop-off")
 	} else {
-		response.redirect("../app-cri/app-download")
+		response.redirect("/app-download")
 	}
 })
 
@@ -62,9 +62,9 @@ router.post(`${parentDir}/ipv-core/triage/device-check`, function (request, resp
 router.post(`${parentDir}/ipv-core/triage/app-download`, function (request, response) {
 	var appDeviceCheck = request.session.data['app-download-check']
 	if (appDeviceCheck == "iphone") {
-		response.redirect("../../app-cri/app-download")
+		response.redirect("../app-download")
 	} else if (appDeviceCheck == "android") {
-		response.redirect("../../app-cri/app-download")
+		response.redirect("../app-download")
 	} else {
 		response.redirect("../app-drop-off-buffer")
 	}
@@ -74,9 +74,9 @@ router.post(`${parentDir}/ipv-core/triage/app-download`, function (request, resp
 router.post(`${parentDir}/ipv-core/triage/app-download-smartphone`, function (request, response) {
 	var appDeviceCheck = request.session.data['app-download-smartphone']
 	if (appDeviceCheck == "iphone") {
-		response.redirect("../../app-cri/app-download-smartphone")
+		response.redirect("../app-download-smartphone")
 	} else if (appDeviceCheck == "android") {
-		response.redirect("../../app-cri/app-download-smartphone")
+		response.redirect("../app-download-smartphone")
 	} else {
 		response.redirect("smartphone-access")
 	}
