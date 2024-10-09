@@ -142,8 +142,9 @@ Enter your details exactly as they appear on your UK passport - GOV.UK One Login
           ]
         }) }}
 
-        <button id="button" class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">Continue</button>
-        <button id="button2" class="govuk-button govuk-!-margin-top-4 govuk-visually-hidden" data-module="govuk-button">Continue</button>
+        <button id="button2" class="govuk-button govuk-visually-hidden" data-module="govuk-button">Continue</button>
+
+        <button class="govuk-button govuk-!-margin-top-4" id="button--save" data-module="govuk-button">Continue</button>
       </form>
       <div class="govuk-notification-banner govuk-notification-banner--journey-options govuk-!-margin-top-9" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
         <div class="govuk-notification-banner__header govuk-notification-banner__header--journey-options">
@@ -159,23 +160,24 @@ Enter your details exactly as they appear on your UK passport - GOV.UK One Login
   </div>
   <script type="text/javascript">
     submitSpinner()
-
+  
     function buttonClicked(target) {
       target.setAttribute('disabled', 'disabled')
+      target.className += ' button--save'
       setTimeout(function () {
-        // proceed
         document.getElementById('button2').click()
-      }, 1000)
+      }, 2000)
     }
-
+  
     function submitSpinner() {
-      var selects = document.getElementById('button')
+      var selects = document.getElementById('button--save')
       selects.addEventListener('click', function (event) {
         event.preventDefault()
         if (selects.getAttribute('disabled') === 'disabled') {
-          // console.log('already clicked')
+          console.log('already clicked')
         } else {
           event.preventDefault()
+          console.log(selects.getAttribute('disabled'))
           buttonClicked(selects)
         }
       })
