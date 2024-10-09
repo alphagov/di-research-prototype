@@ -22,7 +22,7 @@ router.post(`${parentDir}/ipv-core/app-drop-off-buffer`, function (request, resp
 	if (photoID == "another way") {
 		response.redirect("app-drop-off")
 	} else {
-		response.redirect("/app-download")
+		response.redirect("app-download")
 	}
 })
 
