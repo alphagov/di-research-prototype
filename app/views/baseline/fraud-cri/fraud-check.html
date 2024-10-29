@@ -29,37 +29,6 @@ We need to check your details - GOV.UK One Login - GOV.UK
       <button id="button2" class="govuk-button govuk-visually-hidden" data-module="govuk-button">Continue</button>
       <button class="govuk-button govuk-!-margin-top-4" id="button--save" data-module="govuk-button">Continue</button>
     </form>
-
-    {# DEVMODE SCENARIOS #}
-
-    {% if data['devMode'] %}
-
-    <details class="nhsuk-details dev-mode" role="group">
-      <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="true">
-        <span class="nhsuk-details__summary-text">
-          Continue with testing scenario
-        </span>
-      </summary>
-      <div class="nhsuk-details__text">
-        <h4>Happy paths</h4>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>
-            <a href="fraud-check?errorcode=">Matched to Experian records and no contra-indicators found</a>
-          </li>
-        </ul>
-        <h4>Errors</h4>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>
-            <a href="fraud-check?errorcode=pyi-no-match">No match with Experian records</a>
-          </li>
-          <li>
-            <a href="fraud-check?errorcode=pyi-no-match">Contra-indicator returned from Experian</a>
-          </li>
-        </ul>
-      </div>
-    </details>
-
-    {% endif %}
     
     <div class="govuk-notification-banner govuk-notification-banner--journey-options govuk-!-margin-top-9" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
       <div class="govuk-notification-banner__header govuk-notification-banner__header--journey-options">
