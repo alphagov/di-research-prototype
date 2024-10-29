@@ -11,9 +11,21 @@ function loadJSONFromFile(fileName, path = 'app/data/') {
 	return JSON.parse(jsonFile) // Return JSON as object
 }
 
+// Sets the KBV question routing based on customisation questions
+router.post(`${parentDir}/fraud-cri/kbv-question-selection`, function (req, res) {
+	var kbvQuestionSet = req.session.data['kbv']
+	if (kbvQuestionSet == "experian") {
+		res.redirect('../kbv-cri/experian-kbv-start')
+	} else if (kbvQuestionSet == "hmrc") {
+		res.redirect('../nino-cri/enter-ni-number')
+	} else if (kbvQuestionSet == "dwp") {
+		res.redirect('../ipv-core/personal-independence-payment')
+	} else {
+		res.redirect('../kbv-cri/experian-kbv-start')
+	}
+})
 
 // HMRC KBV routes
-
 // sets the tracker to 0 for 4 questions
 router.get(`${parentDir}/kbv-cri/hmrc-kbv-start`, function (req, res) {
 	req.session.data['progressTracker'] = 0;
