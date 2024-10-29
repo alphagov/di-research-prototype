@@ -34,6 +34,22 @@ router.get(`${parentDir}/kbv-cri/hmrc-kbv-start`, function (req, res) {
 
 // sets the questions
 router.get(`${parentDir}/kbv-cri/get-hmrc-question`, function (req, res) {
+	// implement a conditional for the self-assessment type (short or full)
+	if (req.session.data['assessment-type'] === undefined) {
+		console.log('self-assessment not reached');
+	} else {
+		if (req.session.data['assessment-type'] === "short-assessment") {
+			console.log('remove long assessment');
+			req.session.data['hmrcSet'] = req.session.data['hmrcSet'].replace("selfassessment-2,", "");
+			console.log(req.session.data['hmrcSet']);
+		}
+		else {
+			console.log('removing short assessment');
+			req.session.data['hmrcSet'] = req.session.data['hmrcSet'].replace("selfassessment-3,", "");
+			console.log(req.session.data['hmrcSet']);
+		}
+	}
+
 	// create a default if the sequence isn’t set
 	if (req.session.data['hmrcSet'] === undefined) {
 		req.session.data['hmrcSet'] = 'payslip-ni,payslip-tax,taxcredit-1,taxcredit-2';
