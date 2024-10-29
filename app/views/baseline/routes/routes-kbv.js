@@ -23,13 +23,13 @@ router.get(`${parentDir}/kbv-cri/hmrc-kbv-start`, function (req, res) {
 // sets the questions
 router.get(`${parentDir}/kbv-cri/get-hmrc-question`, function (req, res) {
 	// create a default if the sequence isn’t set
-	if (req.session.data['sequence'] === undefined) {
-		req.session.data['sequence'] = 'payslip-ni,payslip-tax,taxcredit-1,taxcredit-2';
+	if (req.session.data['hmrcSet'] === undefined) {
+		req.session.data['hmrcSet'] = 'payslip-ni,payslip-tax,taxcredit-1,taxcredit-2';
 	}
 
 	// examine the sequence and start working through it
 	let progressTracker = req.session.data['progressTracker'];
-	let journeyTracker = req.session.data['sequence'].split(',');
+	let journeyTracker = req.session.data['hmrcSet'].split(',');
 	let journeyLength = journeyTracker.length;
 	console.log('journeyLength: ' + journeyLength);
 
