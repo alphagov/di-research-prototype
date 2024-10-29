@@ -13,6 +13,13 @@ Who was your UK driving licence issued by? - GOV.UK One Login - GOV.UK
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form class="form" action="dl-choice" method="post">
+      {% if (data['confidence'] == "low") %}
+      <h1 class="govuk-heading-l">YOUR CONFIDENCE IS LOW</h1>
+
+      {% else %}
+      <h1 class="govuk-heading-l">YOUR CONFIDENCE IS MEDIUM</h1>
+      
+      {% endif %}
 
       {{ govukRadios({
         name: "which-dl",

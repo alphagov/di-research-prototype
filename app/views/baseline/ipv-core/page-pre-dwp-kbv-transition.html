@@ -12,7 +12,7 @@ Answer security questions - GOV.UK One Login - GOV.UK
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="../kbv-cri/dwp-question1" method="post">
+    <form action="../kbv-cri/dwp-spinner" method="post">
       <h1 class="govuk-heading-l">Answer security questions</h1>
       <p>We use security questions as the last step in checking your identity. </p>
       <p>The questions are about information that’s personal to you. This stops other people from pretending to be you.</p>
@@ -37,8 +37,7 @@ Answer security questions - GOV.UK One Login - GOV.UK
           <p>If you'd like to know more about how your details will be used to prove your identity, <a href="https://signin.account.gov.uk/privacy-notice" class="govuk-link" rel="noreferrer noopener" target="_blank">read our privacy notice (opens in new tab)</a></p>
         </div>
       </details>
-      <button id="button2" class="govuk-button govuk-visually-hidden" data-module="govuk-button">Start</button>
-      <button class="govuk-button govuk-!-margin-top-4" id="button--save" data-module="govuk-button">Start</button>
+      <button id="button" class="govuk-button" data-module="govuk-button">Start</button>
     </form>
     <p><a href="kbv-drop-off">I need to prove my identity another way</a></p>
     <div class="govuk-notification-banner govuk-notification-banner--journey-options govuk-!-margin-top-9" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
@@ -54,31 +53,5 @@ Answer security questions - GOV.UK One Login - GOV.UK
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-  submitSpinner()
-
-  function buttonClicked(target) {
-    target.setAttribute('disabled', 'disabled')
-    target.className += ' button--save'
-    setTimeout(function () {
-      document.getElementById('button2').click()
-    }, 2000)
-  }
-
-  function submitSpinner() {
-    var selects = document.getElementById('button--save')
-    selects.addEventListener('click', function (event) {
-      event.preventDefault()
-      if (selects.getAttribute('disabled') === 'disabled') {
-        console.log('already clicked')
-      } else {
-        event.preventDefault()
-        console.log(selects.getAttribute('disabled'))
-        buttonClicked(selects)
-      }
-    })
-  }
-</script>
 
 {% endblock %}

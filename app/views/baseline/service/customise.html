@@ -1,0 +1,106 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Customise a user journey - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+		<h1 class="govuk-heading-l">Customise the user journey</h1>
+		<p>Select options to customise the user journey. You can change the confidence level and KBV questions the user will see.</p>
+        <form id="generate-url" action="../service/generate-url" method="POST">
+			{{ govukRadios({
+			name: "whichConfidence",
+			fieldset: {
+				legend: {
+				text: "Which confidence level?",
+				isPageHeading: true,
+				classes: "govuk-fieldset__legend--m"
+				}
+			},
+			items: [
+				{
+				value: "medium",
+				text: "Medium"
+				},
+				{
+				value: "low",
+				text: "Low"
+				}
+			]
+			}) }}
+
+			{% set hmrcSet %}
+			{{ govukCheckboxes({
+			name: "hmrcSets",
+			fieldset: {
+				legend: {
+				text: "Which HMRC KBV questions should the user see?",
+				isPageHeading: true,
+				classes: "govuk-fieldset__legend--s"
+				}
+			},
+			hint: {
+				text: "Select two"
+			},
+			items: [
+			{
+			value: "payslip-ni,payslip-tax",
+			text: "Payslips"
+			},
+			{
+			value: "taxcredit-1,taxcredit-2",
+			text: "Tax Credits"
+			},
+			{
+			value: "selfassessment-1,selfassessment-2,selfassessment-3,selfassessment-4",
+			text: "Self assessment"
+			} ,
+			{
+			value: "p60-part1,p60-part2",
+			text: "P60 form"
+			}
+			]
+			}) }}
+			{% endset -%}
+			{{ govukRadios({
+			name: "whichKBV",
+			fieldset: {
+				legend: {
+				text: "Which KBV question set?",
+				isPageHeading: true,
+				classes: "govuk-fieldset__legend--m"
+				}
+			},
+			items: [
+				{
+				value: "experian",
+				text: "Experian"
+				},
+				{
+				value: "hmrc",
+				text: "HMRC",
+				conditional: {
+					html: hmrcSet
+				}
+				},
+				{
+				value: "dwp",
+				text: "DWP"
+				}
+			]
+			}) }}
+            <h3 class="govuk-heading-s">
+                Your generated URLs
+            </h3>
+			{% if userURI %}
+				<p><span>{{ buildUserReadout }}</span> <a href="{{ userURI }}" target="_blank">{{ userURI }}</a></p>
+			{% endif %}
+            <button id="button" class="govuk-button" data-module="govuk-button">Generate a web address</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
