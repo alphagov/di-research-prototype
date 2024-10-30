@@ -108,7 +108,7 @@ router.post(`${parentDir}/ipv-core/pip`, function (request, response) {
 	if (pip == "yes") {
 		response.redirect("page-pre-dwp-kbv-transition")
 	} else {
-		response.redirect("../nino-cri/enter-ni-number") // Temporary before f2f route
+		response.redirect("../kbv-cri/experian-kbv-start")
 	}
 })
 
@@ -118,32 +118,12 @@ router.post(`${parentDir}/ipv-core/nino-drop-off-buffer`, function (req, res) {
 	var photoID = req.session.data['photo-id']
 	if (ninoChoice == "another way") {
 		if (photoID == "yes") {
-			res.redirect('../kbv-cri/experian-question1')
+			res.redirect('../kbv-cri/experian-kbv-start')
 		} else {
 			res.redirect('pyi-another-way')
 		}
 	} else {
 		res.redirect('../nino-cri/enter-ni-number')
-	}
-})
-
-// COI update details
-router.post(`${parentDir}/ipv-core/continuity-of-identity/update-details`, function (request, response) {
-	var updateDetails = request.session.data['update-details']
-	if (updateDetails == "none") {
-		response.redirect("page-ipv-reuse")
-	} else {
-		response.redirect("#")
-	}
-})
-
-// COI confirm details
-router.post(`${parentDir}/ipv-core/continuity-of-identity/confirm-your-details`, function (request, response) {
-	var correctDetails = request.session.data['details-correct']
-	if (correctDetails == "Yes") {
-		response.redirect("../../fraud-cri/coi-fraud-check")
-	} else {
-		response.redirect("#")
 	}
 })
 

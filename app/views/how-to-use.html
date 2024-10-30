@@ -9,29 +9,30 @@ How to use and update this prototype
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 		<h1 class="govuk-heading-l">How to use and update this prototype</h1>
-		<p>The reason for creating this prototype was to enable a more simple process for creating user research prototypes, using a 'baseline' copy of a up-to-date identity journey.</p>
+		<p>The reason for creating this prototype was to enable a more simple process for creating user research prototypes, using a <code>baseline</code> copy of an up-to-date identity journey.</p>
 		<h2 class="govuk-heading-m">Create a new version - step by step</h2>
 		<ol class="govuk-list govuk-list--number">
-			<li>Make a copy of the baseline folder within'app > views' by copy and pasting it into the views folder. By default it should be called 'baseline copy'.</li>
+			<li>Make a copy of the baseline folder within<code>app > views</code> by copy and pasting it into the views folder. By default it should be called <code>baseline copy</code>.</li>
 			<li>Rename the folder something that is related to the initiative the user research is testing.
 				 <div class="govuk-inset-text">
-					For example, folder is renamed 'low confidence'
+					For example, folder is renamed <code>low-confidence</code>
 				</div>
 			</li>
-			<li>Within the new folder you've created, navigate to the 'routes' folder. In each of the route files within the folder, you need to update the <i>parentDir</i> variable at the top of the code to reflect what you've updated the folder name to.
+			<li>Within the new folder you've created, navigate to the <code>routes</code> folder. In each of the route files within the folder, you need to update the <code>parentDir</code> variable at the top of the code to reflect what you've updated the folder name to.
 				<div class="govuk-inset-text">
-					For example, each <i>parentDir</i> variable changes from '/baseline' to '/low confidence'
+					For example, each <code>parentDir</code> variable changes from <code>/baseline</code> to <code>/low-confidence</code>
 				</div>
 			</li>
 			<li>
 				You will then need to update the routes.js file within the app folder to ensure these new routes are being pulled into the prototype. To do this, copy the baseline routes and paste them underneath the originals. Update the routes in the pasted section to reflect your folder name. Name the section after your folder name. 
 				<div class="govuk-inset-text">
-					<samp>router.use('/', require('./views/baseline/routes/routes-support.js'))<br><br></samp>
-					changes from '/baseline' to '/low confidence'
+					<code>router.use('/', require('./views/baseline/routes/routes-support.js'))</code>
+					<samp><br><br></samp>
+					changes from <code>/baseline</code> to <code>/low-confidence</code>
 				</div>
 			</li>
 			<li>
-				Finally, add a new section into the index.html file under the 'Initiative hypotheses and experiments' and fill it out with the details of the initiative. If you're copying and pasting the template, remember to remove the 'govuk-visually-hidden' class so you can see it.
+				Finally, add a new section into the index.html file under the 'Initiative hypotheses and experiments' and fill it out with the details of the initiative. If you're copying and pasting the template, remember to remove the <code>govuk-visually-hidden</code>class so you can see it.
 			</li>
 		</ol>
 		<p>For a more detailed step by step with tricks on how to do this quickly, watch the video.</p>
@@ -40,6 +41,28 @@ How to use and update this prototype
 		<h2 class="govuk-heading-m">Updating the baseline version</h2>
 		<p>Once user research on a specific initiative has completed and the designs have been finalised, you should updated the baseline version with these new changes. You do not need to make a copy to do this, update directly into the baseline version for others to take a copy of when they next need to.</p>
 		<p>When you're finished with your initiative based version, move the card and information <a href="/archive">to the archive</a> where links to Figma/design histories can be accessed for documentation. You can then delete your initiative folder. If you are worried about deleting the folder for any reason, remember it can be accessed through GitHub history.</p>
+
+		<h2 class="govuk-heading-m">Showing content based on prototype customisations</h2>
+		<p>The baseline version of the prototype assumes a medium level of confidence is required to prove the identity of the user and that Experian KBVs will be asked. To change that, you can <a href="baseline/service/customise">create a custom url</a> which changes these data values in the prototype.</p>
+		<h3 class="govuk-heading-s">Confidence level</h3>
+		<p>To add in a different version of what the page should display based on the confidence level, you can use <code>if/else</code> statements in the nunjucks templates.</p>
+		<div class="govuk-inset-text">
+			<code>
+				{% raw %}
+				{% if (data['confidence'] == "low") %}<br>
+				&lt;p&gt;YOUR CONFIDENCE IS LOW&lt;/p&gt;<br>
+				{% else %}<br>
+				&lt;p&gt;YOUR CONFIDENCE IS MEDIUM&lt;/p&gt;<br>
+				{% endif %}
+				{% endraw %}
+			</code>
+		</div>
+		<p>If the data passed to the variable is low, the template will display the code between the first <code>if</code> and the <code>else</code>. Otherwise, the template will display the code between <code>else</code> and <code>endif</code>.</p>
+		<h3 class="govuk-heading-s">KBV question selection</h3>
+		<p>The question selection for KBVs is different because that is handled in the <code>routes-kbv.js</code> file. When a KBV question type is selected, it's passed into the URL generated in the customisation page, then the router will direct the user to the right KBV question set based on this data. KBVs have their own separate files and don't use the <code>if/else</code> statements, otherwise the pages would become too complicated.</p>
+		<h2 class="govuk-heading-m">Adding more options to the customisation page</h2>
+		<p>The front end of this page is in <code>baseline > service > customise.html</code>. The backend routing is handled in the <code>routes-service.js</code> file.</p>
+		<p>The options for this are endless but could become quite large. For example, we could add options to set fail conditions without directing the user to select a link within the page to create a more realistic journey but that would take a lot of set up.</p>
 	</div>
 </div>
 
