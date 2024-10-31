@@ -4,20 +4,21 @@ const parentDir = '/baseline'
 
 // Add your routes here
 router.post(`${parentDir}/service/generate-url`, (req, res) => {
-	const { whichConfidence, whichKBV, hmrcSets } = req.body; // Get the form data sent with POST
+	const { whichConfidence, whichKBV, hmrcSets, passFailKBV } = req.body; // Get the form data sent with POST
 
 	// Construct query strings and filter out '_unchecked' values
 	const buildConfidenceString = Array.isArray(whichConfidence) ? whichConfidence.join(',') : whichConfidence || '';
 	const buildKBVString = Array.isArray(whichKBV) ? whichKBV.join(',') : whichKBV || '';
 	const filteredHMRC = Array.isArray(hmrcSets) ? hmrcSets.filter(item => item !== '_unchecked') : [];
 	const buildHMRCString = filteredHMRC.join(',');
+	const buildPassFailString = Array.isArray(passFailKBV) ? passFailKBV.join(',') : passFailKBV || '';
 
 	// Build the user-readable output
-	const buildUserReadout = `${buildConfidenceString} ➔ ${buildKBVString}` + (buildHMRCString ? ` ➔ ${buildHMRCString}` : '');
+	const buildUserReadout = `${buildConfidenceString} ➔ ${buildKBVString} ➔ ${buildPassFailString}` + (buildHMRCString ? ` ➔ ${buildHMRCString}` : '');
 
 	// Construct the URI conditionally
 	const startURI = req.protocol + '://' + req.get('host');
-	let userURI = `${startURI}${parentDir}/customise-example?confidence=${buildConfidenceString}&kbv=${buildKBVString}`;
+	let userURI = `${startURI}${parentDir}/customise-example?confidence=${buildConfidenceString}&kbv=${buildKBVString}&passFail=${buildPassFailString}`;
 	if (buildHMRCString) {
 		userURI += `&hmrcSet=${buildHMRCString}`;
 	}

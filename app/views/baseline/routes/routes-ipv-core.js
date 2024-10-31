@@ -102,6 +102,30 @@ router.post(`${parentDir}/ipv-core/passport-fail`, function (request, response) 
 	}
 })
 
+// KBV fail
+router.post(`${parentDir}/ipv-core/kbv-fail`, function (req, res) {
+	var kbvFail = req.session.data['kbv-fail']
+	if (kbvFail == "return") {
+		res.redirect('../service/service-start')
+	} else if (kbvFail == "app") {
+		res.redirect('app-download')
+	} else {
+		res.redirect('../f2f-cri/prove-identity-post-office')
+	}
+})
+
+// KBV drop off
+router.post(`${parentDir}/ipv-core/kbv-drop-off`, function (req, res) {
+	var kbvDropOff = req.session.data['kbv-drop-off']
+	if (kbvDropOff == "return") {
+		res.redirect('../service/service-start')
+	} else if (kbvDropOff == "app") {
+		res.redirect('app-download')
+	} else {
+		res.redirect('../f2f-cri/prove-identity-post-office')
+	}
+})
+
 // PIP payment pre-KBV question
 router.post(`${parentDir}/ipv-core/pip`, function (request, response) {
 	var pip = request.session.data['pip']

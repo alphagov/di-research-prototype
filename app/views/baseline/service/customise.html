@@ -93,6 +93,26 @@ Customise a user journey - GOV.UK One Login - GOV.UK
 				}
 			]
 			}) }}
+			{{ govukRadios({
+			name: "passFailKBV",
+			fieldset: {
+				legend: {
+				text: "Pass or fail KBVs?",
+				isPageHeading: true,
+				classes: "govuk-fieldset__legend--m"
+				}
+			},
+			items: [
+				{
+				value: "pass",
+				text: "Pass"
+				},
+				{
+				value: "fail",
+				text: "Fail"
+				}
+			]
+			}) }}
             <h3 class="govuk-heading-s">
                 Your generated URL
             </h3>
