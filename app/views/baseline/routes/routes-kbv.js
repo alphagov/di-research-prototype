@@ -228,9 +228,9 @@ router.get(`${parentDir}/kbv-cri/experian-kbv-question`, function (req, res) {
 
 // Experian question picker - runs after spinner - creates a list of questions and stores them
 router.post(`${parentDir}/kbv-cri/experian-question-picker`, function (req, res) {
-	let prototype = {}
+	let prototype = {};
 
-	// Pull in JSON data file
+	// Load JSON data file
 	let idvFile = 'kbvs-experian-mvp.json';
 	let path = 'app/data/';
 	req.session.data['kbvs'] = loadJSONFromFile(idvFile, path);
@@ -241,21 +241,20 @@ router.post(`${parentDir}/kbv-cri/experian-question-picker`, function (req, res)
 
 	let kbvGroup = [];
 
-	// Check if specific questions are identified via the 'pyikbv' query parameter
-	if (req.session.data['pyikbv']) {
-		let override = req.session.data['pyikbv'];
-		// Convert the string into an array
-		kbvGroup = override.split(',');
-		console.log('Forced KBVs:', kbvGroup);
+	// Check if specific questions are identified
+	let experianKBV = req.session.data['experianKBV'];
+	if (experianKBV === 'specific') {
+		// If specific, set kbvGroup to predefined questions from kbvGroupings
+		var kbvGroupings = ['Q00050', 'Q00090', 'Q00038'];
+		kbvGroup = kbvGroupings;
 	} else {
-		// No specific questions provided, pick 3 random questions from the JSON data
+		// Otherwise, randomly select 3 questions from the JSON data
 		let questions = req.session.data.kbvs.questions;
 		kbvGroup = questions
-			.sort(() => 0.5 - Math.random()) // Shuffle questions
-			.slice(0, 3)                      // Select the first 3 shuffled questions
-			.map(question => question.code);     // Extract the question codes for kbvGroup
+			.sort(() => 0.5 - Math.random())  // Shuffle questions
+			.slice(0, 3)                       // Select first 3 shuffled questions
+			.map(question => question.code);   // Extract the question codes for kbvGroup
 	}
-	console.log('Selected KBV Group:', kbvGroup);
 
 	// Create a tracker object to track progress on the chosen questions
 	const kbvTracker = {};

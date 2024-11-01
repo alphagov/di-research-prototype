@@ -34,7 +34,7 @@ Customise a user journey - GOV.UK One Login - GOV.UK
 
 			{% set hmrcSet %}
 			{{ govukCheckboxes({
-			name: "hmrcSets",
+			name: "hmrcSet",
 			fieldset: {
 				legend: {
 				text: "Which HMRC KBV questions should the user see?",
@@ -65,6 +65,31 @@ Customise a user journey - GOV.UK One Login - GOV.UK
 			]
 			}) }}
 			{% endset -%}
+
+			{% set experianKBV %}
+			{{ govukCheckboxes({
+			name: "experianKBV",
+			fieldset: {
+				legend: {
+				text: "Do you want the user to see specific Experian KBVs?",
+				isPageHeading: true,
+				classes: "govuk-fieldset__legend--s"
+				}
+			},
+			hint: {
+				text: "If you don't select yes, the user will see a random selection of questions from the json file"
+			},
+			items: [
+			{
+			value: "specific",
+			text: "Yes",
+			hint: {
+				text: "You can change these in the routes-kbv.js folder"
+			}
+			}
+			]
+			}) }}
+			{% endset -%}
 			
 			{{ govukRadios({
 			name: "whichKBV",
@@ -78,7 +103,10 @@ Customise a user journey - GOV.UK One Login - GOV.UK
 			items: [
 				{
 				value: "experian",
-				text: "Experian"
+				text: "Experian",
+				conditional: {
+					html: experianKBV
+				}
 				},
 				{
 				value: "hmrc",
