@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Prove your identity another way - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Prove your identity with your National Insurance number and security questions</h1>
+    <p>As well as your National Insurance number, we also need your:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>name</li>
+      <li>date of birth</li>
+      <li>current address (you might also need your previous address if you’ve recently moved)</li>
+    </ul>
+    <p>We’ll then ask you some security questions. We use these to stop anyone who might have your details from pretending to be you.</p>
+    <form class="form" action="f2f-thin-file" method="post">
+      {{ govukRadios({
+      name: "niNumber",
+      idPrefix: "niNumber",
+      fieldset: {
+        legend: {
+          text: "Do you have a National Insurance number?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ]
+      }) }}
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

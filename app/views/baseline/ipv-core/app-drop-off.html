@@ -13,16 +13,51 @@ Continue proving your identity online - GOV.UK One Login - GOV.UK
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">Continue proving your identity online</h1>
-    <p>You can continue proving your identity online if you: </p>
+    <p>You can continue proving your identity online by entering details from any of the following:</p>
     <p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>have a UK driving licence (full or provisional) or a UK passport</li>
-        <li>can answer some security questions</li>
+        <li>UK photocard driving licence (full or provisional)</li>
+        <li>UK passport</li>
+        {% if (data['confidence'] == "low") %}
+          <li>National Insurance number</li>
+        {% endif %}
       </ul>
     </p>
-    <p>We use security questions to stop anyone who might have your details from pretending to be you.</p>
+    <p>You’ll also need to answer some security questions. We use these to stop anyone who might have your details from pretending to be you.</p>
     <p>It takes about 10 minutes to prove your identity this way.</p>
     <form class="form" action="app-drop-off" method="post">
+      {% if (data['confidence'] == "low") %}
+      {{ govukRadios({
+        name: "app-drop-off",
+        idPrefix: "app-drop-off",
+        fieldset: {
+          legend: {
+          text: "How would you like to prove your identity?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"}
+        },
+        items: [{
+          value: "driving-licence",
+          text: "Enter your UK driving licence details"
+          },
+          {
+          value: "passport",
+          text: "Enter your UK passport details"
+          },
+          {
+          value: "nino",
+          text: "Enter your National Insurance number"
+          },
+          {
+          divider: "or"
+          },
+          {
+          value: "no",
+          text: "Prove your identity another way"
+        }]
+      }) }}
+
+      {% else %}
       {{ govukRadios({
         name: "app-drop-off",
         idPrefix: "app-drop-off",
@@ -37,23 +72,21 @@ Continue proving your identity online - GOV.UK One Login - GOV.UK
         },
         items: [{
           value: "driving-licence",
-          text: "UK photocard driving licence"
+          text: "Enter your UK driving licence details"
           },
           {
           value: "passport",
-          text: "UK passport"
+          text: "Enter your UK passport details"
           },
           {
           divider: "or"
           },
           {
           value: "no",
-          text: "I do not have either of these types of photo ID",
-          hint: {
-            text: "There may be other ways to prove your identity if you have another type of photo ID."
-            }
-          }]
+          text: "Prove your identity another way"
+        }]
       }) }}
+      {% endif %}
       <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
     </form>
   </div>

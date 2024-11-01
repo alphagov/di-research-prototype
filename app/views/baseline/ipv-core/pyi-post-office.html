@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Prove your identity at a Post Office - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Prove your identity at a Post Office</h1>
+        <p class="govuk-body">You may be able to prove your identity at a Post Office instead.</p>
+        <p>You'll be asked to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>enter details from your photo ID on GOV.UK</li>
+            <li>go to a Post Office where they’ll scan your ID and take a photo of you</li>
+        </ul>
+        <p>This will take longer than proving your identity online. You’ll usually get a result within a day of going to the Post Office.</p>
+        <h2 class="govuk-heading-m">Types of photo ID you can use at a Post Office</h2>
+        <p>You’ll need one of the following:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>a UK photocard driving licence (full or provisional)</li>
+            <li>a UK passport</li>
+            <li>a non-UK passport</li>
+            <li>a UK biometric residence permit (BRP)</li>
+            <li>a European Union (EU) photocard driving licence</li>
+            <li>a national identity card from a European Economic Area (EEA) country</li>
+        </ul>
+        <div class="govuk-inset-text">
+          You cannot prove your identity at a Post Office with a Frontier Worker permit (FWP) or a UK biometric residence card (BRC), also called a UK residence card.
+        </div>
+        <form class="form" action="pyiPO" method="post">
+            {% from "govuk/components/radios/macro.njk" import govukRadios %}
+            {{ govukRadios({
+            name: "pyiPO",
+            idPrefix: "pyiPO",
+            fieldset: {
+            legend: {
+            text: "Do you have photo ID you can use at a Post Office?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+            }
+            },
+            items: [
+            {
+            value: "yes",
+            text: "Yes"
+            },
+            {
+            value: "no",
+            text: "No"
+            }
+            ]
+            }) }}
+            <button id="button2" class="govuk-button" data-module="govuk-button">Continue</button>
+        </form>
+        <p><a class="govuk-link" href="#" target="_blank">Contact the GOV.UK One Login team (opens in a new tab)</a></p>
+    </div>
+</div>
+
+{% endblock %}

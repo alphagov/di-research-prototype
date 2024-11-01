@@ -14,7 +14,8 @@ Prove your identity at a Post Office with one of the following types of photo ID
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-l">Prove your identity at a Post Office with one of the following types of photo ID</h1>
-        <p class="govuk-body">Based on what you told us, you cannot prove your identity online.</br> If you have any of the following types of photo ID, you can prove your identity at a Post Office instead.</p>
+        <p class="govuk-body">Based on what you told us, you cannot prove your identity online.</p>
+        <p>If you have any of the following types of photo ID, you can prove your identity at a Post Office instead.</p>
 
         <h2 class="govuk-heading-m">European Union (EU) photocard driving licence</h2>
 
@@ -36,28 +37,56 @@ Prove your identity at a Post Office with one of the following types of photo ID
         <p>The EEA includes EU countries, Norway, Iceland and Liechtenstein.</p>
   
         <form class="form" action="f2f-screener" method="post">
-            {% from "govuk/components/radios/macro.njk" import govukRadios %}
-            {{ govukRadios({
-            name: "f2f-screener",
-            idPrefix: "f2f-screener",
-            fieldset: {
-            legend: {
-            text: "Do you have any of these types of photo ID?",
-            isPageHeading: false,
-            classes: "govuk-fieldset__legend--m"
-            }
-            },
-            items: [
-            {
-            value: "yes",
-            text: "Yes"
-            },
-            {
-            value: "no",
-            text: "No - prove my identity another way"
-            }
-            ]
-            }) }}
+             {% if (data['confidence'] == "low") %}
+                {% from "govuk/components/radios/macro.njk" import govukRadios %}
+                {{ govukRadios({
+                name: "f2f-screener",
+                idPrefix: "f2f-screener",
+                fieldset: {
+                legend: {
+                text: "Do you have any of these types of photo ID?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+                }
+                },
+                items: [
+                {
+                value: "yes",
+                text: "Yes"
+                },
+                {
+                value: "no",
+                text: "No - prove my identity another way"
+                }
+                ]
+                }) }}
+
+            {% else %}
+                
+                {% from "govuk/components/radios/macro.njk" import govukRadios %}
+                {{ govukRadios({
+                name: "f2f-screener",
+                idPrefix: "f2f-screener",
+                fieldset: {
+                legend: {
+                text: "Do you have any of these types of photo ID?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+                }
+                },
+                items: [
+                {
+                value: "yes",
+                text: "Yes"
+                },
+                {
+                value: "no",
+                text: "No"
+                }
+                ]
+                }) }}
+                
+                {% endif %}
 
             <button id="button2" class="govuk-button" data-module="govuk-button">Continue</button>
 

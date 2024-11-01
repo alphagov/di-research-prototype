@@ -6,11 +6,16 @@ const app = express();
 
 // Add your routes here
 
-// Online photo ID screener
+// Online photo ID screener, checks for confidence level before redirecting
 router.post(`${parentDir}/ipv-core/triage/online-photoid`, function (request, response) {
 	var photoID = request.session.data['photo-id']
-	if (photoID == "Yes") {
+	var confidence = request.session.data['confidence']
+	if (photoID === "Yes") {
 		response.redirect("computer-tablet")
+	} else if (photoID === "No" && confidence === "medium") {
+		response.redirect("../app-drop-off")
+	} else if (photoID === "No" && confidence === "low") {
+		response.redirect("../prove-identity-no-photo-id")
 	} else {
 		response.redirect("../app-drop-off")
 	}
@@ -33,18 +38,33 @@ router.post(`${parentDir}/ipv-core/app-drop-off`, function (request, response) {
 		response.redirect("../driving-licence-cri/photocard-authority")
 	} else if (photoID == "passport") {
 		response.redirect("../passport-cri/enter-passport-details")
+	} else if (photoID == "nino") {
+		response.redirect("../passport-cri/enter-passport-details")
 	} else {
-		response.redirect("f2f-screener")
+		response.redirect("pyi-post-office")
 	}
 })
 
 // F2F ID screener
 router.post(`${parentDir}/ipv-core/f2f-screener`, function (request, response) {
 	var f2fID = request.session.data['f2f-screener']
+	var confidence = request.session.data['confidence']
 	if (f2fID == "yes") {
 		response.redirect("../f2f-cri/prove-identity-post-office")
+	} else if (f2fID == "no" && confidence == "low") {
+		response.redirect("pyi-escape")
+	} else if (f2fID == "no" && confidence == "medium") {
+		response.redirect("pyi-another-way")
+	}
+})
+
+// F2F ID screener
+router.post(`${parentDir}/ipv-core/pyiPO`, function (request, response) {
+	var pyiPO = request.session.data['pyiPO']
+	if (pyiPO == "yes") {
+		response.redirect("../f2f-cri/prove-identity-post-office")
 	} else {
-		response.redirect("../nino-cri/enter-ni-number")
+		response.redirect("pyi-escape")
 	}
 })
 
@@ -123,6 +143,16 @@ router.post(`${parentDir}/ipv-core/kbv-drop-off`, function (req, res) {
 		res.redirect('app-download')
 	} else {
 		res.redirect('../f2f-cri/prove-identity-post-office')
+	}
+})
+
+// Escape/back to service
+router.post(`${parentDir}/ipv-core/pyi-escape`, function (req, res) {
+	var pyiEscape = req.session.data['pyi-escape']
+	if (pyiEscape == "return") {
+		res.redirect('../service/service-start')
+	} else {
+		res.redirect('../ipv-core/triage/online-photoid-screener')
 	}
 })
 
