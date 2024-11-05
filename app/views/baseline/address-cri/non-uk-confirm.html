@@ -1,0 +1,101 @@
+{% extends "layouts/main.html" %}
+
+
+{% block pageTitle %}
+{{ heading or 'Enter your address' }} - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+
+
+<div class="govuk-grid-row">
+ <div class="govuk-grid-column-two-thirds">
+   <h1 class="govuk-heading-l">Confirm your details</h1>
+   {{ govukWarningText({
+     text: "Make sure your details are correct before you continue. You will not be able to change them later.",
+     iconFallbackText: "Warning"
+   }) }}
+   <form action="../fraud-cri/fraud-check" method="post" class="form">
+             <dl class="govuk-summary-list">
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Current address
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   {% if data['address-non-uk-town'] %}
+                     {% if data['address-non-uk-flat'] %}
+                       {{ data['address-non-uk-flat'] }}<br>
+                     {% endif %}
+                     {% if data['address-non-uk-house-number'] %}
+                       {{ data['address-non-uk-house-number'] }}<br>
+                     {% endif %}
+                     {% if data['address-non-uk-house-name'] %}
+                       {{ data['address-non-uk-house-name'] }}<br>
+                     {% endif %}
+                     {% if data['address-non-uk-street'] %}
+                      {{ data['address-non-uk-street'] }}<br>
+                     {% endif %}
+                     {% if data['address-non-uk-town'] %}
+                       {{ data['address-non-uk-town'] }}<br>
+                     {% endif %}
+                     {% if data['address-non-uk-postcode'] %}
+                       {{ data['address-non-uk-postcode'] }}<br>
+                     {% endif %}
+                     {% if data['address-non-uk-region'] %}
+                       {{ data['address-non-uk-region'] }}<br>
+                     {% endif %}
+                     {{ data['location'] or 'Japan' }}
+      
+                     {% else %}
+                     3 Chome 1-2<br>
+                     Sunshine City 2F<br>
+                     Tokyo<br>
+                      Japan
+                   {% endif %}
+                 </dd>
+                
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="enter-non-uk-address">Change<span class="govuk-visually-hidden">Current address</span></a>
+                 </dd>
+               </div>
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Year you started living at this address
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   {% if data['address-year-current-year'] %}
+                     {% if data['address-year-current-year'] %}
+                       {{ data['address-year-current-year'] }}<br>
+                     {% endif %}
+      
+                     {% else %}
+                    2021
+                   {% endif %}
+                 </dd>
+              
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="enter-non-uk-address">Change<span class="govuk-visually-hidden"> Year</span></a>
+                 </dd>
+             
+                   </ul>
+                 </dd>
+               </div>
+             </dl>
+     <button class="govuk-button" type="submit" data-module="govuk-button">
+       I confirm my details are correct
+     </button>
+   </form>
+ </div>
+</div>
+{% endblock %}
