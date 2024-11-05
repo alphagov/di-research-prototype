@@ -16,24 +16,13 @@
 {% block content %}
 
 
-{% if data['correct-address'] === 'no' %}
- {% set heading = 'Check your address' %}
-{% elif id['delivery-address'] === 'true' %}
- {% set heading = 'Check your address' %}
-{% elif data['from'] === 'check-answers' %}
- {% set heading = 'Check your address' %}
-{% elif data['from'] === 'review-history' %}
- {% set heading = 'Check your address' %}
-{% else %}
- {% set heading = 'Enter your address' %}
-{% endif %}
 
 
 <div class="govuk-grid-row">
  <div class="govuk-grid-column-two-thirds">
 
 
-   <form action="non-UK-confirm" method="post">
+   <form action="non-uk-confirm" method="post">
 
 
      <fieldset class="govuk-fieldset">
