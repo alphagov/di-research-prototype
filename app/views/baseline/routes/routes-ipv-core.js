@@ -176,41 +176,41 @@ module.exports = router;
 
 // Routing for the 'Do you live in the UK, the Channel Islands or the Isle of Man?' page 
 
-router.post('/ipv-core/triage/live-in-uk-post', function (req, res) {
+router.post(`${parentDir}/ipv-core/triage/live-in-uk-post`, function (req, res) {
     
     if (req.session.data['live-in-uk-choose'] === "yes") {
-      res.redirect('/baseline/ipv-core/triage/online-photoid-screener');
+      res.redirect('online-photoid-screener');
     }
     if (req.session.data['live-in-uk-choose'] === "no") {
-      res.redirect('/baseline/ipv-core/triage/non-uk-passport');
+      res.redirect('non-uk-passport');
     }
   });
 
 
   // Route for new page internatinoal-address-passport
-router.post('/baseline/ipv-core/triage/non-uk-passport-post', (req, res) => {
+router.post(`${parentDir}/ipv-core/triage/non-uk-passport-post`, (req, res) => {
 	const passportChoice = req.body['non-uk-passport'];
   
 	if (passportChoice === 'yes') {
 		// Redirect to the page for users who have a biometric passport
-		res.redirect('/baseline/ipv-core/triage/computer-tablet');  
+		res.redirect('computer-tablet');  
 	} else if (passportChoice === 'no') {
 		// Redirect to the page for users who do not have a biometric passport
-		res.redirect('/baseline/ipv-core/non-uk-no-passport'); 
+		res.redirect('../non-uk-no-passport'); 
 	} 
   });
 
 
-  // Routing for new page non-uk-no-passport
-  router.post('/baseline/ipv-core/international-passport-dropoff-post', function (req, res) {
-	if (req.session.data['international-passport-dropoff-choice'] == "yes") { res.redirect('') }
-	if (req.session.data['international-passport-dropoff-choice'] == "no") { res.redirect('/baseline/ipv-core/triage/non-uk-passport') }
+  // Routing for new page non-uk-no-app
+  router.post(`${parentDir}/ipv-core/international-app-dropoff-post`, function (req, res) {
+	if (req.session.data['international-app-dropoff-choice'] == "yes") { res.redirect('') }
+	if (req.session.data['international-app-dropoff-choice'] == "no") { res.redirect('app-download') }
   })
 
    // Routing for new page non-uk-no-passport
-   router.post('/baseline/ipv-core/international-app-dropoff-post', function (req, res) {
-	if (req.session.data['international-app-dropoff-choice'] == "yes") { res.redirect('') }
-	if (req.session.data['international-app-dropoff-choice'] == "no") { res.redirect('app-download') }
+   router.post(`${parentDir}/ipv-core/international-passport-dropoff-post`, function (req, res) {
+	if (req.session.data['international-passport-dropoff-choice'] == "yes") { res.redirect('') }
+	if (req.session.data['international-passport-dropoff-choice'] == "no") { res.redirect('../ipv-core/triage/computer-tablet') }
   })
 
 
@@ -223,7 +223,6 @@ router.post(`${parentDir}/ipv-core/triage/app-download`, function (request, resp
 
 	if (appDeviceCheck !== "iphone" && appDeviceCheck !== "android") {
 	  if (userChoice === "yes") {
-	
 		response.redirect("../app-drop-off-buffer");
 	  } else if (userChoice === "no") {
 		response.redirect("../non-uk-no-app");
