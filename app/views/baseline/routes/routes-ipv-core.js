@@ -182,65 +182,64 @@ router.post(`${parentDir}/ipv-core/nino-drop-off-buffer`, function (req, res) {
 	}
 })
 
-module.exports = router;
-
 // Routing for the 'Do you live in the UK, the Channel Islands or the Isle of Man?' page 
-
 router.post(`${parentDir}/ipv-core/triage/live-in-uk-post`, function (req, res) {
-    
-    if (req.session.data['live-in-uk-choose'] === "yes") {
-      res.redirect('online-photoid-screener');
-    }
-    if (req.session.data['live-in-uk-choose'] === "no") {
-      res.redirect('non-uk-passport');
-    }
-  });
+	if (req.session.data['live-in-uk-choose'] === "yes") {
+		res.redirect('online-photoid-screener');
+	}
+	if (req.session.data['live-in-uk-choose'] === "no") {
+		res.redirect('non-uk-passport');
+	}
+});
 
-
-  // Route for new page internatinoal-address-passport
+// Route for new page international-address-passport
 router.post(`${parentDir}/ipv-core/triage/non-uk-passport-post`, (req, res) => {
 	const passportChoice = req.body['non-uk-passport'];
-  
 	if (passportChoice === 'yes') {
 		// Redirect to the page for users who have a biometric passport
-		res.redirect('computer-tablet');  
+		res.redirect('computer-tablet');
 	} else if (passportChoice === 'no') {
 		// Redirect to the page for users who do not have a biometric passport
-		res.redirect('../non-uk-no-passport'); 
-	} 
-  });
+		res.redirect('../non-uk-no-passport');
+	}
+});
 
+// Routing for new page non-uk-no-app
+router.post(`${parentDir}/ipv-core/international-app-dropoff-post`, function (req, res) {
+	if (req.session.data['international-app-dropoff-choice'] == "yes") {
+		res.redirect('../service/service-start')
+	}
+	else if (req.session.data['international-app-dropoff-choice'] == "no") {
+		res.redirect('app-download')
+	}
+})
 
-  // Routing for new page non-uk-no-app
-  router.post(`${parentDir}/ipv-core/international-app-dropoff-post`, function (req, res) {
-	if (req.session.data['international-app-dropoff-choice'] == "yes") { res.redirect('') }
-	if (req.session.data['international-app-dropoff-choice'] == "no") { res.redirect('app-download') }
-  })
+// Routing for new page non-uk-no-passport
+router.post(`${parentDir}/ipv-core/international-passport-dropoff-post`, function (req, res) {
+	if (req.session.data['international-passport-dropoff-choice'] == "yes") {
+		res.redirect('../service/service-start')
+	}
+	else if (req.session.data['international-passport-dropoff-choice'] == "no") {
+		res.redirect('../ipv-core/triage/computer-tablet')
+	}
+})
 
-   // Routing for new page non-uk-no-passport
-   router.post(`${parentDir}/ipv-core/international-passport-dropoff-post`, function (req, res) {
-	if (req.session.data['international-passport-dropoff-choice'] == "yes") { res.redirect('') }
-	if (req.session.data['international-passport-dropoff-choice'] == "no") { res.redirect('../ipv-core/triage/computer-tablet') }
-  })
-
-
-  //Routing on the app download page. Users will see if a different page if they select "no" based on whether they are in the UK or not 
-
+//Routing on the app download page. Users will see if a different page if they select "no" based on whether they are in the UK or not 
 router.post(`${parentDir}/ipv-core/triage/app-download`, function (request, response) {
 	const appDeviceCheck = request.session.data['app-download-check'];
 	const userChoice = request.session.data['live-in-uk-choose']; // earlier yes or no selection on the 'Do you live in the UK...' page
-  
 
 	if (appDeviceCheck !== "iphone" && appDeviceCheck !== "android") {
-	  if (userChoice === "yes") {
-		response.redirect("../app-drop-off-buffer");
-	  } else if (userChoice === "no") {
-		response.redirect("../non-uk-no-app");
-	  } else {
-		response.redirect("../app-drop-off-buffer");
-	  }
+		if (userChoice === "yes") {
+			response.redirect("../app-drop-off-buffer");
+		} else if (userChoice === "no") {
+			response.redirect("../non-uk-no-app");
+		} else {
+			response.redirect("../app-drop-off-buffer");
+		}
 	} else {
-	  response.redirect("../app-download");
+		response.redirect("../app-download");
 	}
-  });
+});
 
+module.exports = router;
