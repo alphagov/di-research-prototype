@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What would you like to do? - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">You need to use the GOV.UK One Login app to prove your identity</h1>
+    <p>If you do not live in the UK, you can only use the app and a smartphone to prove your identity with GOV.UK One Login.</p>
+
+    <form class="form" action="international-app-dropoff-post" method="post">
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+      {{ govukRadios({
+      name: "international-app-dropoff-choice",
+      idPrefix: "international-apps-dropoff-choice",
+      fieldset: {
+      legend: {
+      text: "What would you like to do?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+      }
+      },
+      items: [
+      {
+      value: "yes",
+      text: "Continue to the service you were trying to use to look for other ways to prove your identity"
+      },
+      {
+      value: "no",
+      text: "Use the app and a smartphone to prove your identity"
+      }
+      ]
+      }) }}
+
+      <button id="button2" class="govuk-button" data-module="govuk-button">Continue</button>
+        
+        
+          </div> <!-- /. govuk-radios -->
+        </fieldset> <!-- /. govuk-fieldset -->
+      </div> <!-- /. govuk-form-group -->
+
+    </form> <!-- /. form -->
+  </div> <!-- /. govuk-grid-column-two-thirds -->
+</div> <!-- /. govuk-grid-row -->
+
+{% endblock %}
