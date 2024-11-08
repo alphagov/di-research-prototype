@@ -19,7 +19,7 @@ router.post(`${parentDir}/service/generate-url`, (req, res) => {
 
 	// Construct the URI conditionally
 	const startURI = req.protocol + '://' + req.get('host');
-	let userURI = `${startURI}${parentDir}/customise-example?confidence=${buildConfidenceString}&kbv=${buildKBVString}&passFail=${buildPassFailString}&experianKBV=${buildExperianKBVString}`;
+	let userURI = `${startURI}${parentDir}/service/service-start?confidence=${buildConfidenceString}&kbv=${buildKBVString}&passFail=${buildPassFailString}&experianKBV=${buildExperianKBVString}`;
 	if (buildHMRCString) {
 		userURI += `&hmrcSet=${buildHMRCString}`;
 	}

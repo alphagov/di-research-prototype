@@ -17,7 +17,7 @@ router.post(`${parentDir}/fraud-cri/kbv-question-selection`, function (req, res)
 	if (kbvQuestionSet == "experian") {
 		res.redirect('../kbv-cri/experian-kbv-start')
 	} else if (kbvQuestionSet == "hmrc") {
-		res.redirect('../nino-cri/enter-ni-number')
+		res.redirect('../nino-cri/enter-national-insurance-number')
 	} else if (kbvQuestionSet == "dwp") {
 		res.redirect('../ipv-core/personal-independence-payment')
 	} else {

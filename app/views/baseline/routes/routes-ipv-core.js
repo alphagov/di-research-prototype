@@ -13,11 +13,11 @@ router.post(`${parentDir}/ipv-core/triage/online-photoid`, function (request, re
 	if (photoID === "Yes") {
 		response.redirect("computer-tablet")
 	} else if (photoID === "No" && confidence === "medium") {
-		response.redirect("../app-drop-off")
+		response.redirect("../page-multiple-doc-check")
 	} else if (photoID === "No" && confidence === "low") {
 		response.redirect("../prove-identity-no-photo-id")
 	} else {
-		response.redirect("../app-drop-off")
+		response.redirect("../page-multiple-doc-check")
 	}
 })
 
@@ -25,23 +25,33 @@ router.post(`${parentDir}/ipv-core/triage/online-photoid`, function (request, re
 router.post(`${parentDir}/ipv-core/app-drop-off-buffer`, function (request, response) {
 	var photoID = request.session.data['app-drop-off-buffer']
 	if (photoID == "another way") {
-		response.redirect("app-drop-off")
+		response.redirect("page-multiple-doc-check")
 	} else {
 		response.redirect("app-download")
 	}
 })
 
 // App drop off / F2F ID screener
-router.post(`${parentDir}/ipv-core/app-drop-off`, function (request, response) {
-	var photoID = request.session.data['app-drop-off']
+router.post(`${parentDir}/ipv-core/eligibility-drop-off`, function (request, response) {
+	var photoID = request.session.data['eligibility-drop-off']
 	if (photoID == "driving-licence") {
 		response.redirect("../driving-licence-cri/photocard-authority")
 	} else if (photoID == "passport") {
 		response.redirect("../passport-cri/enter-passport-details")
-	} else if (photoID == "nino") {
-		response.redirect("../passport-cri/enter-passport-details")
+	} else if (photoID == "nino") { // No photo ID route
+		response.redirect("../claimed-identity-cri/enter-name")
 	} else {
 		response.redirect("pyi-post-office")
+	}
+})
+
+// Low confidence nino screener
+router.post(`${parentDir}/ipv-core/niNumber`, function (request, response) {
+	var niNumber = request.session.data['niNumber']
+	if (niNumber == "yes") {
+		response.redirect("../claimed-identity-cri/enter-name") // no photo ID route
+	} else {
+		response.redirect("page-ipv-identity-postoffice-start")
 	}
 })
 
@@ -177,7 +187,7 @@ router.post(`${parentDir}/ipv-core/nino-drop-off-buffer`, function (req, res) {
 			res.redirect('pyi-another-way')
 		}
 	} else {
-		res.redirect('../nino-cri/enter-ni-number')
+		res.redirect('../nino-cri/enter-national-insurance-number')
 	}
 })
 

@@ -21,8 +21,9 @@ Prove your identity another way - GOV.UK One Login - GOV.UK
       <li>current address (you might also need your previous address if you’ve recently moved)</li>
     </ul>
     <p>We’ll then ask you some security questions. We use these to stop anyone who might have your details from pretending to be you.</p>
-    <form class="form" action="f2f-thin-file" method="post">
+    <form class="form" action="niNumber" method="post">
       {{ govukRadios({
+      classes: "govuk-radios--inline",
       name: "niNumber",
       idPrefix: "niNumber",
       fieldset: {
