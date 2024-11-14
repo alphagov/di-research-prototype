@@ -141,6 +141,26 @@ Customise a user journey - GOV.UK One Login - GOV.UK
 				}
 			]
 			}) }}
+			{{ govukRadios({
+			name: "continuityIdentity",
+			fieldset: {
+				legend: {
+				text: "Continuity of identity (COI) journey?",
+				isPageHeading: true,
+				classes: "govuk-fieldset__legend--m"
+				}
+			},
+			items: [
+				{
+				value: "coi",
+				text: "Continuity of identity"
+				},
+				{
+				value: "fraud",
+				text: "Repeat address/6 month fraud check"
+				}
+			]
+			}) }}
             <h3 class="govuk-heading-s">
                 Your generated URL
             </h3>

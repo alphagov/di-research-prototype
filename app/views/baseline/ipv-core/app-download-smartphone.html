@@ -24,10 +24,17 @@ Tell us if you have access to an iPhone or Android phone - GOV.UK One Login - GO
             The app uses a face scan with flashing colours
           </span>
         </summary>
-        <div class="govuk-details__text">
-      <p>The face scan checks that you’re a real person. It uses different colours that change less than 3 times per second.</p>
-      <p>You can <a href="page-multiple-doc-check">prove your identity another way if you think you might be sensitive to flashing colours</a>.</p>
-        </div>
+        {% if (data['live-in-uk-choose'] == "no") %}
+          <div class="govuk-details__text">
+            <p>The face scan checks that you’re a real person. It uses different colours that change less than 3 times per second.</p>
+            <p>You can <a href="../ipv-core/non-uk-no-app">prove your identity another way if you think you might be sensitive to flashing colours</a>.</p>
+          </div>
+          {% elseif (data['continuityIdentity'] == "coi" or data['continuityIdentity'] == "fraud") %}
+          <div class="govuk-details__text">
+            <p>The face scan checks that you’re a real person. It uses different colours that change less than 3 times per second.</p>
+            <p>You can <a href="../ipv-core/pyi-another-way">prove your identity another way if you think you might be sensitive to flashing colours</a>.</p>
+          </div>
+        {% endif %}
       </details>
     <form action="app-download-smartphone-spinner" method="post">
       <button class="govuk-button">Download GOV.UK One Login</button>
@@ -62,9 +69,19 @@ Tell us if you have access to an iPhone or Android phone - GOV.UK One Login - GO
           I’d prefer not to use the app
         </span>
       </summary>
+      {% if (data['live-in-uk-choose'] == "no") %}
       <div class="govuk-details__text">
-        <p>If you’d prefer not to use the app, you may be able to <a href="app-drop-off-buffer">prove your identity another way</a>.</p>
+        <p>If you’d prefer not to use the app, you may be able to <a href="../ipv-core/non-uk-no-app">prove your identity another way</a>.</p>
       </div>
+      {% elseif (data['continuityIdentity'] == "coi" or data['continuityIdentity'] == "fraud") %}
+      <div class="govuk-details__text">
+        <p>If you’d prefer not to use the app, you may be able to <a href="../ipv-core/pyi-another-way">prove your identity another way</a>.</p>
+      </div>
+      {% else %}
+      <div class="govuk-details__text">
+        <p>If you’d prefer not to use the app, you may be able to <a href="../ipv-core/app-drop-off-buffer">prove your identity another way</a>.</p>
+      </div>
+      {% endif %}
     </details>
     <p><a href="#">Contact the GOV.UK One Login team (opens in a new tab)</a></p>
   </div>

@@ -4,7 +4,7 @@ const parentDir = '/baseline'
 
 // Add your routes here
 router.post(`${parentDir}/service/generate-url`, (req, res) => {
-	const { whichConfidence, whichKBV, hmrcSets, passFailKBV, experianKBV } = req.body; // Get the form data sent with POST
+	const { whichConfidence, whichKBV, hmrcSets, passFailKBV, experianKBV, continuityIdentity } = req.body; // Get the form data sent with POST
 
 	// Construct query strings and filter out '_unchecked' values
 	const buildConfidenceString = Array.isArray(whichConfidence) ? whichConfidence.join(',') : whichConfidence || '';
@@ -13,13 +13,14 @@ router.post(`${parentDir}/service/generate-url`, (req, res) => {
 	const buildExperianKBVString = Array.isArray(experianKBV) ? experianKBV.join(',') : experianKBV || '';
 	const buildHMRCString = filteredHMRC.join(',');
 	const buildPassFailString = Array.isArray(passFailKBV) ? passFailKBV.join(',') : passFailKBV || '';
+	const buildcontinuityIdentity = Array.isArray(continuityIdentity) ? continuityIdentity.join(',') : continuityIdentity || '';
 
 	// Build the user-readable output
-	const buildUserReadout = `${buildConfidenceString} ➔ ${buildKBVString} ➔ ${buildPassFailString} ➔ ${buildExperianKBVString}` + (buildHMRCString ? ` ➔ ${buildHMRCString}` : '');
+	const buildUserReadout = `${buildConfidenceString} ➔ ${buildKBVString} ➔ ${buildPassFailString} ➔ ${buildExperianKBVString} ➔ ${buildcontinuityIdentity}` + (buildHMRCString ? ` ➔ ${buildHMRCString}` : '');
 
 	// Construct the URI conditionally
 	const startURI = req.protocol + '://' + req.get('host');
-	let userURI = `${startURI}${parentDir}/service/service-start?confidence=${buildConfidenceString}&kbv=${buildKBVString}&passFail=${buildPassFailString}&experianKBV=${buildExperianKBVString}`;
+	let userURI = `${startURI}${parentDir}/service/service-start?confidence=${buildConfidenceString}&kbv=${buildKBVString}&passFail=${buildPassFailString}&experianKBV=${buildExperianKBVString}&continuityIdentity=${buildcontinuityIdentity}`;
 	if (buildHMRCString) {
 		userURI += `&hmrcSet=${buildHMRCString}`;
 	}
