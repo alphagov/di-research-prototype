@@ -57,7 +57,7 @@ How to use and update this prototype
 				{% endraw %}
 			</code>
 		</div>
-		<p>If the data passed to the variable is low, the template will display the code between the first <code>if</code> and the <code>else</code>. Otherwise, the template will display the code between <code>else</code> and <code>endif</code>.</p>
+		<p>If the data passed to the variable is low, the template will display the code between the first <code>if</code> and the <code>else</code>. Otherwise, the template will display the code between <code>else</code> and <code>endif</code>. There is an example of how to use this in the <code>customise-example.html</code> file within <code>/baseline.</code></p>
 		<h3 class="govuk-heading-s">KBV question selection</h3>
 		<p>The question selection for KBVs is different because that is handled in the <code>routes-kbv.js</code> file. When a KBV question type is selected, it's passed into the URL generated in the customisation page, then the router will direct the user to the right KBV question set based on this data. KBVs have their own separate files and don't use the <code>if/else</code> statements, otherwise the pages would become too complicated.</p>
 		<h2 class="govuk-heading-m">Adding more options to the customisation page</h2>

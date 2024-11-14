@@ -1,0 +1,30 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Delete your GOV.UK One Login - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "../../../_includes/phase-banner.html" %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-">
+      <form class="form" action="#" method="post">
+        <h1 class="govuk-heading-l">Delete your GOV.UK One Login</h1>
+        <p class="govuk-body">When you continue, you’ll be able to permanently delete your GOV.UK One Login. <a href="#">Find out what happens when you delete your GOV.UK One Login (opens in new tab)</a>.</p>
+        <p class="govuk-body">After you delete your GOV.UK One Login, go back to the service you were trying to use. You can then  create a new GOV.UK One Login and prove your identity with your new details.</p>
+        <button class="govuk-button" type="submit" data-module="govuk-button">Continue</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

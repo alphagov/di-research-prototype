@@ -88,9 +88,6 @@ router.post(`${parentDir}/ipv-core/triage/device-check`, function (request, resp
 	}
 })
 
-
-
-
 // MAM smartphone type
 router.post(`${parentDir}/ipv-core/triage/app-download-smartphone`, function (request, response) {
 	var appDeviceCheck = request.session.data['app-download-smartphone']
@@ -228,12 +225,15 @@ router.post(`${parentDir}/ipv-core/international-passport-dropoff-post`, functio
 router.post(`${parentDir}/ipv-core/triage/app-download`, function (request, response) {
 	const appDeviceCheck = request.session.data['app-download-check'];
 	const userChoice = request.session.data['live-in-uk-choose']; // earlier yes or no selection on the 'Do you live in the UK...' page
+	var continuityIdentity = request.session.data['continuityIdentity']
 
 	if (appDeviceCheck !== "iphone" && appDeviceCheck !== "android") {
 		if (userChoice === "yes") {
 			response.redirect("../app-drop-off-buffer");
 		} else if (userChoice === "no") {
 			response.redirect("../non-uk-no-app");
+		} else if (continuityIdentity === "coi" || continuityIdentity === "fraud") {
+			response.redirect("../pyi-another-way");
 		} else {
 			response.redirect("../app-drop-off-buffer");
 		}
@@ -241,5 +241,104 @@ router.post(`${parentDir}/ipv-core/triage/app-download`, function (request, resp
 		response.redirect("../app-download");
 	}
 });
+
+// COI routing - COI
+router.post(`${parentDir}/ipv-core/continuity-of-identity/update-details`, function (request, response) {
+	var details = request.session.data['updateDetails']
+	var continuityIdentity = request.session.data['continuityIdentity']
+	if (details.includes("Given names") && details.includes("Last name")) {
+		response.redirect("update-name-date-birth")
+	} else if (details.includes("Date of birth")) {
+		response.redirect("update-name-date-birth")
+	} else if (details.includes("Given names") || details.includes("Last name") || details.includes("Address")) {
+		if (continuityIdentity == "coi") {
+			response.redirect("page-update-name-coi")
+		} else if (continuityIdentity == "fraud") {
+			response.redirect("page-update-name-6mfc")
+		}
+	} else {
+		response.redirect("../../service/service-start")
+	}
+})
+
+// COI routing - 6MFC
+router.post(`${parentDir}/ipv-core/continuity-of-identity/confirm-your-details`, function (request, response) {
+	var detailsCorrect = request.session.data['details-correct']
+	var details = request.session.data['updateDetails']
+	var continuityIdentity = request.session.data['continuityIdentity']
+	if (detailsCorrect === 'No') {
+		if (details.includes("Given names") && details.includes("Last name")) {
+			response.redirect("update-name-date-birth")
+		} else if (details.includes("Date of birth")) {
+			response.redirect("update-name-date-birth")
+		} else if (details == "Address") {
+			response.redirect("../../address-cri/find-current-address")
+		} else if (details.includes("Given names") || details.includes("Last name") || details.includes("Address")) {
+			if (continuityIdentity == "coi") {
+				response.redirect("page-update-name-coi")
+			} else if (continuityIdentity == "fraud") {
+				response.redirect("page-update-name-6mfc")
+			}
+		}
+	} else if (detailsCorrect === 'Yes') {
+		response.redirect("../../fraud-cri/fraud-check")
+	}
+})
+
+// COI delete your account buffer routing
+router.post(`${parentDir}/ipv-core/continuity-of-identity/delete-buffer`, (req, res) => {
+	const updateDetails = req.body['updateDetails'];
+	if (updateDetails === 'delete') {
+		res.redirect('delete-handover');
+	} else if (updateDetails === 'continue') {
+		res.redirect('../../service/service-start');
+	} else {
+		res.redirect('confirm-your-details');
+	}
+});
+
+// COI/6MFC app abandon
+router.post(`${parentDir}/ipv-core/coi-fraud-app-abandon`, (req, res) => {
+	const cantUseApp = req.body['cantUseApp'];
+	if (cantUseApp === 'delete') {
+		res.redirect('../ipv-core/continuity-of-identity/delete-handover');
+	} else if (cantUseApp === 'service') {
+		res.redirect('../service/service-start');
+	}
+});
+
+// COI/6MFC update name
+router.post(`${parentDir}/ipv-core/continuity-of-identity/update-name`, (req, res) => {
+	const updateName = req.body['updateName'];
+	var continuityIdentity = req.session.data['continuityIdentity']
+	if (updateName == 'app') {
+		res.redirect('../triage/computer-tablet');
+	} else if (updateName == 'service') {
+		res.redirect('../../service/service-start');
+	} else if (updateName == 'back') {
+		if (continuityIdentity == "coi") {
+			res.redirect("update-details")
+		} else if (continuityIdentity == "fraud") {
+			res.redirect("confirm-your-details")
+		}
+	}
+});
+
+// app success routing (COI/6MFC and normal)
+router.post(`${parentDir}/ipv-core/app-success`, function (request, response) {
+	var details = request.session.data['updateDetails']
+	var continuityIdentity = request.session.data['continuityIdentity']
+	if (continuityIdentity) {
+		if (details.includes("Address") && details.includes("Last name")) {
+			response.redirect("../ipv-core/continuity-of-identity/page-dcmaw-success-coi-name-address")
+		} else if (details.includes("Address") && details.includes("Given names")) {
+			response.redirect("../ipv-core/continuity-of-identity/page-dcmaw-success-coi-name-address")
+		} else if (details.includes("Given names") || details.includes("Last name")) {
+			response.redirect("../ipv-core/continuity-of-identity/page-dcmaw-success-coi-name")
+		}
+	} else {
+		response.redirect("../../fraud-cri/fraud-check")
+	}
+})
 
 module.exports = router;

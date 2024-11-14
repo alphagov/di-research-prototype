@@ -314,20 +314,16 @@ router.post(`${parentDir}/address-cri/address-manual-prev-post`, function (req, 
 	}
 })
 
-module.exports = router;
-
-  
-  // Routing for the address CRI the user sees different screens depending on whether they selected they live in or out the UK in IPV core 
-  router.post('/baseline/ipv-core/app-success-post', function (req, res) {
+// Routing for the address CRI the user sees different screens depending on whether they selected they live in or out the UK in IPV core 
+router.post('/baseline/ipv-core/app-success-post', function (req, res) {
 	const liveInUkChoice = req.session.data['live-in-uk-choose'];
-
 	if (liveInUkChoice === "yes") {
-	  // Redirect to a page for users who live in the UK
-	  res.redirect('/baseline/address-cri/find-current-address');
+		// Redirect to a page for users who live in the UK
+		res.redirect('/baseline/address-cri/find-current-address');
 	} else if (liveInUkChoice === "no") {
-	  // Redirect to a page for users who do not live in the UK
-	  res.redirect('/baseline/address-cri/what-country');
-
+		// Redirect to a page for users who do not live in the UK
+		res.redirect('/baseline/address-cri/what-country');
 	}
-  });
-  
+});
+
+module.exports = router;

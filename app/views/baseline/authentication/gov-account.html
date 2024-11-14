@@ -25,15 +25,7 @@ Create a GOV.UK One Login or sign in
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="create-email" method="post" class="form">
-      <h1 class="govuk-heading-l">Create your GOV.UK One Login or sign in
-        {% if data.prototype['serviceType'] === 'identity' %}
-        <!-- to prove your identity -->
-        {% elif data.prototype['serviceType'] === 'save' %}
-        to save your progress
-        {% elif data.prototype['serviceType'] === 'account' %}
-        <!-- to create your account -->
-        {% endif %}
-      </h1>
+      <h1 class="govuk-heading-l">Create your GOV.UK One Login or sign in</h1>
       <p>You can use your GOV.UK One Login to access some government services.  <p>
         <p>In the future, you'll be able to use it to access all services on GOV.UK. <p>
         <p>You’ll need:<p>
