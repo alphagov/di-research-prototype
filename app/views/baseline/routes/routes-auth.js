@@ -6,10 +6,12 @@ const parentDir = '/baseline'
 
 router.post(`${parentDir}/authentication/signin-success`, function (req, res) {
 	var continuityIdentity = req.session.data['continuityIdentity']
-	if (continuityIdentity == "coi") {
+	if (continuityIdentity === "coi") {
 		res.redirect('../ipv-core/continuity-of-identity/page-ipv-reuse')
-	} else if (continuityIdentity == "fraud") {
+	} else if (continuityIdentity === "fraud") {
 		res.redirect('../ipv-core/continuity-of-identity/confirm-your-details')
+	} else {
+		res.redirect('../ipv-core/triage/online-photoid-screener')
 	}
 })
 
