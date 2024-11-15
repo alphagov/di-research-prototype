@@ -363,7 +363,7 @@ router.post(`${parentDir}/ipv-core/app-success`, function (request, response) {
 			response.redirect("../ipv-core/continuity-of-identity/page-dcmaw-success-coi-name")
 		}
 	} else {
-		response.redirect("../../fraud-cri/fraud-check")
+		response.redirect("../fraud-cri/fraud-check")
 	}
 })
 

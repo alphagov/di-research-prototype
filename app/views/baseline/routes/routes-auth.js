@@ -11,7 +11,7 @@ router.post(`${parentDir}/authentication/signin-success`, function (req, res) {
 	} else if (continuityIdentity === "fraud") {
 		res.redirect('../ipv-core/continuity-of-identity/confirm-your-details')
 	} else {
-		res.redirect('../ipv-core/triage/online-photoid-screener')
+		res.redirect('signin-success')
 	}
 })
 
