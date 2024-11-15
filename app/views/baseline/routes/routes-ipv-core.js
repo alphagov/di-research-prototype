@@ -250,6 +250,8 @@ router.post(`${parentDir}/ipv-core/continuity-of-identity/update-details`, funct
 		response.redirect("update-name-date-birth")
 	} else if (details.includes("Date of birth")) {
 		response.redirect("update-name-date-birth")
+	} else if (details == "Address") {
+		response.redirect("../../address-cri/find-current-address")
 	} else if (details.includes("Given names") || details.includes("Last name") || details.includes("Address")) {
 		if (continuityIdentity == "coi") {
 			response.redirect("page-update-name-coi")
