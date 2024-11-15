@@ -326,4 +326,14 @@ router.post('/baseline/ipv-core/app-success-post', function (req, res) {
 	}
 });
 
+// routing for picking country on international addresses
+router.post(`${parentDir}/address-cri/pick-country`, function (req, res) {
+	var country = req.session.data['location']
+	if (country === 'United Kingdom' || country === 'Isle of Man' || country === 'Jersey' || country === 'Guernsey') {
+		res.redirect("../address-cri/find-current-address")
+	} else {
+		res.redirect("../address-cri/enter-non-uk-address")
+	}
+});
+
 module.exports = router;

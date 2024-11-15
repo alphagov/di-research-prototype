@@ -183,8 +183,7 @@ router.post(`${parentDir}/ipv-core/nino-drop-off-buffer`, function (req, res) {
 router.post(`${parentDir}/ipv-core/triage/live-in-uk-post`, function (req, res) {
 	if (req.session.data['live-in-uk-choose'] === "yes") {
 		res.redirect('online-photoid-screener');
-	}
-	if (req.session.data['live-in-uk-choose'] === "no") {
+	} else if (req.session.data['live-in-uk-choose'] === "no") {
 		res.redirect('non-uk-passport');
 	}
 });
@@ -251,7 +250,7 @@ router.post(`${parentDir}/ipv-core/continuity-of-identity/update-details`, funct
 	} else if (details.includes("Date of birth")) {
 		response.redirect("update-name-date-birth")
 	} else if (details == "Address") {
-		response.redirect("../../address-cri/find-current-address")
+		response.redirect("../../address-cri/what-country")
 	} else if (details.includes("Given names") || details.includes("Last name") || details.includes("Address")) {
 		if (continuityIdentity == "coi") {
 			response.redirect("page-update-name-coi")
@@ -274,7 +273,7 @@ router.post(`${parentDir}/ipv-core/continuity-of-identity/confirm-your-details`,
 		} else if (details.includes("Date of birth")) {
 			response.redirect("update-name-date-birth")
 		} else if (details == "Address") {
-			response.redirect("../../address-cri/find-current-address")
+			response.redirect("../../address-cri/what-country")
 		} else if (details.includes("Given names") || details.includes("Last name") || details.includes("Address")) {
 			if (continuityIdentity == "coi") {
 				response.redirect("page-update-name-coi")
