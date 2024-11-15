@@ -354,6 +354,7 @@ router.post(`${parentDir}/ipv-core/continuity-of-identity/update-name`, (req, re
 router.post(`${parentDir}/ipv-core/app-success`, function (request, response) {
 	var details = request.session.data['updateDetails']
 	var continuityIdentity = request.session.data['continuityIdentity']
+	const liveInUK = request.session.data['live-in-uk-choose']
 	if (continuityIdentity) {
 		if (details.includes("Address") && details.includes("Last name")) {
 			response.redirect("../ipv-core/continuity-of-identity/page-dcmaw-success-coi-name-address")
@@ -362,8 +363,10 @@ router.post(`${parentDir}/ipv-core/app-success`, function (request, response) {
 		} else if (details.includes("Given names") || details.includes("Last name")) {
 			response.redirect("../ipv-core/continuity-of-identity/page-dcmaw-success-coi-name")
 		}
+	} else if (liveInUK == "no") {
+		response.redirect("../address-cri/what-country")
 	} else {
-		response.redirect("../fraud-cri/fraud-check")
+		response.redirect("../address-cri/find-current-address")
 	}
 })
 
