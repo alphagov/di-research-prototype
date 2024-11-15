@@ -55,7 +55,7 @@ router.post(`${parentDir}/ipv-core/niNumber`, function (request, response) {
 	}
 })
 
-// F2F ID screener
+// F2F ID screener low/medium confidence
 router.post(`${parentDir}/ipv-core/f2f-screener`, function (request, response) {
 	var f2fID = request.session.data['f2f-screener']
 	var confidence = request.session.data['confidence']
@@ -68,12 +68,25 @@ router.post(`${parentDir}/ipv-core/f2f-screener`, function (request, response) {
 	}
 })
 
+// Medium confidence bank account screener
+router.post(`${parentDir}/ipv-core/bank-account`, function (request, response) {
+	var account = request.session.data['bank-account']
+	if (account == "yes") {
+		response.redirect("../claimed-identity-cri/enter-name") // no photo ID route
+	} else {
+		response.redirect("no-photo-id-start-find-another-way")
+	}
+})
+
 // F2F ID screener
 router.post(`${parentDir}/ipv-core/pyiPO`, function (request, response) {
 	var pyiPO = request.session.data['pyiPO']
+	var confidence = request.session.data['confidence']
 	if (pyiPO == "yes") {
 		response.redirect("../f2f-cri/prove-identity-post-office")
-	} else {
+	} else if (pyiPO == "no" && confidence == "medium") {
+		response.redirect("prove-identity-bank-account")
+	} else if (pyiPO == "no" && confidence == "low") {
 		response.redirect("pyi-escape")
 	}
 })
@@ -141,6 +154,18 @@ router.post(`${parentDir}/ipv-core/kbv-drop-off`, function (req, res) {
 		res.redirect('app-download')
 	} else {
 		res.redirect('../f2f-cri/prove-identity-post-office')
+	}
+})
+
+// bank account drop off
+router.post(`${parentDir}/ipv-core/bank-drop-off`, function (req, res) {
+	var account = req.session.data['bank-drop-off']
+	if (account == "return") {
+		res.redirect('../service/service-start')
+	} else if (account == "app") {
+		res.redirect('app-download')
+	} else {
+		res.redirect('prove-identity-bank-account')
 	}
 })
 

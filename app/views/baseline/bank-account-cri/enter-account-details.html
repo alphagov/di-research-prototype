@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter your account details - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Enter your account details</h1>
+    <form class="form" action="check-details" method="post">
+      {{ govukInput({
+        label: {
+          text: "Sort code"
+        },
+        classes: "govuk-input--width-5",
+        hint: {
+          text: "Your sort code is 6 digits long. It is 3 pairs of numbers. For example, 802650."
+        },
+        id: "sort-code",
+        name: "sortCode",
+        value: data['sortCode']
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Account number"
+        },
+        classes: "govuk-input--width-10",
+        hint: {
+          text: "Your account number is between 6 and 8 digits long. For example, 10014069."
+        },
+        id: "account-number",
+        name: "accountNumber",
+        value: data['accountNumber']
+      }) }}
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

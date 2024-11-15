@@ -32,8 +32,13 @@ router.use('/', require('./views/baseline/routes/routes-kbv.js'))
 // pull in f2f routes
 router.use('/', require('./views/baseline/routes/routes-f2f.js'))
 
+// pull in CI routes
+router.use('/', require('./views/baseline/routes/routes-claimed-identity.js'))
+
+// pull in bank account routes
+router.use('/', require('./views/baseline/routes/routes-bank-account.js'))
+
 // pull in service (customisation) routes
 router.use('/', require('./views/baseline/routes/routes-service.js'))
-
 
 module.exports = router;
