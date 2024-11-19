@@ -1,0 +1,1622 @@
+/*
+ *******************************************************************************************************************
+ *       iOS Styles
+ *******************************************************************************************************************
+*/
+
+/* ------------------------------------------------------------------------------------------ */
+/* SF Pro Fonts  */
+/* ------------------------------------------------------------------------------------------ */
+
+
+/* SF Pro Text is for smaller sizes */
+
+@font-face {
+  font-family: 'SF Pro Text Regular';
+  src: url('/public/fonts/SFPROTEXTREGULAR.ttf') format('truetype');
+}
+
+/* SF Pro Display is for larger sizes */
+
+@font-face {
+  font-family: 'SF Pro Display Regular';
+  src: url('/public/fonts/SFPRODISPLAYREGULAR.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SF Pro Display SemiBold';
+  src: url('/public/fonts/SFPRODISPLAYSEMIBOLD.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SF Pro Display Bold';
+  src: url('/public/fonts/SFPRODISPLAYBOLD.ttf') format('truetype');
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* Typography  */
+/* ------------------------------------------------------------------------------------------ */
+
+//---------------HEADINGS-------------------------------------------//
+
+.govuk-app-heading-l {
+  color: #0b0c0c;
+  font-family: 'SF Pro Display Bold', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 34px;
+  line-height: 41px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+
+.govuk-app-heading-m {
+  color: #0b0c0c;
+  font-family: 'SF Pro Display SemiBold', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 24px;
+  margin-top: 0px;
+  margin-bottom: 8px;
+}
+
+
+//---------------BODY-------------------------------------------//
+
+.govuk-app-body {
+  color: #0b0c0c;
+  font-family: 'SF Pro Regular', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+//---------------LISTS-------------------------------------------//
+
+.govuk-app-list {
+  color: #0b0c0c;
+  font-family: 'SF Pro Regular', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  list-style-type: none;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  margin-top: 0;
+  margin-bottom: 24px;
+  padding-left: 0;
+}
+
+.govuk-app-list>li {
+  margin-bottom: 8px;
+}
+
+.govuk-app-list--bullet {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.govuk-app-list--number {
+  padding-left: 20px;
+  list-style-type: decimal;
+}
+
+.blue-text {
+  color: #1d70b8;
+}
+
+
+//---------------LINKS-------------------------------------------//
+
+.govuk-app-link {
+  color: #00703C !important;
+  font-family: 'SF Pro Regular', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 17px;
+  line-height: 22px;
+}
+
+.govuk-app-link:focus {
+  outline: none !important;
+  /* Remove outline */
+  color: none !important;
+  background-color: transparent !important;
+  /* Remove background color */
+  box-shadow: none !important;
+  text-decoration: none !important;
+  /* You can customize text decoration as needed */
+  box-decoration-break: unset !important;
+  /* Reset box decoration */
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* Spacing  */
+/* ------------------------------------------------------------------------------------------ */
+
+/* Variables for mobile spacing */
+
+$spacing-xl: 32px; // Extra-large spacing, typically used for separating major sections or large components.
+$spacing-l: 24px; // Large spacing, used for separating unrelated components or sections.
+$spacing-m: 16px; // Medium spacing, used for closely related components within the same collection.
+$spacing-s: 8px; // Small spacing, used for elements within the same component set that are closely related.
+
+/* Extra-large spacing utility class */
+.govuk-app-margin-bottom-xl {
+  margin-bottom: $spacing-xl !important;
+}
+
+/* Large spacing utility class */
+.govuk-app-margin-bottom-l {
+  margin-bottom: $spacing-l !important;
+}
+
+/*  Medium spacing utility class */
+.govuk-app-margin-bottom-m {
+  margin-bottom: $spacing-m !important;
+}
+
+/* Small spacing utility class */
+.govuk-app-margin-bottom-s {
+  margin-bottom: $spacing-s !important;
+}
+
+/* Extra-large spacing utility class */
+.govuk-app-margin-top-xl {
+  margin-top: $spacing-xl !important;
+}
+
+/* Large spacing utility class */
+.govuk-app-margin-top-l {
+  margin-top: $spacing-l !important;
+}
+
+/*  Medium spacing utility class */
+.govuk-app-margin-top-m {
+  margin-top: $spacing-m !important;
+}
+
+/* Small spacing utility class */
+.govuk-app-margin-top-s {
+  margin-top: $spacing-s !important;
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* iOS ID Check App Components  */
+/* ------------------------------------------------------------------------------------------ */
+
+//---------------BUTTONS-------------------------------------------//
+
+.govuk-app-button-group {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.govuk-app-button {
+  font-family: 'SF Pro Regular', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  gap: 8px;
+  align-items: center;
+  border: 0px solid transparent;
+  color: #ffffff;
+  background: #00703C;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-bottom: 16px !important;
+}
+
+.govuk-app-button img {
+  width: 17px;
+  height: 17px;
+  vertical-align: middle;
+  /* Align the image vertically in the button */
+}
+
+.govuk-app-button-default {
+  font-family: 'SF Pro Regular', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  gap: 8px;
+  align-items: center;
+  border: 0px solid transparent;
+  color: #ffffff;
+  background: #00703C;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-bottom: 16px !important;
+}
+
+.govuk-app-button-default img {
+  width: 17px;
+  height: 17px;
+  vertical-align: middle;
+  /* Align the image vertically in the button */
+}
+
+.govuk-app-button--secondary {
+  font-family: 'SF Pro Regular', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  gap: 8px;
+  align-items: center;
+  background-color: #FFFFFF !important;
+  color: #00703C !important;
+  border: 0px solid transparent;
+  cursor: pointer;
+}
+
+.govuk-app-button--secondary img {
+  width: 17px;
+  height: 17px;
+  vertical-align: middle;
+  /* Align the image vertically in the button */
+}
+
+
+//---------------BACK LINK-------------------------------------------//
+
+.govuk-app-back-link {
+  font-family: 'SF Pro Regular', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-weight: 400;
+  color: #00703C !important;
+  font-size: 17px;
+  height: 22px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 11px 8px;
+}
+
+//---------------Chevron for back link-------------------------------------------//
+
+.govuk-app-back-link::before {
+  content: "";
+  font-family: 'SF Pro Regular', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  /* Change display to inline-block */
+  width: 17px;
+  height: 17px;
+  font-weight: 400;
+  margin-right: 3px;
+  /* Adjust the margin to create space between the chevron and the text */
+  transform: rotate(225deg);
+  font-family: 'SF Pro';
+  font-style: normal;
+  font-weight: 590;
+  font-size: 23px;
+  line-height: 24px;
+  border: solid;
+  border-width: 3px 3px 0 0;
+  color: #00703C;
+}
+
+.govuk-app-back-link:focus {
+  outline: none !important;
+  /* Remove outline */
+  color: none !important;
+  background-color: transparent !important;
+  /* Remove background color */
+  box-shadow: none !important;
+  text-decoration: none !important;
+  /* You can customize text decoration as needed */
+  box-decoration-break: unset !important;
+  /* Reset box decoration */
+}
+
+//---------------WARNING TEXT-------------------------------------------//
+
+.govuk-app-warning-text {
+  font-family: 'SF Pro Display Bold', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.govuk-app-warning-text__icon {
+  font-weight: 700;
+  box-sizing: border-box;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  min-width: 35px;
+  min-height: 35px;
+  margin-top: -7px;
+  border: 3px solid #0b0c0c;
+  border-radius: 50%;
+  color: #ffffff;
+  background: #0b0c0c;
+  font-size: 30px;
+  line-height: 29px;
+  text-align: center;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  forced-color-adjust: none;
+}
+
+.govuk-app-warning-container {
+  margin-top: 10px;
+  /* Adjust as needed to create space between the image and the warning text */
+  position: relative;
+  /* Ensure relative positioning */
+}
+
+//---------------SUMMARY LIST-------------------------------------------//
+
+.govuk-app-summary-list {
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #0b0c0c;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+
+/* Update .govuk-summary-list__row to use flexbox */
+.govuk-app-summary-list__row {
+  display: flex;
+  /* Use flexbox */
+  justify-content: space-between;
+  /* Space items evenly */
+  align-items: flex-start;
+  /* Align items at the start */
+  border-bottom: 1px solid #b1b4b6;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.govuk-app-summary-list__key {
+  flex: 1;
+  /* Grow to fill available space */
+  text-align: left;
+  /* Left align */
+}
+
+.govuk-app-summary-list__value {
+  flex: 1;
+  /* Grow to fill available space */
+  text-align: right;
+  /* Right align */
+  margin-right: 5px;
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* Styles for ID Check App logo  */
+/* ------------------------------------------------------------------------------------------ */
+
+.app-logo {
+  width: 135px;
+  height: 135px;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* iOS Loading spinner  */
+/* ------------------------------------------------------------------------------------------ */
+
+//iphone loading spinner
+div.mobile-spinner {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  display: inline-block;
+  margin-left: 50%;
+  margin-right: 50%;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+div.mobile-spinner div {
+  width: 6%;
+  height: 16%;
+  background: #80858E;
+  position: absolute;
+  left: 49%;
+  top: 43%;
+  opacity: 0;
+  border-radius: 50px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  animation: fade 1s linear infinite;
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.25;
+  }
+}
+
+div.mobile-spinner div.bar1 {
+  transform: rotate(0deg) translate(0, -130%);
+  animation-delay: 0s;
+}
+
+div.mobile-spinner div.bar2 {
+  transform: rotate(30deg) translate(0, -130%);
+  animation-delay: -0.9167s;
+}
+
+div.mobile-spinner div.bar3 {
+  transform: rotate(60deg) translate(0, -130%);
+  animation-delay: -0.833s;
+}
+
+div.mobile-spinner div.bar4 {
+  transform: rotate(90deg) translate(0, -130%);
+  animation-delay: -0.7497s;
+}
+
+div.mobile-spinner div.bar5 {
+  transform: rotate(120deg) translate(0, -130%);
+  animation-delay: -0.667s;
+}
+
+div.mobile-spinner div.bar6 {
+  transform: rotate(150deg) translate(0, -130%);
+  animation-delay: -0.5837s;
+}
+
+div.mobile-spinner div.bar7 {
+  transform: rotate(180deg) translate(0, -130%);
+  animation-delay: -0.5s;
+}
+
+div.mobile-spinner div.bar8 {
+  transform: rotate(210deg) translate(0, -130%);
+  animation-delay: -0.4167s;
+}
+
+div.mobile-spinner div.bar9 {
+  transform: rotate(240deg) translate(0, -130%);
+  animation-delay: -0.333s;
+}
+
+div.mobile-spinner div.bar10 {
+  transform: rotate(270deg) translate(0, -130%);
+  animation-delay: -0.2497s;
+}
+
+div.mobile-spinner div.bar11 {
+  transform: rotate(300deg) translate(0, -130%);
+  animation-delay: -0.167s;
+}
+
+div.mobile-spinner div.bar12 {
+  transform: rotate(330deg) translate(0, -130%);
+  animation-delay: -0.0833s;
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* iOS Alert  */
+/* ------------------------------------------------------------------------------------------ */
+
+$primary-color: #007AFF;
+$border-color: hsla(240, 6%, 25%, .36);
+$border: .5px solid $border-color;
+$border-radius: 14px;
+
+.iOS-alert-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent black */
+  z-index: 1;
+  /* Place overlay above other content */
+  animation: fadeInOverlay 0.2s ease forwards;
+  /* Fade-in animation for the overlay */
+}
+
+.iOS-alert-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 270px;
+  background-color: white;
+  border-radius: $border-radius;
+  transition: all 0.3s ease;
+  font-family: 'SF Pro Regular', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  background-color: #fff;
+  /* Background color for pop-up */
+  z-index: 2;
+  /* Ensure pop-up appears above overlay */
+  opacity: 0;
+  /* Initially hide alert */
+  animation: fadeInAlert 0.3s ease forwards;
+  /* Fade-in animation for the iOS alert */
+  animation-delay: 0.1s;
+  /* Delay before the alert starts fading in */
+}
+
+.iOS-alert-header {
+  padding: 20px 30px 0 30px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.iOS-alert-body {
+  padding: 10px 30px 20px 30px;
+  text-align: center;
+  font-size: 13px;
+  border-bottom: $border;
+}
+
+.iOS-alert-footer {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.iOS-alert-default-button {
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 14px;
+  color: $primary-color;
+  padding: 15px 0;
+  border-right: $border;
+  outline: none;
+
+  &:hover {
+    background-color: hsla(0, 0%, 0%, 0.1);
+  }
+
+  &:last-child {
+    border-right: none;
+    border-bottom-right-radius: $border-radius;
+  }
+
+  &:first-child {
+    border-bottom-left-radius: $border-radius;
+  }
+}
+
+/* Fade-in animation for the overlay */
+@keyframes fadeInOverlay {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    /* Start with transparent background */
+  }
+
+  to {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fade in to semi-transparent black */
+  }
+}
+
+/* Fade-in animation for the iOS alert */
+@keyframes fadeInAlert {
+  from {
+    opacity: 0;
+    /* Start with opacity 0 */
+  }
+
+  to {
+    opacity: 1;
+    /* Fade in with opacity 1 */
+  }
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* Analytics permissions modal/popup window  */
+/* ------------------------------------------------------------------------------------------ */
+
+/* Styles for the overlay covering the entire screen */
+.govuk-app-modal-overlay {
+  position: relative;
+  width: calc(100% + 32px);
+  /* Add the total margin width (16px on each side) to the container's width */
+}
+
+/* Styles for the modal container */
+.govuk-app-modal-container {
+  position: absolute;
+  /* Position absolutely to ensure it overlays other content */
+  background-color: #fff;
+  border-radius: 8px;
+  z-index: 1000;
+  width: calc(100% + 32px);
+  /* Add the total margin width (16px on each side) to the container's width */
+  margin-left: -16px;
+  /* Offset the negative margin to align with the mobile frame */
+  margin-right: -16px;
+  /* Offset the negative margin to align with the mobile frame */
+  bottom: 0;
+  /* Position the bottom of the popup at the bottom of the mobile-body */
+  top: 0;
+  opacity: 0;
+  /* Initially hide modal */
+  transform: translateY(100%);
+  /* Initially move modal off-screen */
+  animation: slideUp 0.3s ease forwards;
+  /* Slide up animation */
+  animation-delay: 0.2s;
+  /* Add delay of 0.2 seconds */
+}
+
+/* Styles for the header of the modal */
+.govuk-app-modal-container .header {
+  background-color: #F5F5F5;
+  border-bottom: 1px solid #B2B2B2;
+  padding: 20px 16px 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  margin-top: 10px
+}
+
+/* Styles for the left section of the header */
+.govuk-modal-container .left {
+  flex: 1;
+  text-align: left;
+}
+
+/* Styles for the right section of the header */
+.govuk-app-modal-container .right {
+  text-align: right;
+}
+
+/* Styles for the content of the modal */
+.govuk-app-modal-content {
+  width: calc(100% - 32px);
+  /* Adjusted width to account for the left and right margins of .mobile-body */
+  margin: 0 auto;
+  /* Center the content horizontally */
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* Leaving the app static modal window  */
+/* ------------------------------------------------------------------------------------------ */
+
+/* Styles for the overlay covering the entire screen */
+.govuk-app-modal-overlay--leaving {
+  position: relative;
+  width: calc(100% + 32px);
+  /* Add the total margin width (16px on each side) to the container's width */
+}
+
+/* Styles for the modal container */
+.govuk-app-modal-container--leaving {
+  position: absolute;
+  /* Position absolutely to ensure it overlays other content */
+  background-color: #fff;
+  border-radius: 8px;
+  z-index: 1000;
+  width: calc(100% + 32px);
+  /* Add the total margin width (16px on each side) to the container's width */
+  margin-left: -16px;
+  /* Offset the negative margin to align with the mobile frame */
+  margin-right: -16px;
+  /* Offset the negative margin to align with the mobile frame */
+  bottom: 0;
+  /* Position the bottom of the popup at the bottom of the mobile-body */
+  top: 0;
+}
+
+/* Styles for the header of the modal */
+.govuk-app-modal-container--leaving .header {
+  background-color: #F5F5F5;
+  border-bottom: 1px solid #B2B2B2;
+  padding: 20px 16px 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  margin-top: 10px
+}
+
+/* Styles for the left section of the header */
+.govuk-app-modal-container--leaving .left {
+  flex: 1;
+  text-align: left;
+}
+
+/* Styles for the right section of the header */
+.govuk-app-modal-container--leaving .right {
+  text-align: right;
+}
+
+/* Styles for the content of the modal */
+.govuk-app-modal-content {
+  width: calc(100% - 32px);
+  /* Adjusted width to account for the left and right margins of .mobile-body */
+  margin: 0 auto;
+  /* Center the content horizontally */
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* Link session mobile web page styles  */
+/* ------------------------------------------------------------------------------------------ */
+
+
+//---------------iOS browser modal/popup-------------------------------------------//
+
+/*  */
+.browser-header {
+  background-color: #F5F5F5;
+  border-bottom: 1px solid #B2B2B2;
+  padding: 20px 16px 10px 16px;
+  display: flex;
+  align-items: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  margin-top: 10px;
+}
+
+/*  */
+.browser-header .left {
+  flex: 1;
+  margin-right: 10px;
+  /* Add space between left and middle sections */
+}
+
+/*  */
+.browser-header .middle {
+  flex: 2;
+  /* Adjust the flex value to allocate more space */
+  display: flex;
+  align-items: center;
+}
+
+/*  */
+.browser-header .right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 10px;
+  /* Add space between middle and right sections */
+}
+
+/*  */
+.browser-header .right img:first-child {
+  margin-right: 5px;
+  /* Add space between the first icon and the second icon */
+}
+
+/*  */
+.browser-header .govuk-app-link {
+  color: #147efb !important;
+  /* Apply Apple blue color to the cancel link */
+  text-decoration: none;
+  /* Remove underline */
+}
+
+/*  */
+.browser-header .govuk-app-text-url {
+  color: #333;
+  /* Dark color for the URL text */
+  white-space: nowrap;
+  /* Prevent URL text from wrapping */
+  font-family: 'SF Pro Regular', sans-serif;
+}
+
+/*  */
+.browser-header .govuk-app-icon {
+  font-family: 'SF Pro Icons';
+  /* Assuming you have the iOS font installed */
+  font-size: 18px;
+  /* Adjust size as needed */
+  margin-left: 10px;
+  /* Add spacing between icons */
+}
+
+
+//---------------GOVUK Web Header for mobile frame-------------------------------------------//
+
+/* Mobile styles for .govuk-mob-header */
+.govuk-mob-header {
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1;
+  border-bottom: 10px solid #ffffff;
+  color: #ffffff;
+  background: #0b0c0c;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 40.0625rem) {
+  .govuk-mob-header {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+.govuk-mob-header__container--full-width {
+  padding: 0px 16px 0px 16px;
+  border-color: #1d70b8;
+}
+
+.govuk-mob-header__container--full-width .govuk-mob-header__menu-button {
+  right: 15px;
+}
+
+.govuk-mob-header__container {
+  position: relative;
+  margin-bottom: -10px;
+  padding-top: 15px;
+  border-bottom: 10px solid #1d70b8;
+}
+
+.govuk-mob-header__container::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.govuk-mob-header__logotype {
+  display: inline-block;
+  position: relative;
+  top: -3px;
+  margin-right: 5px;
+  fill: currentcolor;
+  vertical-align: top;
+}
+
+.govuk-mob-header__logotype:last-child {
+  margin-right: 0;
+}
+
+.govuk-mob-header__product-name {
+  font-size: 1.125rem;
+  line-height: 1;
+  font-weight: 400;
+  display: inline-table;
+  margin-top: 10px;
+  vertical-align: top;
+}
+
+.govuk-mob-header__link {
+  text-decoration: none;
+  color: #ffffff !important;
+}
+
+
+.govuk-mob-header__link--homepage {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 30px;
+}
+
+.govuk-mob-header__service-name {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 1.125rem;
+  line-height: 1.1111111111;
+  font-weight: 700;
+}
+
+.govuk-mob-header__logo,
+.govuk-mob-header__content {
+  box-sizing: border-box;
+}
+
+.govuk-mob-header__logo {
+  margin-bottom: 10px;
+  padding-right: 80px;
+}
+
+/* Overrides the color for visited links within .govuk-header1__link */
+.govuk-mob-header__link:visited {
+  color: #ffffff;
+  /* Ensures visited links remain white */
+}
+
+.govuk-mob-header__link {
+  text-decoration: none;
+  color: #ffffff;
+  /* Ensures links are white */
+}
+
+
+//---------------Govuk mobile web components-------------------------------------------//
+
+.govuk-mob-heading-l {
+  color: #0b0c0c;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 1.1111111111;
+  display: block;
+  margin-top: 20;
+  margin-bottom: 30px;
+}
+
+.govuk-mob-body {
+  color: #0b0c0c;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 1.1875rem;
+  line-height: 1.3157894737;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.govuk-mob-button {
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.1875;
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 0;
+  margin-bottom: 22px;
+  padding: 8px 10px 7px;
+  border: 2px solid transparent;
+  border-radius: 0;
+  color: #ffffff;
+  background-color: #00703c;
+  box-shadow: 0 2px 0 #002d18;
+  text-align: center;
+  vertical-align: top;
+  cursor: pointer;
+  appearance: none;
+}
+
+
+
+/*
+ *******************************************************************************************************************
+ *       Android Styles
+ *******************************************************************************************************************
+*/
+
+/* ------------------------------------------------------------------------------------------ */
+/* Typography  */
+/* ------------------------------------------------------------------------------------------ */
+
+//---------------HEADINGS-------------------------------------------//
+
+.govuk-app-heading-l-android {
+  color: #0b0c0c;
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 41px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.govuk-app-heading-m-android {
+  color: #0b0c0c;
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  margin-top: 0px;
+  margin-bottom: 8px;
+}
+
+
+//---------------BODY-------------------------------------------//
+
+.govuk-app-body-android {
+  color: #0b0c0c;
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+//---------------LISTS-------------------------------------------//
+
+.govuk-app-list-android {
+  color: #0b0c0c;
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  list-style-type: none;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  margin-top: 0;
+  margin-bottom: 24px;
+  padding-left: 0;
+}
+
+.govuk-app-list-android>li {
+  margin-bottom: 8px;
+}
+
+.govuk-app-list-android--bullet {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.govuk-app-list-android--number {
+  padding-left: 20px;
+  list-style-type: decimal;
+}
+
+.blue-text {
+  color: #1d70b8;
+}
+
+//---------------LINKS-------------------------------------------//
+
+.govuk-app-link-android {
+  color: #00703C !important;
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 17px;
+  line-height: 22px;
+}
+
+.govuk-app-link-android:focus {
+  outline: none !important;
+  /* Remove outline */
+  color: none !important;
+  background-color: transparent !important;
+  /* Remove background color */
+  box-shadow: none !important;
+  text-decoration: none !important;
+  /* You can customize text decoration as needed */
+  box-decoration-break: unset !important;
+  /* Reset box decoration */
+}
+
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* Android ID Check App Components  */
+/* ------------------------------------------------------------------------------------------ */
+
+//---------------BUTTONS-------------------------------------------//
+
+.govuk-app-button-group-android {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.govuk-app-button-android {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+  border: 0px solid transparent;
+  color: #ffffff;
+  background: #00703C;
+  box-shadow: 0px 2px 0px #002D18;
+  cursor: pointer;
+  margin-bottom: 16px !important;
+}
+
+.govuk-app-button-android img {
+  width: 17px;
+  height: 17px;
+  vertical-align: middle;
+  /* Align the image vertically in the button */
+}
+
+.govuk-app-button-default-android {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+  border: 0px solid transparent;
+  color: #ffffff;
+  background: #00703C;
+  box-shadow: 0px 2px 0px #002D18;
+  cursor: pointer;
+  margin-bottom: 16px !important;
+}
+
+.govuk-app-button-default-android img {
+  width: 17px;
+  height: 17px;
+  vertical-align: middle;
+  /* Align the image vertically in the button */
+}
+
+.govuk-app-button-android--secondary {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  gap: 8px;
+  align-items: center;
+  background-color: #FFFFFF !important;
+  color: #00703C !important;
+  border: 0px solid transparent;
+  cursor: pointer;
+}
+
+.govuk-app-button-android--secondary img {
+  width: 17px;
+  height: 17px;
+  vertical-align: middle;
+  /* Align the image vertically in the button */
+}
+
+
+//---------------WARNING TEXT-------------------------------------------//
+
+.govuk-app-warning-text-android {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.govuk-app-warning-text-android__icon {
+  font-weight: 700;
+  box-sizing: border-box;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  min-width: 35px;
+  min-height: 35px;
+  margin-top: -7px;
+  border: 3px solid #0b0c0c;
+  border-radius: 50%;
+  color: #ffffff;
+  background: #0b0c0c;
+  font-size: 30px;
+  line-height: 29px;
+  text-align: center;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  forced-color-adjust: none;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* Android Bottom Nav Bar  */
+/* ------------------------------------------------------------------------------------------ */
+
+.BottomBar {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% + 32px);
+  /* Add the total margin width (16px on each side) to the container's width */
+  margin-left: -16px;
+  /* Offset the negative margin to align with the mobile frame */
+  margin-right: -16px;
+  /* Offset the negative margin to align with the mobile frame */
+}
+
+.BottomBar2 {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% + 32px);
+  /* Add the total margin width (16px on each side) to the container's width */
+  margin-left: -16px;
+  /* Offset the negative margin to align with the mobile frame */
+  margin-right: -16px;
+  /* Offset the negative margin to align with the mobile frame */
+  margin-bottom: -10px;
+  /* Compensate for the bottom margin */
+}
+
+.mobile-frame {
+  position: relative;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.waves-effect {
+  height: 40px;
+  border-radius: 18px;
+  margin-left: 5px;
+  margin-right: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.waves-effect:hover {
+  background-color: #333;
+  /* Adjust as needed */
+}
+
+.waves-effect:focus {
+  outline: none !important;
+  /* Remove outline */
+  color: none !important;
+  background-color: transparent !important;
+  /* Remove background color */
+  box-shadow: none !important;
+  text-decoration: none !important;
+  /* You can customize text decoration as needed */
+  box-decoration-break: unset !important;
+  /* Reset box decoration */
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.black {
+  background-color: black;
+}
+
+.white-text {
+  color: white;
+}
+
+
+//---------------MEDIA QUERIES-------------------------------------------//
+
+/* Hide the bottom bar when viewport width is less than or equal to 641px */
+@media (max-width: 40.0625rem) {
+  .BottomBar {
+    display: none;
+  }
+}
+
+
+//android snackbar
+
+.snackbar {
+  background-color:
+    #000000;
+  color: white;
+  padding: 18px 24px;
+
+}
+
+.snackbar-container {
+  position: absolute;
+  bottom: 0;
+  /* Position the container at the bottom */
+  left: 0;
+  width: 100%;
+  /* Occupy full width */
+  z-index: 1000;
+  /* Ensure it's above other content */
+
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* Android Loading spinner  */
+/* ------------------------------------------------------------------------------------------ */
+
+.android-loading {
+  fill: transparent;
+  stroke: #00703C;
+  /* New color */
+  stroke-width: 5px;
+  /* Adjust the stroke width as needed */
+  stroke-dasharray: 157;
+  /* Adjust based on the circumference of the circle (2 * PI * r) */
+  animation: dash 3s ease infinite, rotate 1.5s linear infinite;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 157;
+  }
+
+  /* Adjust based on the circumference of the circle (2 * PI * r) */
+  50% {
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: -157;
+  }
+
+  /* Adjust based on the circumference of the circle (2 * PI * r) */
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* Android Dialog  */
+/* ------------------------------------------------------------------------------------------ */
+
+/* Android alert Wrapper */
+.android-alert-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent black */
+  z-index: 1;
+  /* Place overlay above other content */
+  animation: fadeInOverlay 0.2s ease forwards;
+  /* Fade-in animation for the overlay */
+}
+
+/* android Alert Container */
+.android-alert-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 270px;
+  background-color: white;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  font-family: 'SF Pro Regular', sans-serif;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  background-color: #fff;
+  /* Background color for pop-up */
+  z-index: 2;
+  /* Ensure pop-up appears above overlay */
+  opacity: 0;
+  /* Initially hide alert */
+  animation: fadeInAlert 0.3s ease forwards;
+  /* Fade-in animation for the iOS alert */
+  animation-delay: 0.1s;
+  /* Delay before the alert starts fading in */
+}
+
+/* android Alert Header */
+.android-alert-header {
+  padding: 20px 30px 0 30px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+/* android Alert Body */
+.android-alert-body {
+  padding: 10px 30px 20px 30px;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* android Alert Footer */
+.android-alert-footer {
+  display: flex;
+  flex-direction: column;
+  /* Arrange buttons vertically */
+}
+
+
+/* Android Alert Default Button */
+.android-alert-default-button {
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 14px;
+  color: #007AFF;
+  /* Updated color */
+  padding: 15px 0;
+  border-right: 0.5px solid hsla(240, 6%, 25%, 0.36);
+  /* Updated border */
+  outline: none;
+  border-top: 0.5px solid hsla(240, 6%, 25%, 0.36);
+}
+
+.android-alert-default-button:hover {
+  background-color: hsla(0, 0%, 0%, 0.1);
+}
+
+.android-alert-default-button:last-child {
+  border-right: none;
+}
+
+/* Fade-in animation for the overlay */
+@keyframes fadeInOverlay {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    /* Start with transparent background */
+  }
+
+  to {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fade in to semi-transparent black */
+  }
+}
+
+/* Fade-in animation for the iOS alert */
+@keyframes fadeInAlert {
+  from {
+    opacity: 0;
+    /* Start with opacity 0 */
+  }
+
+  to {
+    opacity: 1;
+    /* Fade in with opacity 1 */
+  }
+}
+
+
+.button-container-android {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 20px);
+  display: flex;
+  justify-content: center;
+
+}
+
+
+.bottom-body-container {
+  position: absolute;
+  bottom: 135px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 20px);
+  display: flex;
+  justify-content: center;
+}
+
+.open-app-bottom-body-container {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 20px);
+  display: flex;
+  justify-content: center;
+}

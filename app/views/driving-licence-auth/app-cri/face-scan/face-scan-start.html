@@ -1,0 +1,65 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Face scan start
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+
+    <form class="form" method="post">
+
+        <h1 class="govuk-app-heading-l govuk-app-margin-bottom-s govuk-app-margin-top-l">
+          Scan your face with your selfie camera
+        </h1>
+
+        <p class="govuk-app-body govuk-app-margin-bottom-xl">This matches your face to your driving licence photo. It helps us protect you from identity theft.</p>
+        <h2 class="govuk-app-heading-m">Next you will need to:</h1>
+        <ul class="govuk-app-list govuk-app-list--bullet">
+          <li>remove anything obstructing view to your face such as tinted glasses or masks</li>
+          <li>position your face inside an oval frame</li>
+          <li>follow the guidelines on the screen until the scan is complete</li>
+        </ul>
+
+        <div class="govuk-app-warning-text govuk-app-margin-bottom-m">
+          <span class="govuk-app-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+          While scanning your face you will see a sequence of flashing colours.
+          </strong>
+        </div>
+
+        <a href="#" class="govuk-app-link">
+          View information on light sensitivity
+          <img src="/public/images/linkout-symbol.svg" alt="iOS Link Out Symbol" style="vertical-align: middle;">
+        </a>
+        
+      
+          <div class="button-container govuk-app-button-group">
+            <button type="submit" class="govuk-app-button" data-module="govuk-button" formaction="scan-face">
+              Start
+            </button>
+            <button type="submit" class="govuk-app-button--secondary" data-module="govuk-button" formaction="#">
+              Confirm your identity another way
+              <img src="/public/images/linkout-symbol.svg" alt="iOS Link Out Symbol" style="vertical-align: middle;">
+            </button>
+          </div>
+    
+  </div>
+</div>
+
+{% endblock %}

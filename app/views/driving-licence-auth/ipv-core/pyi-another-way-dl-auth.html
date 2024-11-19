@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Prove your identity another way - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="#" method="post">
+      {{ govukRadios({
+        name: "another-way-dl",
+        idPrefix: "another-way-dl",
+        fieldset: {
+          legend: {
+          text: "How would you like to prove your identity?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"}
+        },
+        items: [
+          {
+            value: "app",
+            text: "Use another type of photo ID in the GOV.UK ID Check app"
+          },
+          {
+            value: "post office",
+            text: "Go to a Post Office",
+            hint: {
+              text: "You’ll be asked to enter details from your photo ID on GOV.UK first."
+            }
+          },
+          {
+          divider: "or"
+          },
+          {
+            value: "service",
+            text: "Go to the service you need to use to find out if there are other ways to access it "
+          }
+        ]
+      }) }}
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

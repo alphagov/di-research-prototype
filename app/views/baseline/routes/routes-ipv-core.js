@@ -351,7 +351,7 @@ router.post(`${parentDir}/ipv-core/continuity-of-identity/update-name`, (req, re
 });
 
 // app success routing (COI/6MFC and normal)
-router.post(`${parentDir}/ipv-core/app-success`, function (request, response) {
+router.post(`${parentDir}/ipv-core/app-success-page`, function (request, response) {
 	var details = request.session.data['updateDetails']
 	var continuityIdentity = request.session.data['continuityIdentity']
 	const liveInUK = request.session.data['live-in-uk-choose']

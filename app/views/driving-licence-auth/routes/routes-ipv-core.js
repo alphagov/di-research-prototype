@@ -91,13 +91,13 @@ router.post(`${parentDir}/ipv-core/pyiPO`, function (request, response) {
 	}
 })
 
-// Device screener
+// Device screener EDITED FOR DL AUTH
 router.post(`${parentDir}/ipv-core/triage/device-check`, function (request, response) {
 	var appDeviceCheck = request.session.data['app-device-check']
 	if (appDeviceCheck == "yes") {
 		response.redirect("smartphone-access")
 	} else {
-		response.redirect("smartphone-type")
+		response.redirect("comupter-tablet")
 	}
 })
 
@@ -246,23 +246,14 @@ router.post(`${parentDir}/ipv-core/international-passport-dropoff-post`, functio
 })
 
 //Routing on the app download page. Users will see if a different page if they select "no" based on whether they are in the UK or not 
-router.post(`${parentDir}/ipv-core/triage/app-download`, function (request, response) {
-	const appDeviceCheck = request.session.data['app-download-check'];
-	const userChoice = request.session.data['live-in-uk-choose']; // earlier yes or no selection on the 'Do you live in the UK...' page
-	var continuityIdentity = request.session.data['continuityIdentity']
-
-	if (appDeviceCheck !== "iphone" && appDeviceCheck !== "android") {
-		if (userChoice === "yes") {
-			response.redirect("../app-drop-off-buffer");
-		} else if (userChoice === "no") {
-			response.redirect("../non-uk-no-app");
-		} else if (continuityIdentity === "coi" || continuityIdentity === "fraud") {
-			response.redirect("../pyi-another-way");
-		} else {
-			response.redirect("../app-drop-off-buffer");
-		}
+router.post(`${parentDir}/ipv-core/triage/app-download`, function (req, res) {
+	const phone = req.body['app-download-check'];
+	if (phone === 'no') {
+		// Redirect to the page for users who have a biometric passport
+		res.redirect('smartphone-access');
 	} else {
-		response.redirect("../app-download");
+		// Redirect to the page for users who do not have a biometric passport
+		res.redirect('valid-passport');
 	}
 });
 
@@ -351,7 +342,7 @@ router.post(`${parentDir}/ipv-core/continuity-of-identity/update-name`, (req, re
 });
 
 // app success routing (COI/6MFC and normal)
-router.post(`${parentDir}/ipv-core/app-success`, function (request, response) {
+router.post(`${parentDir}/ipv-core/app-success-page`, function (request, response) {
 	var details = request.session.data['updateDetails']
 	var continuityIdentity = request.session.data['continuityIdentity']
 	const liveInUK = request.session.data['live-in-uk-choose']
@@ -369,5 +360,35 @@ router.post(`${parentDir}/ipv-core/app-success`, function (request, response) {
 		response.redirect("../address-cri/find-current-address")
 	}
 })
+
+// DL auth check specific routes (NOT TO BE COPIED TO BASELINE)
+router.post(`${parentDir}/ipv-core/triage/passport-check`, (req, res) => {
+	const passportCheck = req.body['passport-check'];
+	if (passportCheck == 'no') {
+		res.redirect('brp');
+	} else {
+		res.redirect('valid-passport'); // goes nowhere, for testing purposes
+	}
+});
+
+// DL auth check specific routes (NOT TO BE COPIED TO BASELINE)
+router.post(`${parentDir}/ipv-core/triage/brp-check`, (req, res) => {
+	const brpCheck = req.body['brp-check'];
+	if (brpCheck == 'no') {
+		res.redirect('valid-dl');
+	} else {
+		res.redirect('brp'); // goes nowhere, for testing purposes
+	}
+});
+
+// DL auth check specific routes (NOT TO BE COPIED TO BASELINE)
+router.post(`${parentDir}/ipv-core/triage/dl-check`, (req, res) => {
+	const dlCheck = req.body['dl-check'];
+	if (dlCheck == 'yes') {
+		res.redirect('id-check-app-dl');
+	} else {
+		res.redirect('valid-dl'); // goes nowhere, for testing purposes
+	}
+});
 
 module.exports = router;
