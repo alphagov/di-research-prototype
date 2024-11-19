@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Check your address - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="address-screen" method="post">
+      <div class="govuk-form-group">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Check your address
+            </h1>
+          </legend>
+          <p>Make sure there are no mistakes in your current home address before you continue.</p>
+          <p>
+            {% if data['address-city-current'] %}
+              {% if data['address-line1-current'] %}
+                {{ data['address-line1-current'] }}<br>
+              {% endif %}
+              {% if data['address-line2-current'] %}
+                {{ data['address-line2-current'] }}<br>
+              {% endif %}
+              {{ data['address-city-current'] }}<br>
+              {% if data['address-county-current'] %}
+                {{ data['address-county-current'] }}<br>
+              {% endif %}
+              {{ data['address-postcode-current'] or 'LS1 3BE' }}
+
+              {% else %}
+                Office 14 <br>
+                New Station St <br>
+                Leeds <br>
+                LS1 5DL
+            {% endif %}
+          </p>
+
+          {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "correct-address",
+            name: "correct-address",
+            fieldset: {
+              legend: {
+                text: "Is your current home address correct?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No - there is a mistake"
+              }
+            ]
+          }) }}
+      </div>
+      <button class="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

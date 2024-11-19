@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+GOV.UK account: report a problem or give feedback
+{% endblock %}
+
+{% block header %}
+{% include "../support/_includes/header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="support-account-create-post" method="post">
+      <h1 class="govuk-heading-l">A problem creating a GOV.UK One Login account</h1>
+        {{ govukRadios({
+        classes: "govuk-radios",
+        idPrefix: "support-account-create",
+        name: "support-account-create",
+        fieldset: {
+          legend: {
+            text: "Tell us what happened",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "You do not have a UK mobile phone number",
+            text: "You do not have a UK mobile phone number",
+            checked: checked("support-account-create", "You do not have a UK mobile phone number")
+          },
+          {
+            value: "You did not get a security code",
+            text: "You did not get a security code",
+            checked: checked("support-account-create", "You did not get a security code")
+          },
+          {
+            value: "The security code did not work",
+            text: "The security code did not work",
+            checked: checked("support-account-create", "The security code did not work")
+          },
+          {
+            value: "You had a problem with an authenticator app",
+            text: "You had a problem with an authenticator app",
+            checked: checked("support-account-create", "You had a problem with an authenticator app")
+          },
+          {
+            value: "There was a technical problem (for example you saw an error message)",
+            text: "There was a technical problem (for example you saw an error message)",
+            checked: checked("support-account-create", "There was a technical problem (for example you saw an error message)")
+          },
+          {
+            value: "A problem proving your identity",
+            text: "Something else",
+            checked: checked("support-account-create", "A problem proving your identity")
+          }
+        ]
+      }) }}
+      <button id="button" class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

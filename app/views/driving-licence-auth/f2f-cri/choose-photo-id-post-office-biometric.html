@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Do you have a UK passport? - GOV.UK One Login
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Do you have a UK passport?</h1>
+      <p>If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date.</p>
+      <p>You cannot use a photocopy or digital copy of your passport.</p>
+      <form class="form" action="f2f-thin-file" method="post">
+        {{ govukRadios({
+          name: "f2f-thin-file",
+          idPrefix: "f2f-thin-file",
+          items: [{
+            value: "yes",
+            text: "Yes, I have a UK passport"
+            },
+            {
+            value: "no",
+            text: "No, I do not have a UK passport"
+            }]
+        }) }}
+        <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+      </form>
+    </div> <!-- /. govuk-grid-column-two-thirds -->
+  </div> <!-- /. govuk-grid-row -->
+
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Continue proving your identity online - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Continue proving your identity online</h1>
+    <p>You can continue proving your identity online by entering details from any of the following:</p>
+    <p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>UK photocard driving licence (full or provisional)</li>
+        <li>UK passport</li>
+        {% if (data['confidence'] == "low") %}
+          <li>National Insurance number</li>
+        {% endif %}
+      </ul>
+    </p>
+    <p>You’ll also need to answer some security questions. We use these to stop anyone who might have your details from pretending to be you.</p>
+    <p>It takes about 10 minutes to prove your identity this way.</p>
+    <form class="form" action="eligibility-drop-off" method="post">
+      {% if (data['confidence'] == "low") %}
+      {{ govukRadios({
+        name: "eligibility-drop-off",
+        idPrefix: "eligibility-drop-off",
+        fieldset: {
+          legend: {
+          text: "How would you like to prove your identity?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"}
+        },
+        items: [{
+          value: "driving-licence",
+          text: "Enter your UK driving licence details"
+          },
+          {
+          value: "passport",
+          text: "Enter your UK passport details"
+          },
+          {
+          value: "nino",
+          text: "Enter your National Insurance number"
+          },
+          {
+          divider: "or"
+          },
+          {
+          value: "no",
+          text: "Prove your identity another way"
+        }]
+      }) }}
+
+      {% else %}
+      {{ govukRadios({
+        name: "eligibility-drop-off",
+        idPrefix: "eligibility-drop-off",
+        fieldset: {
+          legend: {
+          text: "Do you want to use your UK photocard driving licence or UK passport to prove your identity?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"}
+        },
+        hint: {
+          text: "You’ll need to have your photo ID ready. You cannot use a photocopy or digital copy."
+        },
+        items: [{
+          value: "driving-licence",
+          text: "Enter your UK driving licence details"
+          },
+          {
+          value: "passport",
+          text: "Enter your UK passport details"
+          },
+          {
+          divider: "or"
+          },
+          {
+          value: "no",
+          text: "Prove your identity another way"
+        }]
+      }) }}
+      {% endif %}
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

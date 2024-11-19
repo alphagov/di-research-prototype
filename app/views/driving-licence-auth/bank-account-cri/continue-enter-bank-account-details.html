@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Continue to enter your bank or building society account details - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Continue to enter your bank or building society account details</h1>
+    <p>Next, we’ll ask for some information about your account.</p>
+    <p>It must be:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>a current account or joint current account</li>
+      <li>with a UK bank or building society</li>
+      <li>in your name</li>
+    </ul>
+    <p>You cannot use a:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>business account</li>
+      <li>savings account, including an Individual Savings Account (ISA)</li>
+    </ul>
+    <h2 class="govuk-heading-m">What to expect</h2>
+    <p>You’ll need to tell us the:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>sort code</li>
+      <li>account number</li>
+    </ul>
+    <p>We’ll check your account name and details with your bank or building society.</p>
+    <p>Your name and account details must match.</p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          How we use your bank details
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p>We will not save or share your account details. </p>
+        <p>We do not use your account details to check or take any payments. </p>
+      </div>
+    </details>
+    <form class="form" action="enter-account-details" method="post">
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+    <p><a href="how-to-continue-bank">I need to prove my identity another way</a></p>
+  </div>
+</div>
+
+{% endblock %}

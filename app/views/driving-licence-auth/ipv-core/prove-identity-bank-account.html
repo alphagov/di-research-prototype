@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Prove your identity another way - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Prove your identity with bank or building society details and security questions</h1>
+    <p>You can use any current account with a UK bank or building society to prove your identity. Your name must be on the account.</p>
+    <h2 class="govuk-heading-m">Provide some personal details</h2>
+    <p>We’ll ask you for your:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>name</li>
+      <li>date of birth</li>
+      <li>sort code and account number</li>
+      <li>National Insurance number</li>
+      <li>current address (you might also need your previous address if you’ve recently moved)</li>
+    </ul>
+    <h2 class="govuk-heading-m">Answer some security questions</h2>
+    <p>We’ll then ask you some security questions. This helps us check if the details you've given are being used by you.</p>
+    <form class="form" action="bank-account" method="post">
+      {{ govukRadios({
+      classes: "govuk-radios",
+      name: "bank-account",
+      idPrefix: "bank-account",
+      fieldset: {
+        legend: {
+          text: "Do you have a UK bank or building society current account in your name?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No - prove my identity another way"
+        }
+      ]
+      }) }}
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

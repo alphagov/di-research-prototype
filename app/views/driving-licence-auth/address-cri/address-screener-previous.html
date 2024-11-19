@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Check your address - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+<a class="govuk-back-link" href="address-picker-previous">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="address-screen-previous" method="post">
+      <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Check your previous address
+          </h1>
+        </legend>
+        <p>Make sure there are no mistakes in your previous address before you continue.</p>
+        <p>{% if data['address-city-prev'] %}
+          {% if data['address-line1-prev'] %}
+            {{ data['address-line1-prev'] }}<br>
+          {% endif %}
+          {% if data['address-line2-prev'] %}
+            {{ data['address-line2-prev'] }}<br>
+          {% endif %}
+          {{ data['address-city-prev'] }}<br>
+          {% if data['address-county-prev'] %}
+            {{ data['address-county-prev'] }}<br>
+          {% endif %}
+          {{ data['address-postcode-prev'] or 'N15 6QJ' }}
+
+          {% else %}
+            Office 14 <br>
+            New Station St <br>
+            Leeds <br>
+            LS1 5DL
+          {% endif %}
+        </p>
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "correct-prev-address",
+          name: "correct-prev-address",
+          fieldset: {
+            legend: {
+              text: "Is your previous address correct?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No - there is a mistake"
+            }
+          ]
+        }) }}
+      </div>
+      <button class="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+

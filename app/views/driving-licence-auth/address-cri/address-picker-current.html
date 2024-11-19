@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Choose your address  - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+<a class="govuk-back-link" href="find-current-address">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="address-picker-current-post" method="post">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Choose your address
+          </h1>
+        </legend>
+        <p>
+          <span class="govuk-!-margin-bottom-1 govuk-!-display-block">Postcode</span>
+          <strong>{{ data['address-postcode-current'] or 'LS1 3BE' }}</strong>
+          <a href="find-current-address" class="govuk-!-margin-left-5">
+            Change
+            <span class="govuk-visually-hidden">your postcode</span>
+          </a>
+        </p>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="delivery-address">
+            Choose your current home address from the list
+          </label>
+          <select class="govuk-select" id="delivery-address" name="current-address">
+            {% for item in data['searched-addresses-current'] %}
+              <option value={{item.id}}>{{item.option}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </fieldset>
+      <p class="govuk-body"><a href="find-current-address-manual">I cannot find my address in the list</a></p>
+      <button class="govuk-button" type="submit" data-module="govuk-button">
+        Choose address
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

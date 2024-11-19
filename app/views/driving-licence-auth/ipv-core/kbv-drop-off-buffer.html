@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+You must answer all security questions to prove your identity - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">You must answer all security questions to prove your identity</h1>
+    <p>You cannot skip any questions.</p>
+    <form class="form" action="kbv-drop-off-buffer" method="post" id="kbvForm">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              What would you like to do?
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whatToDo" name="whatToDo" type="radio" value="continue">
+              <label class="govuk-label govuk-radios__label" for="whatToDo">
+                Continue answering the security questions
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whatToDo-2" name="whatToDo" type="radio" value="stop">
+              <label class="govuk-label govuk-radios__label" for="whatToDo-2">
+                Stop answering the security questions and prove your identity another way
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+    <p><a class="govuk-link" href="#">Contact the GOV.UK One Login team (opens in a new tab)</a></p>
+  </div>
+</div>
+
+<script>
+  // Redirects to previous question page
+  document.getElementById('kbvForm').onsubmit = function(event) {
+    event.preventDefault(); // Prevent the form from submitting the traditional way
+
+    // Get the selected value
+    const selectedOption = document.querySelector('input[name="whatToDo"]:checked').value;
+
+    // Redirect based on the selected option
+    if (selectedOption === "continue") {
+        // Redirect to the previous page or a default page if referrer is not available
+        window.location.href = document.referrer || 'dwp-question1';
+    } else if (selectedOption === "stop") {
+        // Redirect to the kbv-drop-off page
+        window.location.href = 'kbv-drop-off';
+    }
+  };
+</script>
+
+{% endblock %}
