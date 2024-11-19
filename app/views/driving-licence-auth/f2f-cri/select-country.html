@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Select which country your ID is from - GOV.UK One Login
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../../_includes/phase-banner.html" %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if (data['f2f-id'] == "Non-UK passport") %}
+        <h1 class="govuk-heading-l">Select which country your passport is from</h1>
+        <p>If the country your passport is from is not on the list, you’ll need to choose another type of photo ID.</p>
+
+      {% elseif (data['f2f-id'] == "European Union (EU) photocard driving licence") %}
+        <h1 class="govuk-heading-l">Select which country your driving licence is from</h1>
+        <p>If the country your driving licence is from is not on the list, you’ll need to choose another type of photo ID.</p>
+
+      {% elseif (data['f2f-id'] == "National identity card") %}
+        <h1 class="govuk-heading-l">Select which country your national identity card is from</h1>
+        <p>If the country your national identity card is from is not on the list, you’ll need to choose another type of photo ID.</p>
+
+      {% endif %}
+      <form class="form" action="find-post-office-prove-identity" method="post">
+        {{ govukSelect({
+          id: "id-select-country",
+          name: "id-select-country",
+          label: {
+            text: "Select country"
+          },
+          items: [
+            {
+              value: "select country",
+              text: "Select country",
+              selected: true
+            },
+            {
+              value: "Austria",
+              text: "Austria"
+            },
+            {
+              value: "Belgium",
+              text: "Belgium"
+            },
+            {
+              value: "Bulgaria",
+              text: "Bulgaria"
+            }
+          ]
+        }) }}
+        <button class="govuk-button" type="submit" data-module="govuk-button">Continue</button>
+      </form>
+      <p><a href="choose-photo-id-post-office">The country my driving licence is from is not on the list</a></p>
+    </div>
+  </div>
+
+{% endblock %}

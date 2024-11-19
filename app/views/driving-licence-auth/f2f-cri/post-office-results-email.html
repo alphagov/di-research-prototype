@@ -1,0 +1,70 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% set htmlClasses = "app-email" %}
+{% set bodyClasses = "app-email__body" %}
+{% block footer %}{% endblock %}
+
+{% block pageTitle %}
+Sign in to view the result of your identity check 
+{% endblock %}
+
+{% block headIcons %}
+<link rel="icon" sizes="48x48" href="/plugin-assets/govuk-frontend/dist/govuk/assets/images/favicon.ico">
+<link rel="icon" sizes="any" href="/plugin-assets/govuk-frontend/dist/govuk/assets/images/favicon.svg" type="image/svg+xml">
+{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="email-message">
+      <table class="email-message-meta">
+        <tbody>
+          <tr>
+            <th scope="row">From</th>
+            <td>
+            GOV.UK One Login
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">To</th>
+            <td>
+              <span class="placeholder-no-brackets background: #fd0;">john.doe@example.com</span>
+            </td>
+          </tr>
+          <tr class="email-message-meta">
+            <th scope="row">Subject</th>
+            <td>
+              Sign in to view the result of your identity check 
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      {{ govukHeader({
+        homepageUrl: "#"
+      }) }}
+      <div class="email-message-body govuk-!-margin-top-4 govuk-!-margin-bottom-0">
+        <p>Dear John Doe,</p>
+        <p>You recently took your {{ data['f2f-id'] }}, which expires on 31 December 2024, to the Post Office at 4:43pm on 12 September 2023. </p>
+        <p>The Post Office branch shown on your customer letter is {{ data['post-office-branches'] }} </p>
+        <p>To view the result of your identity check, you need to sign in to your GOV.UK One Login: <a href="/auth/v8f/gov-account"> https://return.account.gov.uk/resume</a> </p>
+        <p>Then you'll be sent to the service you need to use.  </p>
+        <p>After you continue, you'll be able to view the result of your identity check.</p>
+        <p>If you need help, contact us: <a href="#">https://signin.account.gov.uk/contact-us</a> </p>
+      
+
+      <p>Regards,</p>
+      <p>GOV.UK One Login team</p>
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      <p class="govuk-body govuk-!-margin-bottom-6">Do not reply to this email - it’s an automatic message from an unmonitored account.</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

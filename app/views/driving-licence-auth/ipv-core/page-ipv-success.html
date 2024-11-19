@@ -1,0 +1,26 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Continue to the service you want to use - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="../service/service-start" method="post" class="form">
+      <h1 class="govuk-heading-l">
+        Continue to the service you want to use
+      </h1>
+      <p>You've successfully proved your identity. You can now continue to the service you want to use.</p>
+      <p>Some of the information you shared when you proved your identity might be used to automatically fill in forms within the service.</p>
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Customise a user journey - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form action="./authentication/gov-account">
+            {% if (data['confidence'] == "low") %}
+            <h1 class="govuk-heading-l">YOUR CONFIDENCE IS LOW</h1>
+
+            {% else %}
+            <h1 class="govuk-heading-l">YOUR CONFIDENCE IS MEDIUM</h1>
+            
+            {% endif %}
+
+            {% if (data['kbv'] == "experian") %}
+            <h2 class="govuk-heading-m">You've chosen Experian</h2>
+
+            {% elseif (data['kbv'] == "hmrc") %}
+            <h2 class="govuk-heading-m">You've chosen HMRC</h2>
+
+            {% elseif (data['kbv'] == "dwp") %}
+            <h2 class="govuk-heading-m">You've chosen DWP</h2>
+            
+            {% endif %}
+
+            {% if (data['hmrcSet']) %}
+            <p>{{ data['hmrcSet'] }}</p>
+            
+            {% else %}
+            <h2 class="govuk-heading-m">No HMRC selected</h2>
+            
+            {% endif %}
+            <button id="button" class="govuk-button" data-module="govuk-button" >CONGRATULATIONS</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

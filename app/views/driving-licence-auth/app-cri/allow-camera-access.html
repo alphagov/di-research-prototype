@@ -1,0 +1,102 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Allow camera access
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <form class="form" method="post">
+
+        <h1 class="govuk-app-heading-l govuk-app-margin-bottom-s govuk-app-margin-top-l">
+          Take a photo of the front of your driving licence
+        </h1>
+
+        <p class="govuk-app-body govuk-app-margin-bottom-xl">This is so we can confirm your driving licence is valid.</p>
+        <h2 class="govuk-app-heading-m">Next you will need to:</h1>
+        <ul class="govuk-app-list govuk-app-list--bullet">
+          <li>place your driving licence face up</li>
+          <li>position your licence inside the white frame</li>
+          <li>follow the guidelines until the white frame turns green</li>
+        </ul>
+
+          <div class="govuk-app-warning-text">
+            <span class="govuk-app-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+             The scan will involve flashing of coloured lights for a few seconds
+            </strong>
+          </div>
+
+   
+          <div class="button-container govuk-app-button-group">
+            <button type="submit" class="govuk-app-button" data-module="govuk-button">
+              Continue
+            </button>
+            <button type="submit" class="govuk-app-button--secondary" data-module="govuk-button">
+              Confirm your identity another way
+              <img src="/public/images/linkout-symbol.svg" alt="iOS Link Out Symbol">
+            </button>
+          </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="iOS-alert-wrapper">
+
+    <div class="iOS-alert-container">
+      <div class="iOS-alert-header">
+        <slot name="header">
+          "GOV.UK ID Check" Would Like to Access the Camera
+        </slot>
+      </div>
+      <div class="iOS-alert-body">
+        <slot name="body">
+          The app will only access your camera during your identity check. It will only use your camera to confirm your identity.
+        </slot>
+      </div>
+      <div class="iOS-alert-footer">
+        <slot name="footer">
+          <button class="iOS-alert-default-button" formaction="#">
+            Don't allow
+          </button>
+          <button class="iOS-alert-default-button" formaction="position-camera-front">
+            Allow
+          </button>
+        </slot>
+      </div>
+   
+    </div>
+
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
