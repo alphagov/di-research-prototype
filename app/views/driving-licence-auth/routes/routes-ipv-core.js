@@ -97,7 +97,7 @@ router.post(`${parentDir}/ipv-core/triage/device-check`, function (request, resp
 	if (appDeviceCheck == "yes") {
 		response.redirect("smartphone-access")
 	} else {
-		response.redirect("comupter-tablet")
+		response.redirect("computer-tablet")
 	}
 })
 
