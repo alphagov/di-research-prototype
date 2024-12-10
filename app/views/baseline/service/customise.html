@@ -11,6 +11,13 @@ Customise a user journey - GOV.UK One Login - GOV.UK
 		<h1 class="govuk-heading-l">Customise the user journey</h1>
 		<p>Select options to customise the user journey. You can change the confidence level and KBV questions the user will see.</p>
         <form id="generate-url" action="../service/generate-url" method="POST">
+			 <h3 class="govuk-heading-s">
+                Your generated URL
+            </h3>
+			{% if userURI %}
+				<p><span>{{ buildUserReadout }}</span> <a href="{{ userURI }}" target="_blank">{{ userURI }}</a></p>
+			{% endif %}
+			
 			{{ govukRadios({
 			name: "whichConfidence",
 			fieldset: {
@@ -161,12 +168,6 @@ Customise a user journey - GOV.UK One Login - GOV.UK
 				}
 			]
 			}) }}
-            <h3 class="govuk-heading-s">
-                Your generated URL
-            </h3>
-			{% if userURI %}
-				<p><span>{{ buildUserReadout }}</span> <a href="{{ userURI }}" target="_blank">{{ userURI }}</a></p>
-			{% endif %}
             <button id="button" class="govuk-button" data-module="govuk-button">Generate a web address</button>
         </form>
     </div>
