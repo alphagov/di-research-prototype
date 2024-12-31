@@ -39,6 +39,27 @@ Customise a user journey - GOV.UK One Login - GOV.UK
 			]
 			}) }}
 
+			{{ govukRadios({
+			name: "dlID",
+			fieldset: {
+				legend: {
+				text: "Driving licence as ID type?",
+				isPageHeading: true,
+				classes: "govuk-fieldset__legend--m"
+				}
+			},
+			items: [
+				{
+				value: "yes",
+				text: "Yes"
+				},
+				{
+				value: "no",
+				text: "No"
+				}
+			]
+			}) }}
+
 			{% set hmrcSet %}
 			{{ govukCheckboxes({
 			name: "hmrcSet",

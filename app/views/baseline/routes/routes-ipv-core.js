@@ -113,6 +113,67 @@ router.post(`${parentDir}/ipv-core/triage/app-download-smartphone`, function (re
 	}
 })
 
+// Driving licence ID auth check routing if app route taken
+router.post(`${parentDir}/ipv-core/app-success-dl-check`, function (request, response) {
+	var drivingLicence = request.session.data['drivingLicence']
+	if (drivingLicence == "yes") {
+		response.redirect("auth-check-details")
+	} else {
+		response.redirect("app-success")
+	}
+})
+
+// Driving licence details correct from app scan?
+router.post(`${parentDir}/ipv-core/dl-correct`, (req, res) => {
+	const dlCorrect = req.body['dl-correct'];
+	if (dlCorrect == 'yes') {
+		res.redirect('auth-consent');
+	} else {
+		res.redirect('dl-details-incorrect');
+	}
+});
+
+// Driving licence consent
+router.post(`${parentDir}/ipv-core/auth-consent`, (req, res) => {
+	let consent = req.body.consent;
+
+	// Resolve multiple values (if present)
+	if (Array.isArray(consent)) {
+		// Prioritize "yes" if present, otherwise use "no"
+		consent = consent.includes('yes') ? 'yes' : 'no';
+	}
+
+	console.log('Resolved Consent value:', consent);
+
+	if (consent === 'yes') {
+		res.redirect('app-success');
+	} else {
+		res.redirect('auth-consent-error');
+	}
+});
+
+// Driving licence details incorrect options
+router.post(`${parentDir}/ipv-core/dl-incorrect`, (req, res) => {
+	const dlIncorrect = req.body['dl-incorrect'];
+	if (dlIncorrect == 'again') {
+		res.redirect('triage/computer-tablet');
+	} else {
+		res.redirect('pyi-another-way-dl-auth');
+	}
+});
+
+// Driving licence details incorrect PYI another way options
+router.post(`${parentDir}/ipv-core/another-way-dl`, (req, res) => {
+	const anotherWayDL = req.body['another-way-dl'];
+	if (anotherWayDL == 'app') {
+		res.redirect('triage/computer-tablet');
+	} else if (anotherWayDL == 'post office') {
+		res.redirect('../f2f-cri/prove-identity-post-office')
+	} else {
+		res.redirect('../service/service-start');
+	}
+});
+
 // Driving licence fail
 router.post(`${parentDir}/ipv-core/dl-fail`, function (request, response) {
 	var dlFail = request.session.data['dl-fail']
