@@ -245,7 +245,7 @@ router.post(`${parentDir}/ipv-core/international-passport-dropoff-post`, functio
 	}
 })
 
-//Routing on the app download page. Users will see if a different page if they select "no" based on whether they are in the UK or not 
+// Routing on the app download page. Users will see if a different page if they select "no" based on whether they are in the UK or not 
 router.post(`${parentDir}/ipv-core/triage/app-download`, function (req, res) {
 	const phone = req.body['app-download-check'];
 	if (phone === 'no') {

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Checking your details- GOV.UK One Login - GOV.UK
+We’re checking your details - GOV.UK One Login - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -70,8 +70,8 @@ Checking your details- GOV.UK One Login - GOV.UK
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="app-success-page" method="post">
-      <h1 class="govuk-heading-l">Checking your details</h1>
+    <form class="form" action="app-success-dl-check" method="post">
+      <h1 class="govuk-heading-l">We’re checking your details</h1>
       <div id="spinner-container" style="text-align:left;" aria-live="polite"></div>
     </form>
   </div>
@@ -82,7 +82,7 @@ Checking your details- GOV.UK One Login - GOV.UK
   // DO NOT USE THIS CODE IN PRODUCTION
 
   const PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION = {
-      spinnerStateText: "This can take up to 30 seconds",
+      spinnerStateText: "This may take a few minutes.",
       spinnerState: "pending",
       buttonDisabled: true,
       done: false,
@@ -140,7 +140,7 @@ Checking your details- GOV.UK One Login - GOV.UK
 
   setTimeout(() => {
       if (PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.spinnerState !== "ready") {
-          PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.spinnerStateText = "We're still trying";
+          PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.spinnerStateText = "We’re still checking your details. Do not close or refresh this page.";
       }
   }, 5000);
 
