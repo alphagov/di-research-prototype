@@ -1,0 +1,71 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Scan face
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<!-- Clickable mobile frame to avoid reliance on JavaScipt for those who have it disabled -->
+<a href="send-face-scan">
+  <div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+        <a href="face-scan-start" class="govuk-app-back-link govuk-app-margin-bottom-s">Back</a>
+        <!-- Clickable container to avoid reliance on JavaScipt for those who have it disabled -->
+        <a href="send-face-scan">
+          <div class="face-scan-container govuk-app-margin-bottom-m">
+            <img class="app-illustration" src="/public/images/face-scan/position-face-in-oval.svg" id="face-scan-image">
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</a> 
+
+{% endblock %}
+
+
+{% block pageScripts %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set a timeout to replace the face scan image after 2 seconds
+      setTimeout(function() {
+        var faceScanImage = document.getElementById('face-scan-image');
+        // Replace the current image with the new image
+        faceScanImage.src = "/public/images/face-scan/wait-for-scan-to-begin.svg";
+
+        // Set another timeout to change the image again after 2 seconds
+        setTimeout(function() {
+          // Replace the current image with the second new image
+          faceScanImage.src = "/public/images/face-scan/scan-in-progress.svg";
+
+          // Set another timeout to redirect to another page after 2 seconds
+          setTimeout(function() {
+            // Redirect to another page
+            window.location.href = "send-face-scan";
+          }, 1500); // redirect
+        }, 1500); // 3rd image
+      }, 900); // 2nd image
+    });
+  </script>
+{% endblock %}
+
+
+
+
+
+
+
+

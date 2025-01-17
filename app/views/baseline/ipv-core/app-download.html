@@ -72,56 +72,63 @@ Tell us if you have access to an iPhone or Android phone - GOV.UK One Login - GO
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">Use the GOV.UK One Login app to prove your identity</h1>
     <p>The GOV.UK One Login app works by matching your face to your photo ID.</p>
-	<p>First you will need to download, open and use the app. Then you will come back to this page to finish proving your identity. </p>
+	  <p>First you will need to download, open and use the app. Then you will come back to this page to finish proving your identity. </p>
     <h2 class="govuk-heading-m">1. Download the GOV.UK One Login app</h2>
     <p>Scan the QR code with your smartphone to download the GOV.UK One Login app. </p>
-	{{ govukWarningText({
-		text: "The app uses a face scan with flashing colours",
-		iconFallbackText: "Warning"
-	}) }}
-	<img src="/public/images/app-download-qr-code.png" class="govuk-!-margin-bottom-6" width="200px">
-	<h3 class="govuk-heading-s">Help using the GOV.UK One Login app</h3>
-	<details class="govuk-details govuk-!-margin-bottom-4" data-module="govuk-details">
+    {{ govukWarningText({
+      text: "The app uses a face scan with flashing colours",
+      iconFallbackText: "Warning"
+    }) }}
+    <img src="/public/images/app-download-qr-code.png" class="govuk-!-margin-bottom-6" width="200px">
+    <h3 class="govuk-heading-s">Help using the GOV.UK One Login app</h3>
+    <details class="govuk-details govuk-!-margin-bottom-4" data-module="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
           How to scan a QR code
         </span>
       </summary>
       <div class="govuk-details__text">
-		<ol>
-			<li>Open the camera app on your phone.</li>
-			<li>Position your camera over the QR code.</li>
-			<li>Wait until the QR code is recognised by your camera and a link appears on your screen. </li>
-			<li>Tap the link to go to the App Store (for iPhone) or Play Store (for Android).</li>
-			<li>Download the GOV.UK One Login app.</li>
-		</ol>
+        <ol>
+          <li>Open the camera app on your phone.</li>
+          <li>Position your camera over the QR code.</li>
+          <li>Wait until the QR code is recognised by your camera and a link appears on your screen. </li>
+          <li>Tap the link to go to the App Store (for iPhone) or Play Store (for Android).</li>
+          <li>Download the GOV.UK One Login app.</li>
+        </ol>
       </div>
     </details>
-	<details class="govuk-details govuk-!-margin-bottom-4" data-module="govuk-details">
+    <details class="govuk-details govuk-!-margin-bottom-4" data-module="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
           How to download the app without a QR code
         </span>
       </summary>
       <div class="govuk-details__text">
-		<ol>
-			<li>Keep this page open. </li>
-			<li>On your phone, open the App Store (for iPhone) or Play Store (for Android).</li>
-			<li>Search for the ‘GOV.UK One Login’ app.</li>
-			<li>Download the GOV.UK One Login app. </li>
-		</ol>
+        <ol>
+          <li>Keep this page open. </li>
+          <li>On your phone, open the App Store (for iPhone) or Play Store (for Android).</li>
+          <li>Search for the ‘GOV.UK One Login’ app.</li>
+          <li>Download the GOV.UK One Login app. </li>
+        </ol>
       </div>
     </details>
-	<details class="govuk-details govuk-!-margin-bottom-4" data-module="govuk-details">
+    <details class="govuk-details govuk-!-margin-bottom-4" data-module="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
           I am sensitive to flashing colours
         </span>
       </summary>
+      {% if (data['live-in-uk-choose'] == "no") %}
       <div class="govuk-details__text">
-		<p>The face scan checks that you’re a real person. It uses different colours that change less than 3 times per second.</p>
-		<p>You can <a href="../ipv-core/app-drop-off">prove your identity another way if you think you might be sensitive to flashing colours</a>.</p>
+        <p>The face scan checks that you’re a real person. It uses different colours that change less than 3 times per second.</p>
+        <p>You can <a href="../ipv-core/non-uk-no-app">prove your identity another way if you think you might be sensitive to flashing colours</a>.</p>
       </div>
+      {% elseif (data['continuityIdentity'] == "coi" or data['continuityIdentity'] == "fraud") %}
+      <div class="govuk-details__text">
+        <p>The face scan checks that you’re a real person. It uses different colours that change less than 3 times per second.</p>
+        <p>You can <a href="../ipv-core/pyi-another-way">prove your identity another way if you think you might be sensitive to flashing colours</a>.</p>
+      </div>
+      {% endif %}
     </details>
     <details class="govuk-details govuk-!-margin-bottom-4" data-module="govuk-details">
       <summary class="govuk-details__summary">
@@ -134,39 +141,50 @@ Tell us if you have access to an iPhone or Android phone - GOV.UK One Login - GO
         <p>If you wear tinted glasses, you’ll need to remove them when you scan your face. </p>
       </div>
     </details>
-	<details class="govuk-details" data-module="govuk-details">
+    <details class="govuk-details" data-module="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
           I’d prefer not to use the app
         </span>
       </summary>
+      {% if (data['live-in-uk-choose'] == "no") %}
       <div class="govuk-details__text">
-		<p>If you’d prefer not to use the app, you may be able to <a href="../ipv-core/app-drop-off-buffer">prove your identity another way</a>.</p>
+        <p>If you’d prefer not to use the app, you may be able to <a href="../ipv-core/non-uk-no-app">prove your identity another way</a>.</p>
       </div>
+      {% elseif (data['continuityIdentity'] == "coi" or data['continuityIdentity'] == "fraud") %}
+      <div class="govuk-details__text">
+        <p>If you’d prefer not to use the app, you may be able to <a href="../ipv-core/pyi-another-way">prove your identity another way</a>.</p>
+      </div>
+      {% else %}
+      <div class="govuk-details__text">
+        <p>If you’d prefer not to use the app, you may be able to <a href="../ipv-core/app-drop-off-buffer">prove your identity another way</a>.</p>
+      </div>
+      {% endif %}
     </details>
-	<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-	<h2 class="govuk-heading-m">2. Open the GOV.UK One Login app</h2>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h2 class="govuk-heading-m">2. Open the GOV.UK One Login app</h2>
     <p>Follow the instructions in the app to prove your identity. Keep this page open while you do this.</p>
-	<div id="spinner-container" style="text-align:left;" aria-live="polite"></div>
-	<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-	<h2 class="govuk-heading-m">3. Finish proving your identity here</h2>
-    <p>If we successfully match your face to your photo ID, you’ll finish proving your identity online.</p>
-	<p>Then you can continue to the government service you want to use. </p>
-	<p>If this page has not updated once you've finished using the app, you can <a href="#">refresh the page</a>.</p>
-	<form action="../ipv-core/app-success" method="post">
-		<button class="govuk-button">Continue</button>
-	</form>
-	<div class="govuk-notification-banner govuk-notification-banner--journey-options govuk-!-margin-top-9 govuk-visually-hidden" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-		<div class="govuk-notification-banner__header govuk-notification-banner__header--journey-options">
-			<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-			Prototype options
-			</h2>
-		</div>
-		<div class="govuk-notification-banner__content">
-			<p><a href="#" class="govuk-link govuk-link--no-visited-state" target="_blank">View GOV.UK ID Check iOS app screens (opens in new tab)</a></p>
-			<p><a href="#" class="govuk-link govuk-link--no-visited-state" target="_blank">View GOV.UK ID Check Android app screens (opens in new tab)</a></p>
-		</div>
-	</div>
+    <div id="spinner-container" style="text-align:left;" aria-live="polite"></div>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      <h2 class="govuk-heading-m">3. Finish proving your identity here</h2>
+      <p>If we successfully match your face to your photo ID, you’ll finish proving your identity online.</p>
+      <p>Then you can continue to the government service you want to use. </p>
+      <p>If this page has not updated once you've finished using the app, you can <a href="#">refresh the page</a>.</p>
+      <form action="app-success" method="post">
+        <button class="govuk-button">Continue</button>
+      </form>
+      <div class="govuk-notification-banner govuk-notification-banner--journey-options govuk-!-margin-top-9 govuk-visually-hidden" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header govuk-notification-banner__header--journey-options">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Prototype options
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p><a href="#" class="govuk-link govuk-link--no-visited-state" target="_blank">View GOV.UK ID Check iOS app screens (opens in new tab)</a></p>
+          <p><a href="#" class="govuk-link govuk-link--no-visited-state" target="_blank">View GOV.UK ID Check Android app screens (opens in new tab)</a></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <script>

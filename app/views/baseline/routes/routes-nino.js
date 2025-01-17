@@ -7,9 +7,9 @@ const parentDir = '/baseline'
 // Routes depending on whether they have selected photo ID or not
 router.post(`${parentDir}/nino-cri/ni-details-post`, function (req, res) {
 	if (req.session.data['photo-id'] === "No") {
-		res.redirect('../kbv-cri/hmrc-spinner') // Temporary while working on no photo ID version
+		res.redirect('../address-cri/find-current-address')
 	} else {
-		res.redirect('../kbv-cri/hmrc-spinner')
+		res.redirect('../kbv-cri/experian-kbv-start')
 	}
 })
 
@@ -24,7 +24,7 @@ router.post(`${parentDir}/nino-cri/nino-retry`, function (req, res) {
 			res.redirect('../ipv-core/pyi-another-way')
 		}
 	} else {
-		res.redirect('enter-ni-number')
+		res.redirect('enter-national-insurance-number')
 	}
 })
 

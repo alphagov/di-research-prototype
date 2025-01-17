@@ -6,6 +6,9 @@
 // Import extra styles here
 @use 'components/email-template';
 @use 'components/button-spinner';
+@use 'components/mobile-app-container';
+@use 'components/mobile-app-library';
+@use 'components/mobile-images';
 
 // Add extra styles here
 
@@ -76,4 +79,23 @@ code {
 	font-family: monospace;
 	background-color: #f3f2f1;
 	padding: 0 5px;
+}
+
+// DL AUTH INITIATIVE STYLING
+.blue-background {
+	background-color: #1d70b8;
+}
+
+.white-text {
+	color: #fff;
+}
+
+.app-button--inverted .govuk-button {
+	background-color: #fff;
+	color: #245ea0;
+}
+
+//dark mode
+.govuk-dark-mode {
+	background-color: black;
 }

@@ -1,0 +1,51 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Send face scan
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<!-- Clickable mobile frame to avoid reliance on JavaScipt for those who have it disabled -->
+<a href="../../app-cri/sending-information">
+  <div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+    
+        <div class="centred-container">
+          <img class="app-logo" src="/public/images/face-scan/send-face-scan.svg" width="162" height="159" alt="">
+        </div> 
+  </div>
+</a>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set a timeout to redirect to the next page after 2 seconds
+      setTimeout(function() {
+        window.location.href = "../../app-cri/sending-information";
+      }, 2000); // 2000 milliseconds = 2 seconds
+    });
+  </script>
+{% endblock %}
+
+
+
+
+
+
+

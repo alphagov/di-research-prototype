@@ -1,0 +1,82 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Sending information
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<!-- Clickable mobile frame to avoid reliance on JavaScipt for those who have it disabled -->
+<a href="exit-app-desktop">
+  <div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+      <form id="myForm" class="form" action="exit-app-desktop" method="post">
+
+        <div class="centred-container">
+            <div class="mobile-spinner">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+            <div class="bar4"></div>
+            <div class="bar5"></div>
+            <div class="bar6"></div>
+            <div class="bar7"></div>
+            <div class="bar8"></div>
+            <div class="bar9"></div>
+            <div class="bar10"></div>
+            <div class="bar11"></div>
+            <div class="bar12"></div>
+          </div>
+          <p class="govuk-app-body govuk-app-margin-top-s" style="text-align: center;">Submitting your information.</p>
+          <p class="govuk-app-body" style="text-align: center;">This may take a moment.</p>
+
+        </div>
+
+      </form>
+
+      </div>
+    </div>
+
+    
+  </div>
+</a>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Set a timeout to submit the form after 2 seconds
+    setTimeout(function() {
+      // Find the form element
+      var form = document.getElementById('myForm');
+      // Submit the form
+      form.submit();
+    }, 2000); // 2000 milliseconds = 2 seconds
+  });
+</script>
+{% endblock %}
+
+
+
+
+
+
+ 
