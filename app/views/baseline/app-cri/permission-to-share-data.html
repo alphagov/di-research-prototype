@@ -1,0 +1,70 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Permission to share data
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="mobile-frame">
+  
+  <!-- status bar -->
+  <img src="/public/images/status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="centred-container">
+          <img class="app-logo" src="/public/images/app-logo-with-tudor-crown.svg" width="135" height="135" alt="">
+          <h1 class="govuk-app-heading-l govuk-app-margin-bottom-m govuk-app-margin-top-m" style="text-align: center;">
+            GOV.UK ID Check
+          </h1>
+          <p class="govuk-app-body govuk-app-margin-bottom-m" style="text-align: center;">GOV.UK ID Check is a secure way to confirm your identity when you sign in to a government service with GOV.UK One Login.</p>
+        </div>
+        <button type="submit" class="button-container govuk-app-button-default" data-module="govuk-button">
+          Continue
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="iOS-alert-wrapper">
+    <form action="link-session">
+      <div class="iOS-alert-container">
+        <div class="iOS-alert-header">
+          <slot name="header">
+            "GOV.UK ID Check" Wants to Use "GOV.UK" to Sign In
+          </slot>
+        </div>
+        <div class="iOS-alert-body">
+          <slot name="body">
+            This allows the app and website to share information about you.
+          </slot>
+        </div>
+        <div class="iOS-alert-footer">
+          <slot name="footer">
+            <button class="iOS-alert-default-button">
+              Cancel
+            </button>
+            <button class="iOS-alert-default-button">
+              Continue
+            </button>
+          </slot>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+

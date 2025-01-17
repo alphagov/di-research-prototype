@@ -11,13 +11,16 @@ function loadJSONFromFile(fileName, path = 'app/data/') {
 	return JSON.parse(jsonFile) // Return JSON as object
 }
 
-// Sets the KBV question routing based on customisation questions
+// Sets the KBV question routing based on customisation questions OR skips KBVs if it's the COI/6MFC journey
 router.post(`${parentDir}/fraud-cri/kbv-question-selection`, function (req, res) {
 	var kbvQuestionSet = req.session.data['kbv']
-	if (kbvQuestionSet == "experian") {
+	var continuityIdentity = req.session.data['continuityIdentity']
+	if (continuityIdentity) {
+		res.redirect('../ipv-core/page-ipv-success')
+	} else if (kbvQuestionSet == "experian") {
 		res.redirect('../kbv-cri/experian-kbv-start')
 	} else if (kbvQuestionSet == "hmrc") {
-		res.redirect('../nino-cri/enter-ni-number')
+		res.redirect('../nino-cri/enter-national-insurance-number')
 	} else if (kbvQuestionSet == "dwp") {
 		res.redirect('../ipv-core/personal-independence-payment')
 	} else {

@@ -1,0 +1,84 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Send or retake photo - back
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <form class="form" action="../app-cri/face-scan/face-scan-start" method="post">
+
+        <h1 class="govuk-app-heading-l govuk-app-margin-bottom-xl govuk-app-margin-top-l">
+          This is the photo you have taken
+        </h1>
+
+        <div class="success-icon-container" id="successIcon" style="display: none;">
+          <img src="/public/images/photo-submitted.svg" width="162" height="159" alt="">
+      </div>
+
+        <div class="illustration-container">
+          <img class="app-illustration" src="/public/images/send-or-retake-photo-back.png">
+        </div>
+        
+        <div class="button-container govuk-app-button-group">
+          <button id="submit-photo" type="submit" class="govuk-app-button" data-module="govuk-button">
+            Submit photo
+          </button>
+          <button type="submit" class="govuk-app-button--secondary" data-module="govuk-button" formaction="#">
+            Retake photo
+          </button>
+        </div>
+
+      </form>
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+  // Select the submit button by its ID
+  document.getElementById('submit-photo').addEventListener('click', function(event) {
+    // Prevent the default action of the button
+    event.preventDefault();
+    
+    // Display the success icon
+    document.getElementById('successIcon').style.display = 'block';
+    console.log('Success icon displayed');
+    
+    // Add a delay before redirecting
+    setTimeout(function() {
+      console.log('Redirecting...');
+      // Submit the form
+      document.querySelector('.form').submit();
+    }, 600); // 600 milliseconds (0.6 seconds) delay before redirection
+  });
+</script>
+{% endblock %}
+
+
+
+
+

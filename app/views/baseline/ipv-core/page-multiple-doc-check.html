@@ -25,11 +25,11 @@ Continue proving your identity online - GOV.UK One Login - GOV.UK
     </p>
     <p>You’ll also need to answer some security questions. We use these to stop anyone who might have your details from pretending to be you.</p>
     <p>It takes about 10 minutes to prove your identity this way.</p>
-    <form class="form" action="app-drop-off" method="post">
+    <form class="form" action="eligibility-drop-off" method="post">
       {% if (data['confidence'] == "low") %}
       {{ govukRadios({
-        name: "app-drop-off",
-        idPrefix: "app-drop-off",
+        name: "eligibility-drop-off",
+        idPrefix: "eligibility-drop-off",
         fieldset: {
           legend: {
           text: "How would you like to prove your identity?",
@@ -59,8 +59,8 @@ Continue proving your identity online - GOV.UK One Login - GOV.UK
 
       {% else %}
       {{ govukRadios({
-        name: "app-drop-off",
-        idPrefix: "app-drop-off",
+        name: "eligibility-drop-off",
+        idPrefix: "eligibility-drop-off",
         fieldset: {
           legend: {
           text: "Do you want to use your UK photocard driving licence or UK passport to prove your identity?",

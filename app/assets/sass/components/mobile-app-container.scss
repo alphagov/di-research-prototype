@@ -1,0 +1,547 @@
+/* Reset default margin and padding */
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* MOBILE FRAME  */
+/* ------------------------------------------------------------------------------------------ */
+
+.mobile-frame {
+  width: 375px;
+  /* Width of iPhone X screen */
+  height: 812px;
+  /* Height of iPhone X screen */
+  background-color: #fff;
+  /* Background color for inside the frame */
+  border: 1px solid #333;
+  /* Frame border */
+  box-sizing: border-box;
+  /* Include border in width/height calculations */
+  margin: 5px auto;
+  /* Center the frame horizontally and give some top margin */
+  position: relative;
+  /* Ensure relative positioning for absolute children */
+  overflow-y: hidden;
+  /* Disable vertical scrolling */
+  overflow-x: hidden;
+  /* Disable horizontal scrolling */
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* MOBILE TRANSITION FRAME  */
+/* ------------------------------------------------------------------------------------------ */
+
+.mobile-transition-frame {
+  width: 375px;
+  /* Width of iPhone X screen */
+  height: auto;
+  /* Height of iPhone X screen */
+  margin: 5px auto;
+  /* Center the frame horizontally and give some top margin */
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* MOBILE BODY  */
+/* ------------------------------------------------------------------------------------------ */
+
+.mobile-body {
+  margin-top: 50px; //added by matt, was previously 10px//
+  margin-bottom: 10px;
+  margin-left: 16px;
+  margin-right: 16px;
+  position: absolute; //added by matt//
+  top: 0; //added so that the body fits the full frame 
+  left: 0; //added so that the body fits the full frame 
+  right: 0; //added so that the body fits the full frame 
+  bottom: 0; //added so that the body fits the full frame 
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* Media queries for responsiveness  */
+/* ------------------------------------------------------------------------------------------ */
+
+@media (max-width: 40.0625rem) {
+  .mobile-frame {
+    width: 100%;
+    /* Adjust width to fill the entire width of smaller screens */
+    border: none;
+    /* Remove border for smaller screens */
+    margin: 20px auto;
+    /* Center the frame horizontally and give some top margin */
+  }
+
+  .mobile-body {
+    min-height: 100%;
+    /* Ensure the body fills the available space */
+    //added by matt//
+    margin-top: 0px; //added by matt//
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-frame {
+    width: 768px;
+    /* Adjust width for larger screens */
+    width: 100%;
+  }
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* STATUS BAR  */
+/* ------------------------------------------------------------------------------------------ */
+
+#status-bar {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+//---------------MEDIA QUERIES-------------------------------------------//
+
+/* Hide the status bar image when the screen width is less than or equal to the mobile breakpoint */
+@media (max-width: 40.0625rem) {
+  #status-bar {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------ */
+/* Containers used to position app content  */
+/* ------------------------------------------------------------------------------------------------------------------------------------------ */
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* Container for centered content  */
+/* ------------------------------------------------------------------------------------------ */
+
+//---------------Container used to centre app content-------------------------------------------//
+.centred-container {
+  position: absolute;
+  top: calc(50% - 44px);
+  /* Adjusted for the full height of the button */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  /* Set container height to fill the entire height of the mobile frame */
+  overflow-y: auto;
+}
+
+/* Hide the scrollbar */
+.centred-container::-webkit-scrollbar {
+  display: none;
+}
+
+
+//---------------Container used for leaving-app page-------------------------------------------//
+
+.leaving-app-container {
+  position: absolute;
+  top: 50%;
+  /* Adjusted to be in the middle of the viewport vertically */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 32px);
+  /* Adjusted for the 16px left and right margins of the app-modal-content */
+  height: calc(100% - 100px);
+  /* Adjusted for the header height and padding */
+  overflow-y: auto;
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* Button container  */
+/* ------------------------------------------------------------------------------------------ */
+
+/* Styling for the button container */
+.button-container {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 20px);
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Media query for smaller screens */
+@media (min-height: 320px) {
+  .button-container {
+    bottom: 20px;
+    /* Adjust position for smaller screens */
+    width: calc(100% - 10px);
+    /* Adjust width for smaller screens */
+  }
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* Success icon container  */
+/* ------------------------------------------------------------------------------------------ */
+
+//Container for centred content
+.success-icon-container {
+  position: absolute;
+  top: calc(50% - 44px);
+  /* Adjusted for the full height of the button */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  z-index: 9999;
+  /* Adjust the value as needed to ensure the icon appears above other content */
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* Container for illustrations  */
+/* ------------------------------------------------------------------------------------------ */
+
+
+//---------------Container used for full width illustrations-------------------------------------------//
+.illustration-container {
+  position: relative;
+  width: calc(100% + 32px);
+  /* Add the total margin width (16px on each side) to the container's width */
+  margin-left: -16px;
+  /* Offset the negative margin to align with the mobile frame */
+  margin-right: -16px;
+  /* Offset the negative margin to align with the mobile frame */
+}
+
+//---------------Styles for illustrations SVGs and images-------------------------------------------//
+.app-illustration {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+//---------------Container used for face scan SVGs-------------------------------------------//
+.face-scan-container {
+  position: relative;
+  width: calc(100% + 32px);
+  /* Add the total margin width (16px on each side) to the container's width */
+  margin-left: -16px;
+  /* Offset the negative margin to align with the mobile frame */
+  margin-right: -16px;
+  /* Offset the negative margin to align with the mobile frame */
+}
+
+//---------------Container used for taking photo SVGs-------------------------------------------//
+.take-photo-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  width: calc(100% + 32px);
+  /* Add the total margin width (16px on each side) to the container's width */
+  margin-left: -16px;
+  /* Offset the negative margin to align with the mobile frame */
+  margin-right: -16px;
+  /* Offset the negative margin to align with the mobile frame */
+}
+
+//---------------Container used to position chevron on photograph screens-------------------------------------------//
+.chevron-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* Container for SVG animations  */
+/* ------------------------------------------------------------------------------------------ */
+
+//---------------Container used for passport animations-------------------------------------------//
+.svg-animation-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  /* Adjust the width and height according to your SVG dimensions */
+  height: 250px;
+}
+
+//---------------Styles for each SVG item-------------------------------------------//
+.svg-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  object-fit: contain;
+}
+
+/* Define keyframes for the custom animations */
+@keyframes fadeAnimation {
+  0% {
+    opacity: 0;
+    /* Hide current SVG */
+  }
+
+  5% {
+    opacity: 1;
+    /* Begin to show next SVG */
+  }
+
+  95% {
+    opacity: 1;
+    /* Keep next SVG fully visible */
+  }
+
+  100% {
+    opacity: 0;
+    /* Hide previous SVG */
+  }
+}
+
+@keyframes fadeAnimation-final {
+  0% {
+    opacity: 0;
+    /* Hide current SVG */
+  }
+
+  5% {
+    opacity: 1;
+    /* Begin to show next SVG */
+  }
+
+  95% {
+    opacity: 1;
+    /* Keep next SVG fully visible */
+  }
+
+  100% {
+    opacity: 1;
+    /* Keep visible */
+  }
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* SVG animation timings for How to photograph photo ID   */
+/* ------------------------------------------------------------------------------------------ */
+
+/* SVG animation timings for How to photograph photo ID */
+/* SVG 1 to SVG 2 transition */
+#how-to-photograph-svg1 {
+  animation: fadeAnimation 1s linear 0s forwards;
+}
+
+/* SVG 2 to SVG 3 transition */
+#how-to-photograph-svg2 {
+  animation: fadeAnimation 1s linear 1s forwards;
+}
+
+/* SVG 3 to SVG 4 transition */
+#how-to-photograph-svg3 {
+  animation: fadeAnimation 1s linear 2s forwards;
+}
+
+/* SVG 4 to SVG 5 transition */
+#how-to-photograph-svg4 {
+  animation: fadeAnimation 1s linear 3s forwards;
+}
+
+/* SVG 5 to SVG 6 transition */
+#how-to-photograph-svg5 {
+  animation: fadeAnimation 1s linear 4s forwards;
+}
+
+/* SVG 6 to SVG 7 transition */
+#how-to-photograph-svg6 {
+  animation: fadeAnimation 1s linear 5s forwards;
+}
+
+/* SVG 7 to SVG 8 transition */
+#how-to-photograph-svg7 {
+  animation: fadeAnimation 1s linear 6s forwards;
+}
+
+/* SVG 8 */
+#how-to-photograph-svg8 {
+  opacity: 0;
+  /* Ensure SVG 8 is initially hidden */
+  animation: fadeAnimation-final 1s linear 7s forwards;
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* iOS SVG animation timings for How to scan photo ID   */
+/* ------------------------------------------------------------------------------------------ */
+
+/* Apply the custom animations to the SVG elements with specified delays */
+
+/* SVG 1 to SVG 2 transition */
+#how-to-scan-svg1 {
+  animation: fadeAnimation 1s linear 0s forwards;
+}
+
+/* SVG 2 to SVG 3 transition */
+#how-to-scan-svg2 {
+  animation: fadeAnimation 1s linear 1s forwards;
+}
+
+/* SVG 3 to SVG 4 transition */
+#how-to-scan-svg3 {
+  animation: fadeAnimation 1s linear 2s forwards;
+}
+
+/* SVG 4 to SVG 5 transition */
+#how-to-scan-svg4 {
+  animation: fadeAnimation 1s linear 3s forwards;
+}
+
+/* SVG 5 to SVG 6 transition */
+#how-to-scan-svg5 {
+  animation: fadeAnimation 1s linear 4s forwards;
+}
+
+/* SVG 6 to SVG 7 transition */
+#how-to-scan-svg6 {
+  animation: fadeAnimation 1s linear 5s forwards;
+}
+
+/* SVG 7 to SVG 8 transition */
+#how-to-scan-svg7 {
+  animation: fadeAnimation 1s linear 6s forwards;
+}
+
+/* SVG 8 to SVG 9 transition */
+#how-to-scan-svg8 {
+  animation: fadeAnimation 1s linear 7s forwards;
+}
+
+/* SVG 9 to SVG 10 transition */
+#how-to-scan-svg9 {
+  animation: fadeAnimation 1s linear 8s forwards;
+}
+
+/* SVG 10 to SVG 11 transition */
+#how-to-scan-svg10 {
+  animation: fadeAnimation 1s linear 9s forwards;
+}
+
+/* SVG 11 */
+#how-to-scan-svg11 {
+  opacity: 0;
+  /* Ensure SVG 8 is initially hidden */
+  animation: fadeAnimation-final 1s linear 10s forwards;
+}
+
+
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* Android - SVG animation timings for How to scan photo ID   */
+/* ------------------------------------------------------------------------------------------ */
+
+/* Apply the custom animations to the SVG elements with specified delays */
+
+/* SVG 1 to SVG 2 transition */
+#android-how-to-scan-svg1 {
+  animation: fadeAnimation 1s linear 0s forwards;
+}
+
+/* SVG 2 to SVG 3 transition */
+#android-how-to-scan-svg2 {
+  animation: fadeAnimation 1s linear 1s forwards;
+}
+
+/* SVG 3 to SVG 4 transition */
+#android-how-to-scan-svg3 {
+  animation: fadeAnimation 1s linear 2s forwards;
+}
+
+/* SVG 4 to SVG 5 transition */
+#android-how-to-scan-svg4 {
+  animation: fadeAnimation 1s linear 3s forwards;
+}
+
+/* SVG 5 to SVG 6 transition */
+#android-how-to-scan-svg5 {
+  animation: fadeAnimation 1s linear 4s forwards;
+}
+
+/* SVG 6 to SVG 7 transition */
+#android-how-to-scan-svg6 {
+  animation: fadeAnimation 1s linear 5s forwards;
+}
+
+/* SVG 7 to SVG 8 transition */
+#android-how-to-scan-svg7 {
+  animation: fadeAnimation 1s linear 6s forwards;
+}
+
+/* SVG 8 to SVG 9 transition */
+#android-how-to-scan-svg8 {
+  animation: fadeAnimation 1s linear 7s forwards;
+}
+
+/* SVG 9 to SVG 10 transition */
+#android-how-to-scan-svg9 {
+  animation: fadeAnimation 1s linear 8s forwards;
+}
+
+/* SVG 10 to SVG 11 transition */
+#android-how-to-scan-svg10 {
+  animation: fadeAnimation 1s linear 9s forwards;
+}
+
+/* SVG 11 to SVG 12 transition */
+#android-how-to-scan-svg11 {
+  animation: fadeAnimation 1s linear 10s forwards;
+}
+
+/* SVG 12 */
+#android-how-to-scan-svg12 {
+  opacity: 0;
+  /* Ensure SVG 8 is initially hidden */
+  animation: fadeAnimation-final 1s linear 11s forwards;
+}
+
+
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* Check answer pages image container   */
+/* ------------------------------------------------------------------------------------------ */
+
+/* Center the image horizontally and vertically using flexbox */
+.image-container {
+  display: flex;
+  justify-content: center;
+  /* Horizontally center */
+  align-items: center;
+  /* Vertically center */
+  height: 100%;
+  /* Ensure container takes full height */
+}
+
+.centered-image {
+  max-width: 100%;
+  /* Ensure image doesn't exceed container width */
+  max-height: 100%;
+  /* Ensure image doesn't exceed container height */
+}

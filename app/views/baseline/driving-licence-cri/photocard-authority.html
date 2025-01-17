@@ -29,18 +29,24 @@ Who was your UK driving licence issued by? - GOV.UK One Login - GOV.UK
         items: [
           {
             value: "dvla",
-            text: "DVLA"
+            text: "DVLA",
+            hint: {
+              text: "Driving licences issued in England, Scotland and Wales."
+            }
           },
           {
             value: "dva",
-            text: "DVA"
+            text: "DVA",
+            hint: {
+              text: "Driving licences issued in Northern Ireland."
+            }
           },
           {
             divider: "or"
           },
           {
             value: "none",
-            text: "I do not have a UK driving licence"
+            text: "I do not have a UK photocard driving licence"
           }
         ]
       }) }}
@@ -49,10 +55,10 @@ Who was your UK driving licence issued by? - GOV.UK One Login - GOV.UK
     </form>
     <details class="govuk-details" data-module="govuk-details">
       <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">Why you need to tell us this</span>
+        <span class="govuk-details__summary-text">Why we need to know this</span>
       </summary>
       <div class="govuk-details__text">
-        <p>We need to make sure we check your driving licence details with the right organisation. DVLA issues driving licences in Great Britain (England, Scotland and Wales). DVA issues driving licences in Northern Ireland.</p>
+        <p>We need to make sure we check your driving licence details with the right organisation.</p>
       </div>
     </details>
   </div>

@@ -30,7 +30,7 @@
               Summary
             </dt>
             <dd class="govuk-summary-list__value">
-              <p>This is the baselined version of the {{ serviceName }} journey as of Sept 2024, when several changes were made to the beginning of the journey as part of the <b>Login to app</b> initiative.</p>
+              <p>This is the baselined version of the {{ serviceName }} journey as of December 2024, when the <b>driving licence authoritative source check</b> changes were added (login to app version).
               <p>This version assumes a medium confidence requirement and defaults to Experian KBVs.</p>
               <details class="govuk-details govuk-!-margin-bottom-4" data-module="govuk-details">
                 <summary class="govuk-details__summary">
@@ -43,6 +43,7 @@
                     <li>Updated triage flow based on the introduction of the new strategic app, as well as device sniffing software (June 24)</li>
                     <li>A revised version of the address CRI which has not been put live yet, but doesn't alter the outcome of the address journey (Nov 23)</li>
                     <li>Updated KBV start page for the introduction of DWP KBVs (Sept 23)</li>
+                    <li>Changes to driving licence authority page in line with Low Confidence initiative updates (Aug 24)</li>
                   </ul>
                 </div>
               </details>
@@ -53,7 +54,7 @@
              Last updated
             </dt>
             <dd class="govuk-summary-list__value">
-              29 Oct 2024
+              31 December 24
             </dd>
           </div>
         </dl>
@@ -70,18 +71,25 @@
             </span>
           </summary>
           <div class="govuk-details__text">
+            <p>In a rough order of the sequence you'd see them:</p>
             <ul>
+              <li><a href="/baseline/ipv-core/triage/live-in-uk">Triage start (Do you live in UK?)</a></li>
               <li><a href="/baseline/ipv-core/triage/online-photoid-screener">Photo ID screener</a></li>
+              <li><a href="/baseline/f2f-cri/prove-identity-post-office">Post office route</a></li>
               <li><a href="/baseline/ipv-core/app-download">App download (desktop)</a></li>
               <li><a href="/baseline/ipv-core/app-download-smartphone">App download (mobile)</a></li>
-              <li><a href="/baseline/address-cri/find-current-address">Address CRI</a></li>
+              <li><a href="/baseline/passport-cri/enter-passport-details">Passport CRI</a></li>
+              <li><a href="/baseline/driving-licence-cri/photocard-authority">Driving licence CRI</a></li>
+              <li><a href="/baseline/ipv-core/prove-identity-bank-account">No photo ID bank account CRI (medium confidence)</a></li>
+              <li><a href="/baseline/ipv-core/prove-identity-no-photo-id">No photo ID national insurance number CRI (low confidence)</a></li>
+              <li><a href="/baseline/address-cri/find-current-address">UK address</a></li>
+              <li><a href="/baseline/address-cri/what-country">International address</a></li>
               <li><a href="/baseline/fraud-cri/fraud-check">Fraud CRI</a></li>
               <li><a href="/baseline/kbv-cri/experian-kbv-start">Experian KBV</a></li>
               <li><a href="/baseline/ipv-core/personal-independence-payment">DWP KBV</a></li>
               <li><a href="/baseline/kbv-cri/hmrc-spinner">HMRC KBV</a></li>
-              <li><a href="/baseline/passport-cri/enter-passport-details">Passport CRI</a></li>
-              <li><a href="/baseline/driving-licence-cri/photocard-authority">Driving licence CRI</a></li>
-              <li><a href="/baseline/f2f-cri/prove-identity-post-office">Post office</a></li>
+              <li><a href="/baseline/ipv-core/continuity-of-identity/update-details">Continuity of identity</a></li>
+              <li><a href="/baseline/ipv-core/continuity-of-identity/confirm-your-details">6 month fraud check</a></li>
             </ul>
           </div>
         </details>
@@ -92,67 +100,67 @@
       <h2 class="govuk-heading-m">Initiative hypotheses and experiments</h2>
       <p>These are the prototypes for the current initiatives being tested with users. For previous initiative information, <a href="/archive">view the archive</a>.</p>
       <!-- Hidden template card -->
-      <div class="govuk-summary-card govuk-visually-hidden">
-        <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">
-            Initiative name
-          </h2>
-          <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="#">
-            View screens
-          </a>
-          <a class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0 govuk-visually-hidden" data-module="govuk-button" href="/#/service/customise">
-          Customise
-          </a>
+      <div class="govuk-visually-hidden">
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Initiative name
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Phase
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <strong class="govuk-tag govuk-tag--orange">
+                    IN DESIGN
+                  </strong>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Designers
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Summary
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p>Summary information here</p>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Related information
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <ul class="govuk-list govuk-list--bullet govuk-body govuk-!-margin-bottom-0">
+                    <li><a class="govuk-link" href="">Any related links<span class="govuk-visually-hidden"></span></a></li>
+                  </ul>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Last updated
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Month and year
+                </dd>
+              </div>
+            </dl>
+          </div>
         </div>
-        <div class="govuk-summary-card__content">
-          <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Phase
-              </dt>
-              <dd class="govuk-summary-list__value">
-                <strong class="govuk-tag govuk-tag--orange">
-                  IN DESIGN
-                </strong>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Designers
-              </dt>
-              <dd class="govuk-summary-list__value">
-                
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Summary
-              </dt>
-              <dd class="govuk-summary-list__value">
-                <p>Summary information here</p>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Related information
-              </dt>
-              <dd class="govuk-summary-list__value">
-                <ul class="govuk-list govuk-list--bullet govuk-body govuk-!-margin-bottom-0">
-                  <li><a class="govuk-link" href="">Any related links<span class="govuk-visually-hidden"></span></a></li>
-                </ul>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-               Last updated
-              </dt>
-              <dd class="govuk-summary-list__value">
-                Month and year
-              </dd>
-            </div>
-          </dl>
-        </div>
+        <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="#">View screens</a>
+        <a class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button" href="/#/service/customise">Customise</a>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
       </div>
+      <!-- End of hidden card-->
     </div>
 
     <div class="govuk-grid-column-one-third">

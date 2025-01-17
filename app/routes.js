@@ -7,7 +7,6 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
 // BASELINE ROUTES
-
 // pull in support routes
 router.use('/', require('./views/baseline/routes/routes-support.js'))
 
@@ -32,8 +31,13 @@ router.use('/', require('./views/baseline/routes/routes-kbv.js'))
 // pull in f2f routes
 router.use('/', require('./views/baseline/routes/routes-f2f.js'))
 
+// pull in CI routes
+router.use('/', require('./views/baseline/routes/routes-claimed-identity.js'))
+
+// pull in bank account routes
+router.use('/', require('./views/baseline/routes/routes-bank-account.js'))
+
 // pull in service (customisation) routes
 router.use('/', require('./views/baseline/routes/routes-service.js'))
-
 
 module.exports = router;

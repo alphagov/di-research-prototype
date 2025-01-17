@@ -314,20 +314,14 @@ router.post(`${parentDir}/address-cri/address-manual-prev-post`, function (req, 
 	}
 })
 
-module.exports = router;
-
-  
-  // Routing for the address CRI the user sees different screens depending on whether they selected they live in or out the UK in IPV core 
-  router.post('/baseline/ipv-core/app-success-post', function (req, res) {
-	const liveInUkChoice = req.session.data['live-in-uk-choose'];
-
-	if (liveInUkChoice === "yes") {
-	  // Redirect to a page for users who live in the UK
-	  res.redirect('/baseline/address-cri/find-current-address');
-	} else if (liveInUkChoice === "no") {
-	  // Redirect to a page for users who do not live in the UK
-	  res.redirect('/baseline/address-cri/what-country');
-
+// routing for picking country on international addresses
+router.post(`${parentDir}/address-cri/pick-country`, function (req, res) {
+	var country = req.session.data['location']
+	if (country === 'United Kingdom' || country === 'Isle of Man' || country === 'Jersey' || country === 'Guernsey') {
+		res.redirect("../address-cri/find-current-address")
+	} else {
+		res.redirect("../address-cri/enter-non-uk-address")
 	}
-  });
-  
+});
+
+module.exports = router;

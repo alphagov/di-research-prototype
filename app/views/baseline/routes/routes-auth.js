@@ -4,6 +4,17 @@ const parentDir = '/baseline'
 
 // Add your routes here
 
+router.post(`${parentDir}/authentication/signin-success`, function (req, res) {
+	var continuityIdentity = req.session.data['continuityIdentity']
+	if (continuityIdentity === "coi") {
+		res.redirect('../ipv-core/continuity-of-identity/page-ipv-reuse')
+	} else if (continuityIdentity === "fraud") {
+		res.redirect('../ipv-core/continuity-of-identity/confirm-your-details')
+	} else {
+		res.redirect('signin-success')
+	}
+})
+
 router.post(`${parentDir}/authentication/create-email-sms`, function (req, res) {
 	res.redirect('create-checkemail')
 })
