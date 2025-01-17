@@ -13,11 +13,11 @@ router.post(`${parentDir}/ipv-core/triage/online-photoid`, function (request, re
 	if (photoID === "Yes") {
 		response.redirect("computer-tablet")
 	} else if (photoID === "No" && confidence === "medium") {
-		response.redirect("../app-drop-off")
+		response.redirect("../page-ipv-identity-postoffice-start")
 	} else if (photoID === "No" && confidence === "low") {
 		response.redirect("../prove-identity-no-photo-id")
 	} else {
-		response.redirect("../app-drop-off")
+		response.redirect("../page-ipv-identity-postoffice-start")
 	}
 })
 
