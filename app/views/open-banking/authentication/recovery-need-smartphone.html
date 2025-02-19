@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{# if coming in from a service - find out which one #}
+
+{% block pageTitle %}
+You need a smartphone and photo ID to continue
+{% endblock %}
+
+{% block header %}
+{% include "../authentication/_includes/header-auth-mvp.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+
+  {% if data['use-govuk-account'] %}
+    <a class="govuk-back-link" href="/preauth/mvp/identity-welcome">Back</a>
+  {% else %}
+
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+<a class="govuk-back-link" href="recovery-id-reprove">Back</a>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/authentication/mvp/create-email" method="post" class="form">
+      <h1 class="govuk-heading-l">You cannot change how you get  security codes
+      </h1>
+      <p>Based on what you told us, you will not be able to prove your identity using the app.</a><p>
+      <p>You will not be able to sign in your GOV.UK One Login.<p>
+      <h2 class="govuk-heading-m">What you can do</h2>
+      <p>Go back to the service you were using and look for other ways to continue.</p>
+      <p>If you need to use GOV.UK One Login,<a href="#"> contact the GOV.UK One Login team (opens in a new tab)</a> - they can help you delete your GOV.UK One Login so you can create it again with the same email address</p>
+    </form> 
+  </div>
+</div>
+
+{% endblock %}

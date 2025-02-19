@@ -1,0 +1,29 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+You've created your GOV.UK One Login
+{% endblock %}
+
+
+{% block header %}
+{% include "../authentication/_includes/header-auth-mvp.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">You've created your GOV.UK One Login</h1>
+    <p>Now you need to prove your identity so you can access the service you’re trying to use.</p>
+    <p>Next, we’ll check what type of photo ID you have.</p>
+    <p>If you do not have photo ID, you may be able to prove your identity with a UK bank or building society.</p>
+    <div class="govuk-inset-text">
+      You can ask a friend, family member or carer to <a href="#">help you prove your identity with GOV.UK One Login</a>.
+    </div>
+    <form class="form" action="../ipv-core/triage/live-in-uk" method="post">
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue to prove your identity</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Do you get Personal Independence Payment (PIP)? - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Do you get Personal Independence Payment (PIP)?</h1>
+    <p>If you get PIP then we’ll ask you security questions about your payments.</p>
+    <p>If you do not get PIP or would prefer not to say then you’ll need to prove your identity another way.</p>
+    <p>We will not keep your answer to this question or share it with the service you need to use.</p>
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          What is PIP?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p>PIP is a benefit paid to some people who have a long-term health condition or disability.</p>
+      </div>
+    </details>
+    <form class="form" action="pip" method="post">
+      {{ govukRadios({
+        name: "pip",
+        idPrefix: "pip",
+        items: [{
+          value: "yes",
+          text: "Yes"
+          },
+          {
+          value: "no",
+          text: "No"
+          },
+          {
+            divider: "or"
+          },
+          {
+          value: "prefer not",
+          text: "I’d prefer not to say"
+          }]
+        }) 
+      }}
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

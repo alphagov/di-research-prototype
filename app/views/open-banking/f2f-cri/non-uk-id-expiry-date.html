@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Does your ID have an expiry date? - GOV.UK One Login
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+  }) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if (data['f2f-id'] == "Non-UK passport") %}
+        <h1 class="govuk-heading-l">Does your passport have an expiry date?</h1>
+
+      {% elseif (data['f2f-id'] == "European Union (EU) photocard driving licence") %}
+        <h1 class="govuk-heading-l">Does your driving licence have an expiry date?</h1>
+      
+      {% elseif (data['f2f-id'] == "National identity card") %}
+        <h1 class="govuk-heading-l">Does your national identity card have an expiry date?</h1>
+
+      {% elseif (data['f2f-id'] == "Biometric residence permit (BRP)") %}
+        <h1 class="govuk-heading-l">Does your does your biometric residence permit have an expiry date?</h1>
+
+      {% endif %}
+      
+      <form class="form" action="id-expiry-select" method="post">
+        
+          {{ govukRadios({
+            name: "haveExpiryDate",
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+        <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+      </form>
+    </div> <!-- /. govuk-grid-column-two-thirds -->
+  </div> <!-- /. govuk-grid-row -->
+
+{% endblock %}
