@@ -1,0 +1,160 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+We’re checking your details - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .spinner {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border-width: 12px;
+      border-style: solid;
+      border-color: #DEE0E2;
+      border-top-color: #005EA5;
+      margin-bottom: 15px;
+  }
+
+  @media not (prefers-reduced-motion) {
+      .spinner {
+          -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+      }
+  }
+
+  .spinner__ready {
+      border-color: #005EA5;
+      -webkit-animation: none;
+      animation: none;
+  }
+
+  @-webkit-keyframes spin {
+      0% {
+          -webkit-transform: rotate(0deg);
+      }
+      100% {
+          -webkit-transform: rotate(360deg);
+      }
+  }
+
+  @keyframes spin {
+      0% {
+          transform: rotate(0deg);
+      }
+      100% {
+          transform: rotate(360deg);
+      }
+  }
+
+  .centre {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      display: block;
+  }
+
+.left {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    display: block;
+}
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="app-success-dl-check" method="post">
+      <h1 class="govuk-heading-l">We’re checking your details</h1>
+      <div id="spinner-container" style="text-align:left;" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+
+<script>
+
+  // DO NOT USE THIS CODE IN PRODUCTION
+
+  const PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION = {
+      spinnerStateText: "This may take a few minutes.",
+      spinnerState: "pending",
+      buttonDisabled: true,
+      done: false,
+      virtualDom: [],
+  };
+
+  function PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION_createVirtualDom() {
+      return [
+          {
+              nodeName: "div",
+              id: "spinner",
+              classes: ["spinner", "spinner__pending", "centre", PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.spinnerState],
+          },
+          {
+              nodeName: "p",
+              text: PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.spinnerStateText,
+              classes: ["centre"]
+          },
+          {
+              nodeName: "p",
+              text: PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.messageText,
+              classes: ["govuk-body", "left"]
+          },
+          {
+              nodeName: "p",
+              text: PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.messageText2,
+              classes: ["govuk-body", "left"]
+          },
+          {
+              nodeName: "button",
+              text: "Continue",
+              buttonDisabled: PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.buttonDisabled,
+              classes: ["govuk-button", "govuk-!-margin-top-4" ]
+          },
+      ];
+  }
+
+  function PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTIONupdateDom() {
+      PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.virtualDom = PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION_createVirtualDom();
+      const elements = PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.virtualDom.map(PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTIONconvert);
+      document.getElementById("spinner-container").replaceChildren(...elements);
+      if (PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.done) {
+          clearInterval(PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTIONdomUpdate);
+      }
+  }
+
+  function PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTIONconvert(node) {
+      const el = document.createElement(node.nodeName);
+      if (node.text) el.textContent = node.text;
+      if (node.id) el.id = node.id;
+      if (node.classes) el.classList.add(...node.classes);
+      if (node.buttonDisabled) el.setAttribute("disabled", node.buttonDisabled);
+      return el;
+  }
+
+  setTimeout(() => {
+      if (PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.spinnerState !== "ready") {
+          PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.spinnerStateText = "We’re still checking your details. Do not close or refresh this page.";
+      }
+  }, 5000);
+
+  setTimeout(() => {
+      PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.spinnerState = "spinner__ready";
+      PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.spinnerStateText = "You can now continue";
+      PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.buttonDisabled = false;
+      PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTION.done = true;
+  }, 10000)
+
+  PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTIONupdateDom();
+
+  const PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTIONdomUpdate = setInterval(PROTOTYPE_CODE_DO_NOT_USE_IN_PRODUCTIONupdateDom, 2000);
+
+</script>
+
+{% endblock %}

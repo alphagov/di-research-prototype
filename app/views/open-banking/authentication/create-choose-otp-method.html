@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Choose how to get security codes
+{% endblock %}
+
+{% block header %}
+{% include "../authentication/_includes/header-auth-mvp.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Choose how to get security codes
+    </h1>
+    <div id="event-name-hint" class="govuk-hint">
+      You’ll need to enter a security code when you sign in to GOV.UK One Login.  
+    </div>
+    <form class="form" action="choose-otp-method" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="security-code-hint">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <!-- Text message -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="security-code" name="security-code" type="radio" value="otp-sms" aria-describedby="security-code-item-hint">
+              <label class="govuk-label govuk-radios__label" for="security-code">
+                Text message
+                <div id="event-name-hint" class="govuk-hint">
+                  Get a code to your mobile phone 
+                </div>
+              </label>
+            </div>
+    
+            <!-- Phone call -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="security-code-2" name="security-code" type="radio" value="otp-voice" aria-describedby="recovery-code-2-item-hint">
+              <label class="govuk-label govuk-radios__label" for="recovery-code">
+                Phone call
+                <div id="event-name-hint" class="govuk-hint">
+                  Get a code in an automated call to your mobile phone or landline
+                </div>
+              </label>
+            </div>
+
+            <!-- Authenticator app for smartphone, tablet or computer -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="security-code-3" name="security-code" type="radio" value="otp-auth" aria-describedby="security-code-3-item-hint">
+              <label class="govuk-label govuk-radios__label" for="security-code-3">
+                Authenticator app for smartphone, tablet or computer
+              </label>
+            </div>
+            <br></br>
+            
+            {{ govukDetails({
+              summaryText: "What is an authenticator app?",
+            html: "<p>An authenticator app creates a security code that helps confirm it’s you when you sign in. <br>
+              <br>
+              You can use an authenticator app on your smartphone, tablet or desktop computer. Download an authenticator app for your smartphone or tablet from your app store or search online for an authenticator app for your computer.</p>"
+            }) }}
+                  
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+          </div> <!-- /. govuk-radios -->
+        </fieldset> <!-- /. govuk-fieldset -->
+      </div> <!-- /. govuk-form-group -->
+    </form> <!-- /. form -->
+  </div> <!-- /. govuk-grid-column-two-thirds -->
+</div> <!-- /. govuk-grid-row -->
+
+{% endblock %}

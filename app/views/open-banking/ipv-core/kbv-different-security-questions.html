@@ -1,0 +1,25 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+You need to prove your identity another way - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">You need to prove your identity another way</h1>
+    <p>We do not have enough information to ask you security questions about your PIP.  </p>
+    <p>We’ll check if we can ask different security questions based on other details you’ve given.</p>
+    <form class="form" action="#" method="post">
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+    <p><a class="govuk-link" href="#">Contact the GOV.UK One Login team (opens in a new tab)</a></p>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Prove your identity another way - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% if (data['continuityIdentity'] == "coi") %}
+    <form class="form" action="coi-fraud-app-abandon" method="post">
+      <h1 class="govuk-heading-l">You were not able to update your details with the GOV.UK ID check app</h1>
+      <p>You can still use the service if your details are out of date.  </p>
+      {{ govukRadios({
+        name: "cantUseApp",
+        idPrefix: "cantUseApp",
+        fieldset: {
+          legend: {
+          text: "What would you like to do?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"}
+        },
+        items: [{
+          value: "service",
+          text: "Continue to the service without updating your details",
+          hint: {
+            text: "Your proof of identity is valid even if your details have changed."
+            }
+          },
+          {
+          value: "delete",
+          text: "Delete your GOV.UK One Login",
+          hint: {
+            text: "You can then create a new one and prove your identity using your new details."
+            }
+          }]
+      }) }}
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+
+    {% elseif (data['continuityIdentity'] == "fraud") %}
+    <form class="form" action="coi-fraud-app-abandon" method="post">
+      <h1 class="govuk-heading-l">You were not able to update your details with the GOV.UK ID check app</h1>
+      <p>You will not be able to use your GOV.UK One Login to access the service. </p>
+      {{ govukRadios({
+        name: "cantUseApp",
+        idPrefix: "cantUseApp",
+        fieldset: {
+          legend: {
+          text: "What would you like to do?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"}
+        },
+        items: [{
+          value: "delete",
+          text: "Delete your GOV.UK One Login",
+          hint: {
+            text: "You can then create a new one and prove your identity using your new details."
+            }
+          },
+          {
+          value: "service",
+          text: "Go back to the service you were trying to use",
+          hint: {
+            text: "There may be another way to access the service without using your GOV.UK One Login."
+            }
+          }]
+      }) }}
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+
+    {% else %}
+    <h1 class="govuk-heading-l">Prove your identity another way</h1>
+    <p>Based on what you told us, you cannot prove your identity online with GOV.UK One Login.</p>
+    <h2 class="govuk-heading-m">What you can do</h2>
+	  <p>Continue to the service you were trying to use and look for other ways to prove your identity.</p>
+    <form class="form" action="../service/service-start" method="post">
+      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+    <p><a class="govuk-link" href="#">Contact the GOV.UK One Login team (opens in a new tab)</a></p>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

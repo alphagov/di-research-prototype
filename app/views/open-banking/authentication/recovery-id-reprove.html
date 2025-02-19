@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+{# if coming in from a service - find out which one #}
+
+{% block pageTitle %}
+Prove your identity with the GOV.UK ID Check app
+{% endblock %}
+
+{% block header %}
+{% include "../authentication/_includes/header-auth-mvp.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+
+  {% if data['use-govuk-account'] %}
+    <a class="govuk-back-link" href="/preauth/mvp/identity-welcome">Back</a>
+    {% else %}
+    <a href="recovery-id-steps" class="govuk-back-link">Back</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="{{data.prototype['pyiDir'] or '/pyi/v27'}}/{{data.prototype['pyiEntry'] or 'online-photoid-screener' }}" method="post" class="form">
+      <h1 class="govuk-heading-l">Prove your identity with the GOV.UK ID Check app</h1>
+      <p>You'll need:<p></p>
+      <ul class="govuk-list govuk-list--bullet"> 
+        <li>a iPhone or an Android smartphone - we’ll guide you to download and use the app</li>
+        <li>photo ID</li>
+      </ul>
+      <p>After you prove your identity, you’ll be able to set up a new way get security codes to sign in to your GOV.UK One Login.<p>
+      <div class="govuk-button-group"  href=# >
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>  
+      </form> 
+  </div>
+  <p><a class="govuk-link" href="recovery-need-smartphone">I do not have a smartphone or photo ID</a></p>
+</div>
+
+{% endblock %}

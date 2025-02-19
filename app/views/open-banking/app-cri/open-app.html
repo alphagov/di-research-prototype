@@ -1,0 +1,49 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Welcome screen
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <form class="form" action="agree-to-share-analytics" method="post">
+        <div class="centred-container">
+          <img class="app-logo" src="/public/images/app-logo-with-tudor-crown.svg" width="135" height="135" alt="">
+          <h1 class="govuk-app-heading-l govuk-app-margin-bottom-m govuk-app-margin-top-m" style="text-align: center;">
+            GOV.UK ID Check
+          </h1>
+          <p class="govuk-app-body govuk-app-margin-bottom-m" style="text-align: center;">GOV.UK ID Check is a secure way to confirm your identity when you sign in to a government service with GOV.UK One Login.</p>
+        </div>
+        <div class="button-container">
+          <button type="submit" class="govuk-app-button-default" data-module="govuk-button">
+            Continue
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+

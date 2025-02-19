@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+When did you receive your last PIP payment? - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="kbv-transition-spinner" method="post">
+      <div class="govuk-form-group">
+        {{ govukDateInput({
+          id: "passport-issued",
+          namePrefix: "passport-issued",
+          fieldset: {
+            legend: {
+              text: "When did you receive your last PIP payment?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            html: "You can find this on your bank statement.<br>For example, 27 3 2007"
+          }
+        }) }}
+      </div>
+      <input class="govuk-input" name="kbvNum" type="hidden" value="{{ code }}">
+      <details class="govuk-details govuk-!-margin-bottom-4" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            I do not have this information now
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+        </div>
+      </details>
+      <button id="button" class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">Continue</button>
+    </form>
+    <p><a class="govuk-link" href="../ipv-core/kbv-drop-off-buffer">I cannot answer this question</a></p>
+  </div>
+</div>
+
+{% endblock %}

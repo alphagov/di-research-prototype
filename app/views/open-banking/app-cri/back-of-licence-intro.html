@@ -1,0 +1,79 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Photograph licence - back
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        
+        <form class="form" method="post">
+
+        <h1 class="govuk-app-heading-l govuk-app-margin-bottom-s govuk-app-margin-top-l">
+          Take a photo of the back of your driving licence
+        </h1>
+
+        <p class="govuk-app-body govuk-app-margin-bottom-xl">This is so we can check the details on your driving licence.</p>
+        <h2 class="govuk-app-heading-m">Next you will need to:</h1>
+        <ul class="govuk-app-list govuk-app-list--bullet">
+          <li>place your driving licence face down</li>
+          <li>position your licence inside the white frame</li>
+          <li>follow the guidelines until the white frame turns green</li>
+        </ul>
+
+          <div class="govuk-app-warning-text">
+            <span class="govuk-app-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+            You cannot use an expired licence or a photocopy or digital copy of your licence.
+            </strong>
+          </div>
+
+   
+
+       
+
+
+          <div class="button-container govuk-app-button-group">
+            <button type="submit" class="govuk-app-button" data-module="govuk-button" formaction="position-camera-back">
+              Start
+            </button>
+            <button type="submit" class="govuk-app-button--secondary" data-module="govuk-button" formaction="#">
+              Confirm your identity another way
+              <img src="/public/images/linkout-symbol.svg" alt="iOS Link Out Symbol">
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+

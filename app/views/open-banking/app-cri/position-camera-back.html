@@ -1,0 +1,86 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Position camera - front
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+
+
+<!-- Clickable mobile frame to avoid reliance on JavaScipt for those who have it disabled -->
+<a href="/test-app-screens/driving-licence/send-or-retake-photo-back">
+  <div class="mobile-frame govuk-dark-mode">
+
+  <!-- status bar -->
+  <img src="/public/images/status-bar-dark-mode.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <div class="chevron-container">
+          <a href="back-of-licence-intro" class="govuk-app-link">
+            <img src="/public/images/chevron.up.svg">
+          </a>
+        </div>
+
+         <!-- Clickable container to avoid reliance on JavaScipt for those who have it disabled -->
+         <a href="/page-index/send-or-retake-photo-back">
+        <div class="take-photo-container">
+          <img class="app-illustration" src="/public/images/driving-licence-photo-4.png" id="take-photo">
+        </div>
+      </a>
+      </div>
+    </div>
+
+    
+  </div>
+</a>
+</div>
+
+{% endblock %}
+
+
+{% block pageScripts %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Set a timeout to replace the face scan image after 2 seconds
+    setTimeout(function() {
+      var takephotoimage = document.getElementById('take-photo');
+      // Replace the current image with the new image
+      takephotoimage.src = "/public/images/driving-licence-photo-5.png";
+
+      // Set another timeout to change the image again after 2 seconds
+      setTimeout(function() {
+        // Replace the current image with the second new image
+        takephotoimage.src = "/public/images/driving-licence-photo-6.png";
+
+        // Set another timeout to redirect to another page after 2 seconds
+        setTimeout(function() {
+          // Redirect to another page
+          window.location.href = "send-or-retake-photo-back";
+        }, 1500); // redirect
+      }, 1500); // 3rd image
+    }, 500); // second image
+  });
+</script>
+{% endblock %}
+
+
+
+
+
+
+
+

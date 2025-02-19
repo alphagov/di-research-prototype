@@ -1,0 +1,166 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter your email address to sign in to GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "../authentication/_includes/header-auth-mvp.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+  {% if prevURL === "http://localhost:3000/preauth/mvp/create-spinner" or prevURL === "https://gds-identity.herokuapp.com/preauth/mvp/create-spinner" or prevURL === "https://gds-identity-ur.herokuapp.com/preauth/mvp/create-spinner" %}
+    <a class="govuk-back-link" href="{{ preAuth }}">Back</a>
+  {% else %}
+    <a href="gov-account" class="govuk-back-link">Back</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Enter your email address to sign in to your GOV.UK One Login
+    </h1>
+    <form class="form" action="signin-password" method="post">
+      <div class="govuk-form-group">
+        <input class="govuk-input govuk-!-width-two-thirds" id="email" name="emailAddress" type="email" spellcheck="false" aria-label="Enter your email address to sign in to GOV.UK One Login" autocomplete="email">
+      </div>
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <input class="govuk-input" name="signin" type="hidden" value="signin">
+    </form>
+  </div>
+</div>
+
+{% if data['devMode'] === 'true' %}
+{# DEVMODE SCENARIOS #}
+
+<details class="nhsuk-details dev-mode" role="group">
+  <summary class="nhsuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+        <span class="nhsuk-details__summary-text">
+          Continue with testing scenario
+        </span>
+  </summary>
+  <div class="nhsuk-details__text">
+    <h4>Happy paths</h4>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a href="spinner-account-not-found-resume.html">User has account</a>
+      </li>
+    </ul>
+    <h4>Form validation Errors</h4>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a href="#">No input</a>
+      </li>
+      <li>
+        <a href="#">Not a valid email format</a>
+      </li>
+    </ul>
+    <h4>System Errors</h4>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a href="#">Session timeout</a>
+      </li>
+      <li>
+        <a href="#">Invalid Session</a>
+      </li>
+      <li>
+        <a href="#">Client not found</a>
+      </li>
+      <li>
+        <a href="#">Service too busy</a>
+      </li>
+      <li>
+        <a href="#">Account lock: We cannot sign you in</a>
+      </li>
+      <li>
+        <a href="#">Disabled GOV.UK account</a>
+      </li>
+    </ul>
+  </div>
+</details>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reconnecting to Service</title>
+    <style>
+        /* Basic styling for text-based indication */
+        .loading-message {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            /* No animation or motion, just a static message */
+            .loading-message {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Example of a static text-based indication for loading -->
+    <div class="loading-message">
+        Reconnecting to service, please wait...
+    </div>
+
+    <!-- Example of a subtle pulsation with reduced motion considerations -->
+    <style>
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .pulse-message {
+            animation: pulse 2s infinite;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            /* No pulsation if motion is reduced */
+            .pulse-message {
+                animation: none;
+            }
+        }
+    </style>
+
+    <!-- Example of subtle pulsation if reduced motion is not preferred -->
+    <div class="pulse-message">
+        Reconnecting to service, please wait...
+    </div>
+</body>
+</html>
+
+{% endif %}
+
+{% endblock %}

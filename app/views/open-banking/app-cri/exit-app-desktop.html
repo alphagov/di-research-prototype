@@ -1,0 +1,71 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Ready to exit app - desktop
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+
+        <div class="centred-container">
+          <h1 class="govuk-app-heading-l govuk-app-margin-bottom-m govuk-app-margin-top-s" style="text-align: center;">
+            You're ready to exit GOV.UK ID Check
+          </h1>
+          <p class="govuk-app-body govuk-app-margin-bottom-m" style="text-align: center;">Your information has been submitted. You will finish confirming your identity on the GOV.UK website. </p>
+          <p class="govuk-app-body" style="text-align: center;">Return to the GOV.UK window you left open on your computer or tablet.</p>
+        </div>
+
+ 
+        <div class="button-container">
+          <p class="govuk-app-body" style="text-align: center;">
+            To use the app again, start at GOV.UK and then <a href="#" class="govuk-app-link">restart GOV.UK ID Check</a> when ready.
+          </p>
+        </div>
+  </div>
+</div>
+
+<div class="mobile-transition-frame">
+    <form class="form" action="../ipv-core/app-download-smartphone-spinner" method="post">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <div class="govuk-!-padding-bottom-3"></div>
+
+    <div class="govuk-notification-banner govuk-notification-banner--journey-options" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header govuk-notification-banner__header--journey-options">
+        <h2 class="govuk-notification-banner__title govuk-notification-banner__title--journey_options" id="govuk-notification-banner-title">
+          Next step
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+          Finish proving your identity on GOV.UK
+        </p>
+       
+        <button class="govuk-button govuk-button--transition" data-module="govuk-button">Continue</button>
+          
+      </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+

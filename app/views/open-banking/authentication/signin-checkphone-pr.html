@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Check your phone
+{% endblock %}
+
+{% block header %}
+{% include "../authentication/_includes/header-auth-mvp.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- If user selects Voice OTP method then display the respective content for that method -->
+
+    {% if data['security-code'] === 'otp-voice' %}
+    <a class="govuk-back-link" href="signin-email-recovery">Back</a>
+    <form class="form" action="signin-reset-password" method="POST">
+      <h1 class="govuk-heading-l">Enter the security code you hear on your phone</h1>
+      <div class="govuk-inset-text">
+        <p>We’ll call you now on your phone number ending with  <strong>{{ data['obfNumber'] or '789' }}</strong></p>
+      </div>
+      <p class="govuk-body">The call may come from an unknown or withheld number.</p>
+      <p class="govuk-body">When you answer the phone, you’ll hear an automated message reading the security code.</p>
+      <p class="govuk-body">The code expires after 15 minutes.</p>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="otp">Enter the 6 digit security code</label>
+        <input class="govuk-input govuk-input--width-5" id="otp" name="create-sms-otp" type="text" autocomplete="one-time-code" inputmode="numeric" spellcheck="false" >
+      </div>
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+        
+    <!-- If user selects auth method then display the respective content for that method -->
+
+    {% elif data['security-code'] === 'otp-auth' %}
+    <a class="govuk-back-link" href="signin-email-recovery">Back</a>
+    <form class="form" action="signin-reset-password" method="POST">
+      <h1 class="govuk-heading-l">
+        Enter the security code you see in your authenticator app
+      </h1>
+      <div class="govuk-inset-text">
+        <p>To get a security code, open the<strong> authenticator app </strong>you used to create your GOV.UK One Login</p>
+      </div>
+      <p class="govuk-body">The code will expire after 15 minutes.</p>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="otp">Enter the 6 digit security code</label>
+        <input class="govuk-input govuk-input--width-5" id="otp" name="create-sms-otp" type="text" autocomplete="one-time-code" inputmode="numeric" spellcheck="false" >
+      </div>
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <p class="govuk-body">  
+    </form>
+    
+    <!-- Else display the default SMS method with its respective content -->
+    
+    {% else %}
+    <a class="govuk-back-link" href="create-account-exists">Back</a>
+    <form class="form" action="signin-reset-password" method="POST">
+      <h1 class="govuk-heading-l">Check your phone</h1>
+      <div class="govuk-inset-text">
+        <p>We have sent a code to your phone number ending with  <strong>{{ data['obfNumber'] or '789' }}</strong></p>
+      </div>
+      <p class="govuk-body">It might take a few minutes to arrive. The code will expire after 15 minutes.</p>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="otp">Enter the 6 digit security code</label>
+        <input class="govuk-input govuk-input--width-5" id="otp" name="create-sms-otp" type="text" autocomplete="one-time-code" inputmode="numeric" spellcheck="false" >
+      </div>
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Problems with the code?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">We can <a href="">send the code again</a> if the code is not working or you did not receive it.</p>
+        </div>
+      </details>
+    </form> <!-- /. govuk-form -->
+  </div>
+</div>
+{% endif %}
+{% endblock %}
