@@ -1,6 +1,6 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
-const parentDir = '/baseline'
+const parentDir = '/open-banking'
 const fs = require('fs-extra') // needed to import the json data
 
 // Add your routes here

@@ -1,6 +1,6 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
-const parentDir = '/baseline'
+const parentDir = '/open-banking'
 const express = require('express');
 const app = express();
 
