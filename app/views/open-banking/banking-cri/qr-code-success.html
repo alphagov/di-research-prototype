@@ -1,0 +1,32 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+You have scanned a QR code to prove your identity using your HSBC account 
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="../banking-cri/what-bank" method="post">
+      <h1 class="govuk-heading-l">You have scanned a QR code to prove your identity using your HSBC account  </h1>
+      <p>This page will update when you have approved your payment on your mobile or tablet device.</p>
+      <p>You can <a href="open-banking-success">refresh this page</a> if it doesn’t update automatically.</p>
+
+
+      <div class="govuk-inset-text">
+        <p> Problems using the QR code? You can stay on this device and use HSBCs website.</p>
+        <p>For additional help, contact the GOV.UK One Login team (opens in a new tab).</p>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

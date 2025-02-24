@@ -1,0 +1,45 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Use your Online Banking details to log on
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="bank-masthead govuk-!-padding-bottom-6 govuk-!-margin-bottom-6">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <img src="/public/images/fake-bank-logo.svg" alt="Bank logo"  />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="../banking-cri/fake-bank-desktop-accounts" method="post">
+      <h1 class="govuk-heading-l">Use your Online Banking details to log on</h1>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="event-name">
+          Username
+        </label>
+        <input class="govuk-input" id="username" name="username" type="text" aria-labelledby="Username">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="event-name">
+          Bank security code
+        </label>
+        <input class="govuk-input" id="Banksecuritycode" name="Banksecuritycode" type="text" aria-labelledby="Bank security code">
+      </div>
+      <button class="govuk-button govuk-!-margin-top-4" id="button--save" data-module="govuk-button" style="background-color: #003078; color: #FFFFFF;">Continue</button>
+      
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

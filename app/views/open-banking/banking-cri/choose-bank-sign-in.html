@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How do you want to sign in to your HSBC account?
+{% endblock %}
+
+{% block header %}
+{% include "../authentication/_includes/header-auth-mvp.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="country-answer" method="post">
+
+        {{ govukRadios({
+          name: "country",
+          value: data['country'],
+          fieldset: {
+            legend: {
+              text: "How do you want to sign in to your HSBC account?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Use my phone or tablet and scan a QR code",
+              text: "Use my phone or tablet and scan a QR code "
+            },
+            {
+              value: "Stay on this device and use the HSBC website",
+              text: "Stay on this device and use the HSBC website"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+        </form>
+
+
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+          </div> <!-- /. govuk-radios -->
+        </fieldset> <!-- /. govuk-fieldset -->
+      </div> <!-- /. govuk-form-group -->
+    </form> <!-- /. form -->
+  </div> <!-- /. govuk-grid-column-two-thirds -->
+</div> <!-- /. govuk-grid-row -->
+
+{% endblock %}
