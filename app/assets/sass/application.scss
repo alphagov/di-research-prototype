@@ -99,3 +99,34 @@ code {
 .govuk-dark-mode {
 	background-color: black;
 }
+
+// custom styling for fake bank mastheade
+.bank-masthead {
+	background-color: #003078;
+	margin-top: -50px;
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+}
+
+@media (min-width: 40.0625em) {
+	.bank-masthead {
+		padding-top: 40px;
+	}
+}
+
+@media (max-width: 640px) {
+	.bank-masthead {
+		margin-top: -30px;
+		padding-top: 30px;
+	}
+}
+
+.bank-masthead__title,
+.bank-masthead__subtitle,
+.bank-masthead p {
+	color: #ffffff;
+}

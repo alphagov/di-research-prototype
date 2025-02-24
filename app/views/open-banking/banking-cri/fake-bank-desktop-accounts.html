@@ -1,0 +1,153 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Use your Online Banking details to log on
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="bank-masthead govuk-!-padding-bottom-6 govuk-!-margin-bottom-6">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <img src="/public/images/fake-bank-logo.svg" alt="Bank logo"  />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Choices</title>
+    <style>
+        /* Make the radio button larger */
+        input[type="radio"] {
+            transform: scale(2); /* Increase the size of the radio button */
+            margin-right: 10px;   /* Adjust spacing between the radio button and other elements */
+        }
+
+        /* Flexbox for the card to align elements */
+        .govuk-summary-card__title-wrapper {
+            display: flex;
+            justify-content: space-between; /* Push the content to the left and the radio button to the right */
+            align-items: center;
+        }
+
+        /* Make sure the label (h2) appears next to the radio button */
+        .govuk-summary-card__actions {
+            display: flex;
+            justify-content: flex-end; /* Align the radio button to the far right */
+        }
+
+        /* Style for the label to ensure it is clickable */
+        label {
+            cursor: pointer; /* Makes the label clickable */
+            font-size: 18px;  /* Adjust the size of the text */
+            margin-left: 10px; /* Space between radio button and label */
+        }
+
+        /* Style for the fieldset and legend */
+        fieldset {
+            border: none;  /* Remove the box border */
+            padding: 0;    /* Remove the padding */
+            margin-bottom: 20px;
+        }
+
+        /* Apply the same styling as the govuk-heading-l to the legend */
+        legend.govuk-heading-l {
+            font-size: 32px;  /* Same size as govuk-heading-l */
+            font-weight: bold;
+            margin-bottom: 20px; /* Space below the legend */
+            padding: 0;
+            border: none;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+  <fieldset>
+    <!-- Use the govuk-heading-l class for the legend to match h1 styling -->
+  
+
+    <legend class="govuk-heading-l">Select the account you’d like to share information from with Ecospend</legend>
+    <br>
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          <label for="current-account">
+            Current account
+          </label>
+        </h2>
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            <input type="radio" id="current-account" name="bank-choice" value="current-account">
+          </li>
+        </ul>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" id="more-detail-hint" class="govuk-hint">
+              67-90-38   3828998
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £1,500.11
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          <label for="savers-account">
+            Savers account
+          </label>
+        </h2>
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            <input type="radio" id="savers-account" name="bank-choice" value="savers-account">
+          </li>
+        </ul>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              67-90-38  8420809
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £800.17
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+    
+  </fieldset>
+
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-visually-hidden">Warning</span>
+      Ecospend will have access to your account information until 17 May 2025.
+    </strong>
+  </div>
+</body>
+</html>
+
+  <form action="../banking-cri/fake-bank-desktop-accounts" method="post">
+    <button class="govuk-button govuk-!-margin-top-4" id="button--save" data-module="govuk-button" style="background-color: #003078; color: #FFFFFF;">Continue</button>
+      
+  </form>
+  </div>
+</div>
+
+
+{% endblock %}

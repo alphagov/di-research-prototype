@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Scan the QR code to prove your identity with HSBC 
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="../banking-cri/what-bank" method="post">
+      <h1 class="govuk-heading-l">Scan the QR code to prove your identity with HSBC </h1>
+
+      <ol class="govuk-list govuk-list--number">
+        <li>Open the camera app on your phone or tablet</li>
+        <li>Position your camera over the QR code. Wait until the QR code is recognised by your camera and a link appears on your screen.</li>
+        <img src="/public/images/auth-app-qr-code.png" alt="Bank logo" />
+        <li>Click on the link to open your HSBC app or website so you can continue proving your identity. This page will automatically update once you scan the QR code. You can  <a href="qr-code-success">refresh it</a> if it doesn’t update.</li>
+      </ol>
+
+      <div class="govuk-inset-text">
+        <p> Problems using the QR code? You can stay on this device and use HSBCs website.</p>
+      <p>For additional help, contact the GOV.UK One Login team (opens in a new tab).</p>
+       
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
