@@ -7,9 +7,9 @@ const parentDir = '/open-banking'
 router.post(`${parentDir}/claimed-identity-cri/confirm-details`, function (req, res) {
 	var confidence = req.session.data['confidence']
 	if (confidence === "low") {
-		res.redirect('../nino-cri/enter-national-insurance-number')
+		res.redirect('../claimed-identity-cri/confirm-details')
 	} else {
-		res.redirect('../bank-account-cri/continue-enter-bank-account-details')
+		res.redirect('../claimed-identity-cri/confirm-details')
 	}
 })
 

@@ -13,19 +13,31 @@ Share your HSBC account details
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="../banking-cri/what-bank" method="post">
+    <form class="form" action="choose-bank-sign-in" method="post">
       <h1 class="govuk-heading-l">Share your HSBC account details </h1>
       <p class="govuk-body">You’ll need to share your:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>name</li>
         <li>address</li>
         <li>account number and sort code</li>
-        <li>transaction history</li>
+        <li>transaction history for the past 3 months</li>
       </ul>
       <p>We use Ecospend to check your account details. Ecospend are regulated by the Financial Conduct Authority. </p>
       <p>Ecospend and GOV.UK cannot see your bank sign in details. </p>
+      <p>We will not save or share your bank account details. </p>
+      <p>We will not use your account information to take any payments.</p>
+      <p>You will be sharing your details until 27 May 2025.</p>
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="consent" name="consent" type="checkbox" value="consent" data-aria-controls="conditional-contact">
+          <label class="govuk-label govuk-checkboxes__label" for="consent">
+            I give Ecospend permission to check my bank account details
+          </label>
+        </div>
+      </div>
       <button class="govuk-button govuk-!-margin-top-4" id="button--save" data-module="govuk-button">Continue</button>
     </form>
+    <p><a class="govuk-link" href="">Choose another way to prove your identity </a> </p>
   </div>
 </div>
 

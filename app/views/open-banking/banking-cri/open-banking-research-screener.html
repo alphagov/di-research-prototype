@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How do you want to sign in to your HSBC account?
+{% endblock %}
+
+{% block header %}
+{% include "../authentication/_includes/header-auth-mvp.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+<form class="form" action="bank-screener" method="post">
+
+{{ govukRadios({
+  name: "screener",
+  value: data['screener'],
+  fieldset: {
+    legend: {
+      text: "What device is the user starting on?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "deviceType",
+      text: "Desktop"
+    },
+    {
+      value: "deviceType",
+      text: "Mobile"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+            </div> <!-- /. govuk-radios -->
+          </fieldset> <!-- /. govuk-fieldset -->
+        </div> <!-- /. govuk-form-group -->
+      </form> <!-- /. form -->
+    </div> <!-- /. govuk-grid-column-two-thirds -->
+  </div> <!-- /. govuk-grid-row -->
+  
+  {% endblock %}
+
+

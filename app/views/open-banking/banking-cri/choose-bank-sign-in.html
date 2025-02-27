@@ -18,44 +18,44 @@ How do you want to sign in to your HSBC account?
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="country-answer" method="post">
+      <h1 class="govuk-heading-l">
+        How do you want to sign in to your HSBC account?
+      </h1>
 
-        {{ govukRadios({
-          name: "country",
-          value: data['country'],
-          fieldset: {
-            legend: {
-              text: "How do you want to sign in to your HSBC account?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          items: [
-            {
-              value: "Use my phone or tablet and scan a QR code",
-              text: "Use my phone or tablet and scan a QR code "
-            },
-            {
-              value: "Stay on this device and use the HSBC website",
-              text: "Stay on this device and use the HSBC website"
-            }
-          ]
-        }) }}
-        
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-        
-        </form>
+      <form class="form" action="banking-method" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="bank-login-hint">
+            <div class="govuk-radios" data-module="govuk-radios">
+              <!-- Text message -->
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="bank-login" name="bank-login" type="radio" value="qr-code" aria-describedby="bank-login-item-hint">
+                <label class="govuk-label govuk-radios__label" for="bank-login">
+                    Use my phone or tablet and scan a QR code 
+                  <div id="event-name-hint" class="govuk-hint">
+                    Use the HSBC app or mobile website to prove your identity 
+                  </div>
+                </label>
+              </div>
+      
+              <!-- Phone call -->
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="bank-login-2" name="bank-login" type="radio" value="bank-website" aria-describedby="bank-login-2-item-hint">
+                <label class="govuk-label govuk-radios__label" for="bank-login">
+                    Stay on this device and use the HSBC website
+                 
+                </label>
+              </div>
+
+                    <br>
+              <button class="govuk-button" type="submit" data-module="govuk-button">Continue</button>
+
+            </div> <!-- /. govuk-radios -->
+          </fieldset> <!-- /. govuk-fieldset -->
+        </div> <!-- /. govuk-form-group -->
+      </form> <!-- /. form -->
+    </div> <!-- /. govuk-grid-column-two-thirds -->
+  </div> <!-- /. govuk-grid-row -->
+  
+  {% endblock %}
 
 
-
-            <button class="govuk-button" data-module="govuk-button">Continue</button>
-          </div> <!-- /. govuk-radios -->
-        </fieldset> <!-- /. govuk-fieldset -->
-      </div> <!-- /. govuk-form-group -->
-    </form> <!-- /. form -->
-  </div> <!-- /. govuk-grid-column-two-thirds -->
-</div> <!-- /. govuk-grid-row -->
-
-{% endblock %}
