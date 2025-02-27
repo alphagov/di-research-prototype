@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Answer questions about your financial history - GOV.UK One Login - GOV.UK
+Answer security questions - GOV.UK One Login - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,25 +14,38 @@ Answer questions about your financial history - GOV.UK One Login - GOV.UK
   <div class="govuk-grid-column-two-thirds">
     <form action="experian-question-picker" method="post">
       <h1 class="govuk-heading-l">
-        Answer questions about your financial history
+        Answer security questions
       </h1>
-      <p class="govuk-body">We’ll ask you some questions about your financial history that only you should know the answers to.</p>
+      
+      <p class="govuk-body">We’ll ask you some questions that only you should know the answers to.</p>
       <p class="govuk-body">This helps us to stop someone who might have your details pretending to be you.</p>
-      <p class="govuk-body">The questions will be about things like your mobile phone contract, bank account, and any credit cards, loans or mortgages you have.</p>
-      {{ govukWarningText({
-          text: "Do not guess the answer if you do not know it. You cannot change your answers and you cannot skip any questions.",
-          iconFallbackText: "Warning"
-      }) }}
-      <p class="govuk-body">We will not keep your answers or share them with any other organisation.</p>
+      
+      <h2 class="govuk-heading-m">What the questions are about</h2>
+      
+      <p class="govuk-body">The questions will be about your financial history, such as your mobile phone contract, bank account, and any credit cards, loans or mortgages you have.</p>
+
       <details class="govuk-details" data-module="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">How we know what questions to ask you</span>
         </summary>
         <div class="govuk-details__text">
-          <p>We’ll work with <a href="#">Experian (opens in new tab)</a> to make sure we ask you questions that only you can answer. This is because companies like Experian have access to lots of information that we can check your answers against. We’ll only ask you questions about information that Experian already has.
+          <p>We’ll work with <a href="#">Experian (opens in new tab)</a> to make sure we ask you questions that only you can answer. This is because companies like Experian have access to lots of information that we can check your answers against.</p>
+          <p>We’ll only ask you questions about information that Experian already has.</p>
           <p><a href="https://signin.account.gov.uk/privacy-notice" class="govuk-link" rel="noreferrer noopener" target="_blank">Our privacy notice (opens in new tab)</a> explains how we use your details to prove your identity.</p>
         </div>
       </details>
+
+      <p class="govuk-body">We will not keep your answers or share them with any other organisation.</p>
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+      
+      <p class="govuk-body">You will find the questions easier to answer if you have information about your financial history to hand.</p>
+
+      {{ govukWarningText({
+        text: "Do not guess the answer if you do not know it. You cannot change your answers and you cannot skip any questions.",
+        iconFallbackText: "Warning"
+      }) }}
+
       <button id="button2" class="govuk-button govuk-visually-hidden" data-module="govuk-button">Continue</button>
       <button class="govuk-button" id="button--save" data-module="govuk-button">Start answering questions</button>
     </form>

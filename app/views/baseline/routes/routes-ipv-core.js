@@ -65,7 +65,7 @@ router.post(`${parentDir}/ipv-core/f2f-screener`, function (request, response) {
 	} else if (f2fID == "no" && confidence == "low") {
 		response.redirect("pyi-escape")
 	} else if (f2fID == "no" && confidence == "medium") {
-		response.redirect("pyi-another-way")
+		response.redirect("prove-identity-bank-account")
 	}
 })
 
