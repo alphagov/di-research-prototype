@@ -40,9 +40,9 @@ router.post(`${parentDir}/ipv-core/eligibility-drop-off`, function (request, res
 	} else if (photoID == "passport") {
 		response.redirect("../passport-cri/enter-passport-details")
 	} else if (photoID == "nino") { // No photo ID route
-		response.redirect("../claimed-identity-cri/enter-name")
+		response.redirect("../ipv-core/page-multiple-doc-check")
 	} else {
-		response.redirect("pyi-post-office")
+		response.redirect("../ipv-core/page-multiple-doc-check")
 	}
 })
 

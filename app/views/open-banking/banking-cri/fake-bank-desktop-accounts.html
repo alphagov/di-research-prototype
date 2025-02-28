@@ -23,7 +23,7 @@ Use your Online Banking details to log on
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Choices</title>
+    <title>Fake accounts</title>
     <style>
 
         /* Make the radio button larger */
@@ -72,10 +72,10 @@ Use your Online Banking details to log on
     </style>
 </head>
 <body>
-  <fieldset>
-    <!-- Use the govuk-heading-l class for the legend to match h1 styling -->
-  
 
+  
+  <fieldset>
+  <form action="../banking-cri/open-banking-success" method="post">
     <legend class="govuk-heading-l">Select the account you’d like to share information from with Ecospend</legend>
     <br>
     <div class="govuk-summary-card">
@@ -131,23 +131,25 @@ Use your Online Banking details to log on
         </dl>
       </div>
     </div>
-    
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        Ecospend will have access to your account information until 17 May 2025.
+      </strong>
+    </div>
+    <button type="submit" class="govuk-button govuk-!-margin-top-4" id="button--save" data-module="govuk-button" style="background-color: #003078; color: #FFFFFF;">Continue</button>
+
+  </form>
+  </body>
+  </html>
   </fieldset>
 
-  <div class="govuk-warning-text">
-    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-    <strong class="govuk-warning-text__text">
-      <span class="govuk-visually-hidden">Warning</span>
-      Ecospend will have access to your account information until 17 May 2025.
-    </strong>
-  </div>
-</body>
-</html>
+ 
 
-  <form action="../banking-cri/fake-bank-desktop-accounts" method="post">
-    <button class="govuk-button govuk-!-margin-top-4" id="button--save" data-module="govuk-button" style="background-color: #003078; color: #FFFFFF;">Continue</button>
-      
-  </form>
+
+    
+
   </div>
 </div>
 

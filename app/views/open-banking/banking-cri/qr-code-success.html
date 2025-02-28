@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-You have scanned a QR code to prove your identity using your HSBC account 
+You have scanned a QR code to prove your identity using your bank account 
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,15 +14,16 @@ You have scanned a QR code to prove your identity using your HSBC account
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="../banking-cri/what-bank" method="post">
-      <h1 class="govuk-heading-l">You have scanned a QR code to prove your identity using your HSBC account  </h1>
+      <h1 class="govuk-heading-l">You have scanned a QR code to prove your identity using your bank account </h1>
       <p>This page will update when you have approved your payment on your mobile or tablet device.</p>
-      <p>You can <a href="open-banking-success">refresh this page</a> if it doesn’t update automatically.</p>
-
-
+      <p> You can  <a href="open-banking-success">refresh the page if it doesn’t update</a></p>
+     
       <div class="govuk-inset-text">
-        <p> Problems using the QR code? You can stay on this device and use HSBCs website.</p>
-        <p>For additional help, contact the GOV.UK One Login team (opens in a new tab).</p>
+      
+        <p> If you have a problem using the QR code, you can <a href="fake-bank-desktop-login">stay on this device and use your bank’s website</a> </p>
+       <p>For additional help, <a href="">contact the GOV.UK One Login team (opens in a new tab).</a></p>
       </div>
+
 
     </form>
   </div>

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Continue proving your identity online - GOV.UK One Login - GOV.UK
+Prove your identity by signing in to your online banking - GOV.UK One Login - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,8 +12,8 @@ Continue proving your identity online - GOV.UK One Login - GOV.UK
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Continue proving your identity online</h1>
-    <p>You can continue proving your identity online by entering details from any of the following:</p>
+    <h1 class="govuk-heading-l">Prove your identity by signing in to your online banking</h1>
+    <p>You can continue proving your identity online by entering details from one of the following: </p>
     <p>
       <ul class="govuk-list govuk-list--bullet">
         <li>UK photocard driving licence (full or provisional)</li>
@@ -23,7 +23,9 @@ Continue proving your identity online - GOV.UK One Login - GOV.UK
         {% endif %}
       </ul>
     </p>
-    <p>You’ll also need to answer some security questions. We use these to stop anyone who might have your details from pretending to be you.</p>
+    <p>You’ll also need to share information from your bank or building society account.</p>
+    <p>You’ll need to sign in to your online banking to do this. This is called ‘open banking’. </p>
+    <p>We do this to stop anyone who might have your details from pretending to be you. </p>
     <p>It takes about 10 minutes to prove your identity this way.</p>
     <form class="form" action="eligibility-drop-off" method="post">
       {% if (data['confidence'] == "low") %}
@@ -38,11 +40,11 @@ Continue proving your identity online - GOV.UK One Login - GOV.UK
         },
         items: [{
           value: "driving-licence",
-          text: "Enter your UK driving licence details"
+          text: "Enter your UK photocard driving licence details and sign in to your online banking"
           },
           {
           value: "passport",
-          text: "Enter your UK passport details"
+          text: "Enter your UK passport details and sign in to your online banking"
           },
           {
           value: "nino",
@@ -63,7 +65,7 @@ Continue proving your identity online - GOV.UK One Login - GOV.UK
         idPrefix: "eligibility-drop-off",
         fieldset: {
           legend: {
-          text: "Do you want to use your UK photocard driving licence or UK passport to prove your identity?",
+          text: "How would you like to prove your identity",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--m"}
         },
@@ -72,11 +74,11 @@ Continue proving your identity online - GOV.UK One Login - GOV.UK
         },
         items: [{
           value: "driving-licence",
-          text: "Enter your UK driving licence details"
+          text: "Enter your UK photocard driving licence details and sign in to your online banking"
           },
           {
           value: "passport",
-          text: "Enter your UK passport details"
+          text: "Enter your UK passport details and sign in to your online banking"
           },
           {
           divider: "or"
