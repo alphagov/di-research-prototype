@@ -33,7 +33,6 @@ router.post(`${parentDir}/banking-cri/banking-method`, function (req, res) {
 })
 
 // routing for the research screener for Open banking
-// Route for banking method selection (bank-screener)
 router.post(`${parentDir}/banking-cri/bank-screener`, function (req, res) {
     var deviceType = req.session.data['screener']
     if (deviceType == "Desktop") {
@@ -42,23 +41,16 @@ router.post(`${parentDir}/banking-cri/bank-screener`, function (req, res) {
         res.redirect('../ipv-core/triage/online-photoid-screener')
     }
 })
-router.post(`${parentDir}/banking-cri/consent`, function (req, res) {
-    var deviceType = req.session.data['screener']
-    if (deviceType == "Desktop") {
-        res.redirect('/choose-bank-sign-in')
+
+
+router.post(`${parentDir}/banking-cri/open-banking-device-post`, function (req, res) {
+    var deviceType = req.session.data['screener'];
+    console.log(deviceType);  // Debug to check the session value
+    if (deviceType === "Mobile") {
+        res.redirect('https://www.figma.com/proto/YKOLpZnSqWhzXIig0B1ATN/Open-banking-app-prototype?node-id=1-6414&t=AtpTZHKi8D7KdnVc-8&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A5847&hide-ui=1');
     } else {
-        res.redirect('https://www.figma.com/proto/YKOLpZnSqWhzXIig0B1ATN/Open-banking-app-prototype?node-id=1-6414&t=AtpTZHKi8D7KdnVc-8&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A5847&hide-ui=1')
+        res.redirect('../banking-cri/choose-bank-sign-in');
     }
-})
-
-router.post(`${parentDir}/claimed-identity-cri/confirm-details`, function (req, res) {
-	var confidence = req.session.data['confidence']
-	if (confidence === "low") {
-		res.redirect('../claimed-identity-cri/confirm-details')
-	} else {
-		res.redirect('../claimed-identity-cri/confirm-details')
-	}
-})
-
+});
 
 module.exports = router;
