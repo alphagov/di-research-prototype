@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-You must answer all security questions to prove your identity - GOV.UK One Login - GOV.UK
+Are you sure you want to prove your identity another way? - GOV.UK One Login - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,32 +12,36 @@ You must answer all security questions to prove your identity - GOV.UK One Login
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">You must answer all security questions to prove your identity</h1>
-    <p>You cannot skip any questions.</p>
     <form class="form" action="kbv-drop-off-buffer" method="post" id="kbvForm">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              What would you like to do?
+              Are you sure you want to prove your identity another way?
             </h1>
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whatToDo" name="whatToDo" type="radio" value="continue">
-              <label class="govuk-label govuk-radios__label" for="whatToDo">
-                Continue answering the security questions
+              <input class="govuk-radios__input" id="whatToDo-2" name="whatToDo" type="radio" value="stop">
+              <label class="govuk-label govuk-radios__label" for="whatToDo-2">
+                Yes - prove my identity another way
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whatToDo-2" name="whatToDo" type="radio" value="stop">
-              <label class="govuk-label govuk-radios__label" for="whatToDo-2">
-                Stop answering the security questions and prove your identity another way
+              <input class="govuk-radios__input" id="whatToDo" name="whatToDo" type="radio" value="continue">
+              <label class="govuk-label govuk-radios__label" for="whatToDo">
+                No - continue answering security questions
               </label>
             </div>
           </div>
         </fieldset>
       </div>
+      
+      {{ govukWarningText({
+        text: "You cannot return to this screen if you look for another way to prove your identity.",
+        iconFallbackText: "Warning"
+      }) }}
+
       <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
     </form>
     <p><a class="govuk-link" href="#">Contact the GOV.UK One Login team (opens in a new tab)</a></p>

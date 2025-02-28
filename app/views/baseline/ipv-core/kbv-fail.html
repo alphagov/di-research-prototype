@@ -15,12 +15,15 @@ Sorry, you’ll need to prove your identity another way - GOV.UK One Login - GOV
     <!-- If the user selected they didn't have photo ID, then this shows -->
     {% if (data['photo-id'] == "no") %}
 
-    <h1 class="govuk-heading-l">Sorry, you’ll need to prove your identity another way</h1>
+    <h1 class="govuk-heading-l">Sorry, we cannot prove your identity this way</h1>
+
     <p>This is because you did not answer some of the security questions correctly.</p>
+
     <h2 class="govuk-heading-m">If you do not have photo ID</h2>
-    <p>You can try proving your identity with the service you need to use. They may take other types of ID.</p>
+    <p>You can go to the service you need to use and see what you can do if you cannot prove your identity with GOV.UK One Login.</p>
     <h2 class="govuk-heading-m">If you have photo ID</h2>
     <p>You can use photo ID to prove your identity using the GOV.UK ID Check app or at a Post Office.</p>
+    
     <details class="govuk-details" data-module="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
@@ -28,19 +31,28 @@ Sorry, you’ll need to prove your identity another way - GOV.UK One Login - GOV
         </span>
       </summary>
       <div class="govuk-details__text">
-        <p>You can use a:</p>
+        <p>For the GOV.UK ID Check app, you can use a:</p>
         <ul>
           <li>UK photocard driving licence</li>
-          <li>European Union (EU) photocard driving licence</li>
           <li>UK passport</li>
-          <li>non-UK passport </li>
-          <li>National identity card from a European Economic Area (EEA) country</li>
+          <li>non-UK passport with a biometric chip</li>
           <li>UK biometric residence permit (BRP)</li>
           <li>UK biometric residence card (BRC)</li>
           <li>UK Frontier Worker permit</li>
         </ul>
+        <p>You can use an expired BRP, BRC or FWP up to 18 months after its expiry date with the GOV.UK ID Check app.</p>
+        <p>At a Post Office, you can use a:</p>
+        <ul>
+          <li>UK photocard driving licence</li>
+          <li>European Union (EU) photocard driving licence</li>
+          <li>UK passport</li>
+          <li>non-UK passport</li>
+          <li>National identity card from a European Economic Area (EEA) country</li>
+        </ul>
+        <p>At a Post Office, your photo ID must not have expired, unless you have a UK passport. You can use a UK passport up to 18 months after its expiry date.</p>
       </div>
     </details>
+    
     <form class="form" action="kbv-fail" method="post">
       {{ govukRadios({
         name: "kbv-fail",
@@ -52,10 +64,6 @@ Sorry, you’ll need to prove your identity another way - GOV.UK One Login - GOV
           classes: "govuk-fieldset__legend--m"}
         },
         items: [{
-          value: "return",
-          text: "Go to the service you need to use and find out if they take other types of ID"
-          },
-          {
           value: "app",
           text: "Prove your identity with the GOV.UK ID Check app",
           hint: {
@@ -63,41 +71,68 @@ Sorry, you’ll need to prove your identity another way - GOV.UK One Login - GOV
             }
           },
           {
+            value: "post office",
+            text: "Prove your identity at a Post Office",
+            hint: {
+              text: "You’ll be asked to enter details from your photo ID on GOV.UK first."
+              }
+            },
+          {
           divider: "or"
           },
           {
-          value: "post office",
-          text: "Prove your identity at a Post Office",
-          hint: {
-            text: "You’ll be asked to enter details from your photo ID on GOV.UK first."
-            }
+            value: "return",
+          text: "Go to the service you need to use and find out if they take other types of ID"
           }]
       }) }}
       <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
     </form>
     <p><a class="govuk-link" href="#">Contact the GOV.UK One Login team (opens in a new tab)</a></p>
 
-    <!-- If the user selected they do have photo ID, then this shows -->
+    <!-- If the user selected they DO have photo ID, then this shows -->
     {% else %}
 
-    <h1 class="govuk-heading-l">Sorry, you’ll need to prove your identity another way</h1>
+    <h1 class="govuk-heading-l">Sorry, we cannot prove your identity this way</h1>
+
     <p>This is because you did not answer some of the security questions correctly.</p>
-    <h2 class="govuk-heading-m">What you can do</h2>
-    <p>Based on what you’ve told us, you have a photo ID you can use to prove your identity.</p>
-    <p>You can do this online with the GOV.UK ID Check app if you have:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>an iPhone 7 or higher</li>
-      <li>an Android phone (for example, Samsung or Google Pixel)</li>
-    </ul>
-    <p>You can also prove your identity at a Post Office. This option takes longer. You’ll usually get an outcome within a day of going to the Post Office. </p>
+    <p>You can prove your identity using the GOV.UK ID Check app or at a Post Office instead.</p>
     
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Types of photo ID you can use
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p>For the GOV.UK ID Check app, you can use a:</p>
+        <ul>
+          <li>UK photocard driving licence</li>
+          <li>UK passport</li>
+          <li>non-UK passport with a biometric chip</li>
+          <li>UK biometric residence permit (BRP)</li>
+          <li>UK biometric residence card (BRC)</li>
+          <li>UK Frontier Worker permit</li>
+        </ul>
+        <p>You can use an expired BRP, BRC or FWP up to 18 months after its expiry date with the GOV.UK ID Check app.</p>
+        <p>At a Post Office, you can use a:</p>
+        <ul>
+          <li>UK photocard driving licence</li>
+          <li>European Union (EU) photocard driving licence</li>
+          <li>UK passport</li>
+          <li>non-UK passport</li>
+          <li>National identity card from a European Economic Area (EEA) country</li>
+        </ul>
+        <p>At a Post Office, your photo ID must not have expired, unless you have a UK passport. You can use a UK passport up to 18 months after its expiry date.</p>
+      </div>
+    </details>
+
     <form class="form" action="kbv-fail" method="post">
       {{ govukRadios({
         name: "kbv-fail",
         idPrefix: "kbv-fail",
         fieldset: {
           legend: {
-          text: "What would you like to do?",
+          text: "How would you like to prove your identity?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--m"}
         },
