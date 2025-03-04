@@ -75,7 +75,7 @@ router.post(`${parentDir}/ipv-core/bank-account`, function (request, response) {
 	if (account == "yes") {
 		response.redirect("../claimed-identity-cri/enter-name") // no photo ID route
 	} else {
-		response.redirect("no-photo-id-start-find-another-way")
+		response.redirect("../ipv-core/prove-identity-bank-account")
 	}
 })
 
