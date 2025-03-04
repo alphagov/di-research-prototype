@@ -11,86 +11,164 @@
 
 {% block content %}
 
-{% if data['correct-address'] === 'no' %}
-  {% set heading = 'Check your address' %}
-{% elif id['delivery-address'] === 'true' %}
-  {% set heading = 'Check your address' %}
-{% elif data['from'] === 'check-answers' %}
-  {% set heading = 'Check your address' %}
-{% elif data['from'] === 'review-history' %}
-  {% set heading = 'Check your address' %}
-{% else %}
-  {% set heading = 'Enter your address' %}
-{% endif %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="address-manual-current-post" method="post">
+ 
+ 
+    <form action="address-check" method="post">
+ 
+ 
       <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
-            {{ heading or 'Enter your address' }}
+            Enter your address
           </h1>
         </legend>
-        <p>
-          <span class="govuk-!-margin-bottom-1 govuk-!-display-block">Postcode</span>
-          <strong>{{ data['address-postcode-current'] or 'LS1 3BE'}}</strong>
-          <a href="find-current-address" class="govuk-!-margin-left-5">
-            Change
-            <span class="govuk-visually-hidden">your postcode</span>
-          </a>
-        </p>
+ 
+ 
+ 
+        <span class="govuk-!-margin-bottom-1 govuk-!-display-block govuk-body">Postcode</span>
+      
+        <strong class="govuk-body govuk-!-font-weight-bold">{{ data['address-postcode-current'] or 'LS1 3BE'}}</strong>
+        <a href="find-current-address" class="govuk-!-margin-left-5">
+          Change
+          <span class="govuk-visually-hidden">your postcode</span>
+        </a>
+      </p>
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+      {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 
-        <!-- Address Line 1-->
+ 
+ 
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+ 
         {{ govukInput({
           label: {
-            text: "Address line 1"
+            text: "Flat number  (optional)"
           },
-          classes: "govuk-input--width-20",
-          id: "address-line1-current",
-          value: data['address-line1-current'],
-          name: "address-line1-current"
+          classes: "govuk-input--width-5",
+          id: "address-non-uk-flat",
+          value: data['address-non-uk-flat'],
+          name: "address-non-uk-flat"
         }) }}
 
+
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-!-margin-bottom-2">
+            Building address
+          </legend>
+          <div id="building-number-hint" class="govuk-hint govuk-!-margin-top--1 govuk-!-margin-bottom-1">
+            Fill in at least one
+          </div>
+         
+          <div class="govuk-inset-text govuk-!-margin-top-1">
+            <div class="govuk-form-group">
+              {{ govukInput({
+                label: {
+                  text: "House number"
+                },
+                classes: "govuk-input--width-5",
+                id: "address-non-uk-flat",
+                value: data['address-non-uk-flat'],
+                name: "address-non-uk-flat"
+              }) }}
+ 
+ 
+            </div>
+ 
+
+ 
+            <div class="govuk-form-group">
+ 
+ 
+              {{ govukInput({
+                label: {
+                  text: "House name"
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "address-non-uk-house-name",
+                value: data['address-non-uk-house-name'],
+                name: "address-non-uk-house-name"
+ 
+ 
+ 
+ 
+              }) }}
+            </div>
+          </div>
+        </fieldset>
+ 
+ 
+ 
+ 
+       <!-- Address Line 1-->
+ 
+ 
+ 
+ 
+        {{ govukInput({
+          label: {
+            text: "Street name (optional)"
+          },
+          classes: "govuk-input--width-20",
+          id: "address-non-uk-street",
+          value: data['address-non-uk-street'],
+          name: "address-non-uk-street"
+        }) }}
+ 
+ 
         <!-- Address Line 2-->
-        {{ govukInput({
-          label: {
-            text: "Address line 2 (optional)"
-          },
-          classes: "govuk-input--width-20",
-          id: "address-line2-current",
-          value: data['address-line2-current'],
-          name: "address-line2-current"
-        }) }}
-
-        <!-- postTown-->
+ 
+ 
+ 
+ 
         {{ govukInput({
           label: {
             text: "Town or city"
           },
-          classes: "govuk-input--width-20",
-          id: "address-city-current",
-          value: data['address-city-current'],
-          name: "address-city-current"
+          classes: "govuk-!-width-two-thirds",
+          id: "address-non-uk-town",
+          value: data['address-non-uk-town'],
+          name: "address-non-uk-town",
+          autocomplete: "address-non-uk-town"
         }) }}
-
-        <!-- County-->
-        {{ govukInput({
-          label: {
-            text: "County (optional)"
-          },
-          classes: "govuk-input--width-20",
-          id: "address-county-current",
-          value: data['address-county-current'],
-          name: "address-county-current"
-        }) }}
-
+ 
+ 
+ 
+ 
+ 
       </fieldset>
+      <h3 class="govuk-heading-m">When did you start living at this address?</h3>
+      <div class="govuk-date-input__item" id="address-year-current-input">
+        <div class="govuk-form-group">
+ 
+ 
+          <label class="govuk-label govuk-date-input__label" for="address-year-current-year">
+            Enter the year you started living here, for example 2017
+          </label>
+          <div id="address-year-current-year-hint" class="govuk-hint">
+ 
+ 
+          </div>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="address-year-current-year" name="address-year-current-year" type="text" inputmode="numeric"  value="{{ data['address-year-current-year'] }}">
+ 
+ 
+        </div>
+      </div>
+ 
+ 
+  <div class="govuk-grid-row">
+     <div class="govuk-grid-column-two-thirds">
       <button class="govuk-button" type="submit" data-module="govuk-button">
         Continue
-      </button>
+    </button>
+        
     </form>
+ 
+ 
   </div>
-</div>
+ </div>
 
 {% endblock %}
