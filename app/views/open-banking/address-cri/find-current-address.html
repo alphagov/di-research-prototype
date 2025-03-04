@@ -36,7 +36,7 @@ Find your address - GOV.UK One Login - GOV.UK
         <div class="govuk-hint">
           Enter the postcode of your current home address. This must be a UK postcode, for example SW1A 2AA.
         </div>
-          <input class="govuk-input govuk-input--width-10" id="postcode" name="address-postcode-current" type="text" value="{{ input or data['address-postcode-current'] or data['dl-postcode'] }}">
+          <input class="govuk-input govuk-input--width-10" id="postcode" name="address-postcode-current" type="text" value="{{ input or data['address-postcode-current'] or data['dl-postcode'] }}" autocomplete="off">
         </div>
       </fieldset>
       <button class="govuk-button" type="submit" data-module="govuk-button">
