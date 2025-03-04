@@ -23,9 +23,8 @@ Prove your identity by signing in to your online banking - GOV.UK One Login - GO
         {% endif %}
       </ul>
     </p>
-    <p>You’ll also need to share information from your bank or building society account.</p>
-    <p>You’ll need to sign in to your online banking to do this. This is called ‘open banking’. </p>
-    <p>We do this to stop anyone who might have your details from pretending to be you. </p>
+    <p>You’ll also need to sign in to your online banking so you can share information from your bank or building society account. This is called ‘open banking’. </p>
+    <p>We do this to stop anyone who might have your details from pretending to be you.</p>
     <p>It takes about 10 minutes to prove your identity this way.</p>
     <form class="form" action="eligibility-drop-off" method="post">
       {% if (data['confidence'] == "low") %}
@@ -65,12 +64,9 @@ Prove your identity by signing in to your online banking - GOV.UK One Login - GO
         idPrefix: "eligibility-drop-off",
         fieldset: {
           legend: {
-          text: "How would you like to prove your identity",
+          text: "How would you like to prove your identity?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--m"}
-        },
-        hint: {
-          text: "You’ll need to have your photo ID ready. You cannot use a photocopy or digital copy."
         },
         items: [{
           value: "driving-licence",
