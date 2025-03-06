@@ -9,7 +9,7 @@ router.post(`${parentDir}/nino-cri/ni-details-post`, function (req, res) {
 	if (req.session.data['photo-id'] === "No") {
 		res.redirect('../address-cri/find-current-address')
 	} else {
-		res.redirect('../kbv-cri/experian-kbv-start')
+		res.redirect('../address-cri/find-current-address')
 	}
 })
 
