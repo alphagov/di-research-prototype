@@ -16,7 +16,7 @@ Enter your details exactly as they appear on your UK driving licence - GOV.UK On
     <h1 class="govuk-heading-l">
       Enter your details exactly as they appear on your UK driving licence
     </h1>
-    <form class="form" action="../address-cri/find-current-address" method="post">
+    <form class="form" autocomplete="off" action="../address-cri/find-current-address" method="post">
       <div class="govuk-inset-text">
         If you do not have a UK driving licence or you cannot remember your details, you can <a href="kbv-intro">prove your identity another way</a> instead.
       </div>
@@ -45,7 +45,7 @@ Enter your details exactly as they appear on your UK driving licence - GOV.UK On
             id: "first-name",
             name: "first-name",
             value: data['first-name'],
-            autocomplete: "",
+            autocomplete: "off",
             spellcheck: false
           }) }}
 
@@ -59,7 +59,7 @@ Enter your details exactly as they appear on your UK driving licence - GOV.UK On
             id: "middle-names",
             name: "middle-names",
             value: data['middle-names'],
-            autocomplete: "",
+            autocomplete: "off",
             spellcheck: false
           }) }}
 
@@ -82,19 +82,19 @@ Enter your details exactly as they appear on your UK driving licence - GOV.UK On
             name: "day",
             value: data['dob-day'],
             classes: "govuk-input--width-2",
-            autocomplete: ""
+            autocomplete: "off"
           },
           {
             name: "month",
             value: data['dob-month'],
             classes: "govuk-input--width-2",
-            autocomplete: ""
+            autocomplete: "off"
           },
           {
             name: "year",
             value: data['dob-year'],
             classes: "govuk-input--width-4",
-            autocomplete: ""
+            autocomplete: "off"
           }
         ]
       }) }}
@@ -201,6 +201,7 @@ Enter your details exactly as they appear on your UK driving licence - GOV.UK On
         },
         id: "dl-postcode",
         name: "dl-postcode",
+        autocomplete: "off",
         value: data['dl-postcode'],
         spellcheck: false
       }) }}
