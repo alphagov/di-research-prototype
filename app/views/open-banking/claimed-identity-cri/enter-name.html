@@ -12,7 +12,7 @@ Enter your name as it appears on your HMRC record - GOV.UK One Login - GOV.UK
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="enter-date-birth" method="post">
+    <form autocomplete="off" action="enter-date-birth" method="post">
       {% if (data['confidence'] == "low") %}
       <h1 class="govuk-heading-l">Enter your name as it appears on your HMRC record</h1>
       <p class="govuk-body">It should match how your name is shown on documents such as your payslip, P60 or benefits letters.</p>
