@@ -44,11 +44,6 @@ Confirm your details - GOV.UK One Login - GOV.UK
           iconFallbackText: "Warning"
         }) }}
       {% else %}
-      <!--I updated the warning component text below for no photo ID - we need to update the baseline version to include med conf variant as well -->
-      {{ govukWarningText({
-          text: "You cannot change your name and date of birth once you continue to the next page.",
-            iconFallbackText: "Warning"
-          }) }}
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -73,6 +68,11 @@ Confirm your details - GOV.UK One Login - GOV.UK
             </dd>
           </div>
         </dl>
+              <!--I updated the warning component text below for no photo ID - we need to update the baseline version to include med conf variant as well -->
+      {{ govukWarningText({
+        text: "You cannot change your name and date of birth once you continue to the next page.",
+          iconFallbackText: "Warning"
+        }) }}
       {% endif %}
       <button type="submit" class="govuk-button" data-module="govuk-button">
         Confirm and continue
