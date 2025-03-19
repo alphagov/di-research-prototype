@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Make a Lasting Power of Attorney (LPA)
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+  
+.moj-ticket-panel {
+    display: block;
+    margin-right: 0;
+    flex-wrap: wrap;
+}
+.govuk-\!-margin-bottom-6 {
+    margin-bottom: 20px !important;
+}
+.moj-ticket-panel__content--blue {
+    border-left-color: #1d70b8;
+}
+.moj-ticket-panel__content {
+    display: block;
+    position: relative;
+    background-color: #f3f2f1;
+    padding: 20px;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    border-left: 4px solid rgba(0, 0, 0, 0);
+}
+</style>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        How to confirm your identity and sign the Lasting Power of Attorney (LPA)
+      </h1>
+
+      <p class="govuk-body">There are 3 steps to signing your LPA. You must complete these steps in one go.</p>
+      
+      {{ govukWarningText({
+        text: "Jo Merrill, your certificate provider, must be with you in person when you complete these steps.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      <div class="moj-ticket-panel govuk-!-margin-bottom-6">
+        <div class="moj-ticket-panel__content moj-ticket-panel__content--blue">
+          
+            <h2 class="govuk-heading-m">1. Confirm your identity</h2><div class="govuk-body"><p>This is so we can be sure it’s you that’s about to sign the LPA. It should take less than 5 minutes.</p></div>
+          
+            <h2 class="govuk-heading-m">2. Discuss your LPA with Jo</h2><div class="govuk-body"><p>You should meet in private. Alex Smith should not be there.</p></div>
+          
+            <h2 class="govuk-heading-m">3. Sign your LPA</h2><div class="govuk-body"><p>Sign your LPA online. We will then send Jo Merrill a unique code by text message, that they must enter to prove they were with you.</p></div>
+          
+        </div>
+      </div>
+
+      <div class="govuk-button-group">
+    
+        <a href="/service/lasting-power-attorney/service-start" class="govuk-button" data-module="govuk-button">Continue</a>
+      
+      <a id="return-to-tasklist-btn" href="#" class="govuk-button govuk-button--secondary">Return to task list</a>
+    </div>
+
+
+{% endblock %}

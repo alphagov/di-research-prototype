@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Personal tax account: sign in or set up
+{% endblock %}
+
+
+{% block beforeContent %}
+
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="javascript:void(0)">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="javascript:void(0)">Money and tax</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="javascript:void(0)">Dealing with HMRC</a>
+    </li>
+  </ol>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
+      Personal tax account: sign in or set up
+    </h1>
+
+    <p class="govuk-body">Use your personal tax account to check your records and manage your details with HM Revenue and Customs (HMRC).</p>
+    <p class="govuk-body">This service is also available in <a href="#">Welsh (Cymraeg)</a>.</p>
+    <p class="govuk-body">To use this service, you'll need a Government Gateway account or a GOV.UK One Login.</p>
+
+    <div class="govuk-inset-text">
+      There’s a different service to <a href="javascript:void(0)">file your Self Assessment tax return</a> or <a href="javascript:void(0)">report and pay Capital Gains Tax on UK property</a>.
+    </div>
+
+    {{ govukButton({
+      text: "Start now",
+      href: "/baseline/authentication/gov-account",
+      isStartButton: true
+    }) }}
+
+    <h2 class="govuk-heading-m">What you need to know</h2>
+    <p class="govuk-body">You can use your personal tax account to:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>check your Income Tax estimate and tax code</li>
+      <li>fill in, send and view a personal tax return</li>
+      <li>claim a tax refund</li>
+      <li>check your income from work in the previous 5 years</li>
+      <li>check how much Income Tax you paid in the previous 5 years</li>
+      <li>check and manage your tax credits</li>
+      <li>check your State Pension</li>
+      <li>track tax forms that you’ve submitted online</li>
+      <li>check or update your Marriage Allowance</li>
+      <li>tell HMRC about a change of name or address</li>
+      <li>check or update benefits you get from work, for example company car details and medical insurance</li>
+      <li>find your National Insurance number</li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

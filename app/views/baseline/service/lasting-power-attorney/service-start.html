@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Make a Lasting Power of Attorney (LPA)
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Confirm your identity
+      </h1>
+
+      <p class="govuk-body">Before you sign your LPA, you need to confirm your identity.</p>
+
+      <p class="govuk-body">Use the GOV.UK One Login service to confirm your identity either online, or at a Post Office. You will need an identity document, for example:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your payslip, P60 or a benefits letter</li>
+        <li>a UK passport</li>
+        <li>a UK driving licence</li>
+      </ul>
+
+      <p class="govuk-body">If you are unable to confirm your identity using GOV.UK One Login, you’ll be given guidance on what to do next.</p>
+
+      <!-- Need to add action or routing here -->
+      <form class="form" action=" " method="post">
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

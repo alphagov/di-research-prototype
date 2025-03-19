@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Prove your identity to continue
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../../_includes/phase-banner.html" %}
+  <a class="govuk-back-link" href="/baseline/service/dbs-check/service-start">Back</a>
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/baseline/authentication/gov-account" method="post">
+
+      <h1 class="govuk-heading-l">Prove your identity to continue</h1>
+        
+      <p>You need to prove your identity before you can continue. You'll need an account to do this.</p>
+      
+      <p>This will help protect you against online identity theft.</p>
+
+      {{ govukCheckboxes({
+      idPrefix: "id-documents",
+      name: "dbs-accept",
+      classes: "govuk-checkboxes--small",
+      fieldset: {
+      },
+      items: [
+        {
+          value: "dbs-accept-privacy",
+          html: "By continuing, I agree that I have read and understood the basic DBS check online application <a href='#'>privacy policy (opens in a new tab)</a>. I understand how the DBS will process my personal data when I'm applying online, before my application has been submitted",
+          checked:  checked("dbs-accept", "dbs-accept-privacy")
+        }
+      ]
+    }) }}
+
+      <input class="govuk-input" id="optin" name="optin" type="hidden" value="yes">
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+
+</div>
+{% endblock %}
