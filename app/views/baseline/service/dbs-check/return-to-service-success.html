@@ -1,0 +1,114 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Is this your full name, date of birth and address?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../../_includes/phase-banner.html" %}
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- Need to add action or routing here -->
+    <form action=" " method="post">
+
+      <h1 class="govuk-heading-l">Is this your full name, date of birth and address?</h1>
+        
+      <p>This is the name, date of birth and address shared from your GOV.UK One Login:</p>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['firstName'] }} {{ data['middleName'] }} {{ data['lastName'] or "Sarah Jones" }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of birth
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['date-of-birth-day'] }} {{ data['date-of-birth-month'] }} {{ data['date-of-birth-year'] or "22 10 1993" }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['address-city-current'] %}
+              {% if data['address-line1-current'] %}
+                {{ data['address-line1-current'] }}<br>
+              {% endif %}
+              {% if data['address-line2-current'] %}
+                {{ data['address-line2-current'] }}<br>
+              {% endif %}
+              {{ data['address-city-current'] }}<br>
+              {% if data['address-county-current'] %}
+                {{ data['address-county-current'] }}<br>
+              {% endif %}
+              {{ data['address-postcode-current'] or 'LS1 3BE' }}
+
+              {% else %}
+                Office 14 <br>
+                New Station St <br>
+                Leeds <br>
+                LS1 5DL
+            {% endif %}
+          </dd>
+        </div>
+      </dl>
+
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading"><span class="govuk-visually-hidden">
+            Is this your full name, date of birth and address?
+          </span></h1>
+        </legend>
+        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="detailsCheck" name="detailsCheck" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="detailsCheck">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="detailsCheck-2" name="detailsCheck" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="detailsCheck-2">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+
+      <details class="govuk-details govuk-!-margin-top-5">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            My personal information is incorrect, what should I do?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>The above personal information has been shared from your GOV.UK One Login.</p>
+          <p>Your name and date of birth have been taken from the details you entered. This is the name that will appear on your basic check result.</p>
+          <p>The above address has been checked with Experian.</p>
+          <p>If you wish to query any of this information, select ‘No’ and ‘Continue’.</p>
+          <p>You will then be redirected so we can help you continue with your application.</p>
+        </div>
+      </details>
+
+      <input class="govuk-input" id="optin" name="optin" type="hidden" value="yes">
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+
+</div>
+{% endblock %}

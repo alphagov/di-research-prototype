@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your identity details confirmed with GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+homepageUrl: "/",
+serviceName: "Make and register a lasting power of attorney (LPA)",
+serviceUrl: "/",
+containerClasses: "govuk-width-container"
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+        
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <h1 class="govuk-heading-xl">Your identity details confirmed with GOV.UK One Login</h1>
+
+      {% set dateOfBirth %}
+          {{ data['date-of-birth-day'] }} {{ data['date-of-birth-month'] }} {{ data['date-of-birth-year'] }}
+        {% endset %}
+
+
+        {{ govukSummaryList({
+          classes: "govuk-!-margin-bottom-7",
+          rows: [
+            {
+              key: {
+                text: "First names"
+              },
+              value: {
+                text: data['firstName'] + ' ' + data['middleName']
+              }
+            },
+            {
+              key: {
+                text: "Last name"
+              },
+              value: {
+                text: data['lastName']
+              }
+            },
+            {
+              key: {
+                text: "Date of birth"
+              },
+              value: {
+                text: dateOfBirth
+              }
+            },
+            {
+              key: {
+                text: "Confirmed at"
+              },
+              value: {
+                text: "8 July 2024 at 2:16pm"
+              }
+            }
+          ]
+        }) }}
+    
+
+    <form novalidate="" method="post">
+      
+<button type="submit" class="govuk-button" data-module="govuk-button">Continue</button>
+
+      
+  <input type="hidden" name="csrf" value="qTAZN31e69Ny">
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
