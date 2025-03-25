@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Agree to share your name, address and date of birth from this account
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="open-banking-success" method="post">
+      <h1 class="govuk-heading-l">Allow your information to be shared</h1>
+      <p>Crosina Capital needs to share your details with another organisation.  </p>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Philippa Page
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Current account
+          </dt>
+          <dd class="govuk-summary-list__value">
+            *****998
+          </dd>
+  
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Sort code
+          </dt>
+          <dd class="govuk-summary-list__value">
+            67-90-38
+          </dd>
+      
+        </div>
+
+      </dl>
+
+      <h2 class="govuk-heading-m">Confirming your information </h2>
+      <p>The other organisation will send Crosina Capital your: </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        
+        <li>date of birth</li>
+        <li>address</li>
+  
+      </ul>
+      <p>This will help us to match your details and confirm your identity.</p>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Who Crosina Capital will share your information with
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          Crosina Capital use a company called Judentia to check your information. <br> <br>
+          This is because companies like Judentia have access to information about interactions you've previously had with other organisations.<br> <br>
+          Read the <a class="govuk-link" href="">Crosina Capital privacy notice (opens in new tab)</a> if you'd like to know more about how your details will be used to confirm your identity.
+        </div>
+      </details>
+      <h2 class="govuk-heading-m">
+        Allow your information to be shared
+      </h2>
+      
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+            
+          <input class="govuk-checkboxes__input" id="consent" name="consent" type="checkbox" value="consent" data-aria-controls="conditional-contact">
+          
+          <label class="govuk-label govuk-checkboxes__label" for="consent">
+            I give permission for my information to be shared between Crosina Capital and Judentia
+          </label>
+
+        </div>
+      <button class="govuk-button govuk-!-margin-top-4" id="button--save" data-module="govuk-button">Continue</button>
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}
