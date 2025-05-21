@@ -438,7 +438,7 @@ router.post(`${parentDir}/ipv-core/document-check`, function (req, res) {
     if (docCheck == "driving-licence") {
         res.redirect('../banking-cri/open-banking-start-page-license')
     } else {
-        res.redirect('../banking-cri/open-banking-start-page-photo-id')
+        res.redirect('../banking-cri/open-banking-start-page-passport')
     }
 })
 router.post(`${parentDir}/banking-cri/document-check-post`, function (req, res) {
