@@ -73,7 +73,7 @@ router.post(`${parentDir}/ipv-core/f2f-screener`, function (request, response) {
 router.post(`${parentDir}/ipv-core/bank-account`, function (request, response) {
 	var account = request.session.data['bank-account']
 	if (account == "yes") {
-		response.redirect("../claimed-identity-cri/enter-name") // no photo ID route
+		response.redirect("../banking-cri/open-banking-start-page") // no photo ID route
 	} else {
 		response.redirect("../ipv-core/prove-identity-bank-account")
 	}
@@ -431,5 +431,23 @@ router.post(`${parentDir}/ipv-core/app-success-page`, function (request, respons
 		response.redirect("../address-cri/find-current-address")
 	}
 })
-
+// routing for the research screener for Open banking
+router.post(`${parentDir}/ipv-core/document-check`, function (req, res) {
+    var docCheck = req.session.data['doc-check']
+	console.log(docCheck); // Added for debugging
+    if (docCheck == "driving-licence") {
+        res.redirect('../banking-cri/open-banking-start-page-license')
+    } else {
+        res.redirect('../banking-cri/open-banking-start-page-photo-id')
+    }
+})
+router.post(`${parentDir}/banking-cri/document-check-post`, function (req, res) {
+    var docCheck = req.session.data['doc-check'];
+    console.log(docCheck);  // Debug to check the session value
+    if (docCheck === "driving-licence") {
+        res.redirect('../driving-licence-cri/photocard-authority');
+    } else {
+        res.redirect('../passport-cri/enter-passport-details');
+    }
+});
 module.exports = router;

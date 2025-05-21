@@ -36,9 +36,9 @@ router.post(`${parentDir}/banking-cri/banking-method`, function (req, res) {
 router.post(`${parentDir}/banking-cri/bank-screener`, function (req, res) {
     var deviceType = req.session.data['screener']
     if (deviceType == "Desktop") {
-        res.redirect('../ipv-core/triage/online-photoid-screener')
+        res.redirect('../service/dbs-service-start')
     } else {
-        res.redirect('../ipv-core/triage/online-photoid-screener')
+        res.redirect('../service/dbs-service-start')
     }
 })
 
