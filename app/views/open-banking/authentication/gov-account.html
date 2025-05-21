@@ -24,15 +24,11 @@ Create a GOV.UK One Login or sign in
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="create-email" method="post" class="form">
+    <form action="../ipv-core/triage/online-photoid-screener" method="post" class="form">
       <h1 class="govuk-heading-l">Create your GOV.UK One Login or sign in</h1>
-      <p>You can use your GOV.UK One Login to access some government services.  <p>
-        <p>In the future, you'll be able to use it to access all services on GOV.UK. <p>
-        <p>You’ll need:<p>
-      <ul class="govuk-list govuk-list--bullet"> 
-        <li>an email address</li>
-        <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
-      </ul>
+      <p>You can use your GOV.UK One Login to access some government services.<p>
+        <p> In the future, you’ll be able to use it to access all services on GOV.UK. <p>
+       
       <div class="govuk-inset-text">
         You can also <a href="#">use GOV.UK One Login in Welsh (Cymraeg) </a>
       </div>
@@ -41,37 +37,17 @@ Create a GOV.UK One Login or sign in
           Create your GOV.UK One Login 
         </button>  
     </form>
-    <form action="signin-email" method="post" class="form">
+    <form action="../ipv-core/triage/online-photoid-screener" method="post" class="form">
       <div class="govuk-button-group">
-      <button action="signin-email" class="govuk-button govuk-button--secondary"  data-module="govuk-button">
+      <button action="../ipv-core/triage/online-photoid-screener" class="govuk-button govuk-button--secondary"  data-module="govuk-button">
         Sign in
       </button>
       </div>
     </form>
   </div>
+  <p><a class="govuk-link" href="">Services you can use with GOV.UK One Login (opens in new tab) </a> </p>
 
-  <details class="govuk-details" data-module="govuk-details">
-    <summary class="govuk-details__summary">
-      <span class="govuk-details__summary-text">
-        About GOV.UK One Login
-      </span>
-    </summary>
-    <div class="govuk-details__text">
-      GOV.UK One Login is new. At the moment you can only use it with:<br><br>
-      <ul class="govuk-list govuk-list--bullet"> 
-        <li>Apply for a vehicle operator licence</li>
-        <li>Apply to become a registered social worker in England</li>
-        <li>GOV.UK email subscriptions</li>
-        <li>ALITE (Licensing for International Trade and Enterprise)</li>
-        <li>Ofqual subject matter specialist account</li>
-        <li>Request a basic DBS check</li>
-        <li>Sign your mortgage deed</li><br>
-        <p>GOV.UK One Login does not work with all government accounts or services yet (for example Government Gateway or Universal Credit).</p>
-        <p>In the future, you‘ll be able to use your GOV.UK One Login to access all services on GOV.UK.</p>
-      </ul>
-    </div>
-    
-  </details>
-</div>
+
+
 
 {% endblock %}

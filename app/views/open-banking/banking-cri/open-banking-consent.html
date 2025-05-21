@@ -13,35 +13,47 @@ Share information from your bank account
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="open-banking-device-post" method="post">
-      <h1 class="govuk-heading-l">Share information from your bank account</h1>
-      <p>You’ll need to share your: </p>
+    <form class="form" action="what-bank" method="post">
+      <h1 class="govuk-heading-l">Agree to share information from your bank or building society account</h1>
+      <p>We use 2 companies to help us check your account information and confirm your identity: </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Crosina Capital</li>
+        <li>Judentia</li>
+        
+      </ul>
+  <p>Both are regulated by the <a href="">Financial Conduct Authority (opens in a new tab)</a>. </p>
+      <h2 class="govuk-heading-m">
+        Information that’s shared with Crosina Capital and Judentia
+      </h2>
+      <p class="govuk-body">You need to share your:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>name</li>
-        <li>account number and sort code</li>
-        <li>transaction history for the past 3 months</li>
+        <li>date of birth</li>
+        <li>account number</li>
+        <li>sort code</li>
+        <li>recent transactions, to confirm that your account has been active in the past 3 months (we will not see details of the transactions)</li>
       </ul>
-      <p>Once you’ve signed in to your online banking and you’ve chosen the account you want to share, your information will be shared automatically.   </p>
-      <h2 class="govuk-heading-m">
-        Who you’ll be sharing your information with
-      </h2>
-      <p>We use a company called Crosina Capital to check your account information. Crosina Capital is regulated by the <a class="govuk-link" href="">Financial Conduct Authority (opens in a new tab). </a> </p>
-      <p>Crosina Capital and GOV.UK cannot see your bank sign in details. </p>
-      <div class="govuk-inset-text">
-        We will not use your account information to take any payments. 
-      </div>
   
       <h2 class="govuk-heading-m">
-        Allow Crosina Capital to check your bank account information
+        Information that’s not shared
       </h2>
-      <p>You will be sharing your details until 2 July 2025.</p>
+      <p class="govuk-body">Crosina Capital and Judentia will not:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>have access to your online banking sign-in details</li>
+        <li>use your information to take payments</li>
+        
+      </ul>
+      <p>None of your bank account information will be shared with the government service you are using.</p>
+      <h2 class="govuk-heading-m">
+        Give approval for your bank account information to be shared
+      </h2>
       <div class="govuk-checkboxes" data-module="govuk-checkboxes">
         <div class="govuk-checkboxes__item">
             
           <input class="govuk-checkboxes__input" id="consent" name="consent" type="checkbox" value="consent" data-aria-controls="conditional-contact">
           
           <label class="govuk-label govuk-checkboxes__label" for="consent">
-            I give Crosina Capital permission to check my bank account information
+            I agree to my bank account information being shared with Crosina Capital and Judentia
           </label>
 
         </div>

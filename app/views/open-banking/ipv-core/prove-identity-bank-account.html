@@ -13,20 +13,23 @@ Prove your identity another way - GOV.UK One Login - GOV.UK
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Prove your identity by signing in to your online banking</h1>
-    <p>You can continue proving your identity online by providing some personal details.  </p>
-    <p>You’ll also need to share information from your bank or building society account.   </p>
-    <p>We do this to stop anyone who might have your details from pretending to be you. </p>
-    <h2 class="govuk-heading-m">Provide some personal details</h2>
-    <p>We’ll ask you for your:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>name as it appears on your bank or building society account</li>
-      <li>National Insurance number</li>
-      <li>current address (you might also need your previous address if you’ve recently moved)</li>
-    </ul>
-    <h2 class="govuk-heading-m">Share information from your bank account</h2>
-    <p>When we ask you to, you’ll need to sign in to your online banking to share some information. This is called ‘open banking’. </p>
-    <p>You must have opened your bank account at least 3 months ago. </p>
+    <h1 class="govuk-heading-l">Tell us if you have a UK bank or building society account</h1>
+    <p>Based on what you told us, you do not have photo ID that you can use to prove your identity.  </p>
+    <p>You may be able to prove your identity by signing in to your online banking and sharing some  information from your account instead. This is called ‘open banking’.   </p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          How does online banking prove my identity?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Signing in to online banking can help us be sure you are who you say you are.<br><br>
+
+        This is because banks have very strong security, so they can be sure it is you signing in, not someone with your details pretending to be you. <br><br>
+        
+        Your bank will confirm the information you give us to prove your identity.
+      </div>
+    </details>
     <form class="form" action="bank-account" method="post">
       {{ govukRadios({
       classes: "govuk-radios",
@@ -39,6 +42,9 @@ Prove your identity another way - GOV.UK One Login - GOV.UK
           classes: "govuk-fieldset__legend--m"
         }
       },
+      hint: {
+        text: "Your account must have been open for at least 3 months.  "
+      },
       items: [
         {
           value: "yes",
@@ -46,7 +52,7 @@ Prove your identity another way - GOV.UK One Login - GOV.UK
         },
         {
           value: "no",
-          text: "No - prove my identity another way"
+          text: "No"
         }
       ]
       }) }}

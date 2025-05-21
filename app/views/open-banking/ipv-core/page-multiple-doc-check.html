@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Prove your identity by signing in to your online banking - GOV.UK One Login - GOV.UK
+Continue proving your identity online
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,84 +12,67 @@ Prove your identity by signing in to your online banking - GOV.UK One Login - GO
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Prove your identity by signing in to your online banking</h1>
-    <p>You can continue proving your identity online by entering details from one of the following: </p>
+    <h1 class="govuk-heading-l">Continue proving your identity online</h1>
+    <p>Based on what you told us, you cannot prove your identity using the app. </p>
+    <p>You may be able to prove your identity by signing in to your online banking and sharing some  information from your account instead. This is called ‘open banking’.  </p>
+    <p>You’ll need: </p>
     <p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>UK photocard driving licence (full or provisional)</li>
-        <li>UK passport</li>
+        <li>a UK bank or building society account that’s been open at least 3 months</li>
+        <li>a UK photocard driving licence or a UK passport</li>
 
         
         {% if (data['confidence'] == "low") %}
           <li>National Insurance number</li>
         {% endif %}
       </ul>
-      <h2 class="govuk-heading-m">Share information from your bank account</h2>
-    </p>
-    <p>You’ll also need to sign in to your online banking so you can share information from your bank or building society account. This is called ‘open banking’. </p>
-    <p>You must have opened your bank account at least 3 months ago. </p>
-   
-    <form class="form" action="eligibility-drop-off" method="post">
-      {% if (data['confidence'] == "low") %}
-      {{ govukRadios({
-        name: "eligibility-drop-off",
-        idPrefix: "eligibility-drop-off",
-        fieldset: {
-          legend: {
-          text: "How would you like to prove your identity?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"}
-        },
-        items: [{
-          value: "driving-licence",
-          text: "Enter your UK photocard driving licence details and sign in to your online banking"
-          },
-          {
-          value: "passport",
-          text: "Enter your UK passport details and sign in to your online banking"
-          },
-          {
-          value: "nino",
-          text: "Enter your National Insurance number"
-          },
-          {
-          divider: "or"
-          },
-          {
-          value: "no",
-          text: "Prove your identity another way"
-        }]
-      }) }}
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            How does online banking prove my identity?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          Signing in to online banking can help us be sure you are who you say you are. <br><br>
 
-      {% else %}
-      {{ govukRadios({
-        name: "eligibility-drop-off",
-        idPrefix: "eligibility-drop-off",
-        fieldset: {
-          legend: {
-          text: "How would you like to prove your identity?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"}
-        },
-        items: [{
-          value: "driving-licence",
-          text: "Enter your UK photocard driving licence details and sign in to your online banking"
+          This is because banks have very strong security, so they can be sure it is you signing in, not someone with your details pretending to be you. <br><br>
+          
+          Your bank will confirm the information you’ve given us to prove your identity.
+        </div>
+      </details>
+
+      <form class="form" action="document-check" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "doc-check",
+          fieldset: {
+            legend: {
+              text: "How would you like to prove your identity?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
           },
-          {
-          value: "passport",
-          text: "Enter your UK passport details and sign in to your online banking"
-          },
-          {
-          divider: "or"
-          },
-          {
-          value: "no",
-          text: "Prove your identity another way"
-        }]
-      }) }}
-      {% endif %}
-      <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+          items: [
+            {
+              value: "driving-licence",
+              text: "Enter your UK photocard driving licence details and sign in to your online banking"
+            },
+            {
+              value: "passport",
+              text: "Enter your UK passport details and sign in to your online banking"
+            },
+            { divider: "or" },
+            {
+              value: "Prove your identity another way",
+              text: "Prove your identity another way"
+            }
+          ]
+        }) }}
+        <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
     </form>
+
   </div>
 </div>
 
