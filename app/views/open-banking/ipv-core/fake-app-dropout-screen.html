@@ -1,0 +1,34 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Use the GOV.UK One Login app to prove your identity 
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="" method="post">
+      <h1 class="govuk-heading-l">Use the GOV.UK One Login app to prove your identity </h1>
+      <p>You’ll need a smartphone - this must be an iPhone 7 or newer or an Android smartphone.</p>
+      <h2 class="govuk-heading-m">
+        You’ll be guided step by step to: 
+      </h2>
+      <ul class="govuk-list govuk-list--number">
+        <li>Download the app.</li>
+        <li>Take a photo of your passport photo page. </li>
+        <li>Scan the biometric chip on your passport.</li>
+        <li>Scan your face with your selfie camera.</li>
+      </ul>
+      <button class="govuk-button govuk-!-margin-top-4" id="button--save" data-module="govuk-button">Continue</button>
+    </form>
+    <p><a class="govuk-link" href="page-multiple-doc-check">Choose another way to prove your identity </a> </p>
+ 
+        </div>
+      
+  </div>
+</div>
+{% endblock %}

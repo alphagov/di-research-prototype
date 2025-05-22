@@ -11,7 +11,7 @@ router.post(`${parentDir}/ipv-core/triage/online-photoid`, function (request, re
 	var photoID = request.session.data['photo-id']
 	var confidence = request.session.data['confidence']
 	if (photoID === "Yes") {
-		response.redirect("../page-multiple-doc-check")
+		response.redirect("../fake-app-dropout-screen")
 	} else if (photoID === "No" && confidence === "medium") {
 		response.redirect("../prove-identity-bank-account")
 	} else if (photoID === "No" && confidence === "low") {
