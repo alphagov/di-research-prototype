@@ -12,7 +12,7 @@ router.post(`${parentDir}/driving-licence-cri/dl-choice`, function (req, res) {
 	} else if (dlAuth == "dva") {
 		res.redirect('enter-dva-licence-details')
 	} else {
-		res.redirect('../ipv-core/page-multiple-doc-check')
+		res.redirect('../driving-licence-cri/photocard-authority')
 	}
 })
 
