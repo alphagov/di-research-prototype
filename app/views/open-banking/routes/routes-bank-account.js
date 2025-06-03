@@ -43,6 +43,7 @@ router.post(`${parentDir}/banking-cri/bank-screener`, function (req, res) {
 })
 
 
+
 router.post(`${parentDir}/banking-cri/open-banking-device-post`, function (req, res) {
     var deviceType = req.session.data['screener'];
     console.log(deviceType);  // Debug to check the session value

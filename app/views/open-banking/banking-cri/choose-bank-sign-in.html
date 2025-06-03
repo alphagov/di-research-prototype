@@ -22,11 +22,11 @@ How do you want to sign in to your bank account?
         How do you want to sign in to your bank account?
       </h1>
 
-      <form class="form" action="open-banking-device-post" method="post">
+      <form class="form" action="banking-method" method="post">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="bank-login-hint">
             <div class="govuk-radios" data-module="govuk-radios">
-              <!-- Text message -->
+              <!-- use phone or tablet -->
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="bank-login" name="bank-login" type="radio" value="qr-code" aria-describedby="bank-login-item-hint">
                 <label class="govuk-label govuk-radios__label" for="bank-login">
@@ -37,7 +37,7 @@ How do you want to sign in to your bank account?
                 </label>
               </div>
       
-              <!-- Phone call -->
+              <!-- stay on website -->
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="bank-login-2" name="bank-login" type="radio" value="bank-website" aria-describedby="bank-login-2-item-hint">
                 <label class="govuk-label govuk-radios__label" for="bank-login">
