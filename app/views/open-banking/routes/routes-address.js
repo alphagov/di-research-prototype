@@ -29,6 +29,7 @@ router.post(`${parentDir}/address-cri/address-error-choice-post`, function (req,
 
 // Reads input from API and puts into address format, or uses default address
 router.post(`${parentDir}/address-cri/address-picker-current-post`, function (req, res) {
+	
 	try {
 		const addressId = req.session.data['current-address']
 		const address = req.session.data["searched-addresses-current"].find((address) => {
