@@ -4,13 +4,16 @@
 Tell us if you have access to an iPhone or Android phone - GOV.UK One Login - GOV.UK
 {% endblock %}
 
+{% block header %}
+{% include "../../_includes/header-sign-out.html" %}
+{% endblock %}
+
 {% block beforeContent %}
 {% include "../../_includes/phase-banner.html" %}
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">Use the GOV.UK One Login app to prove your identity</h1>
