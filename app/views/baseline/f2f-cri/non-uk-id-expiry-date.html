@@ -4,15 +4,17 @@
 Does your ID have an expiry date? - GOV.UK One Login
 {% endblock %}
 
+{% block header %}
+{% include "../../_includes/header-sign-out.html" %}
+{% endblock %}
+
 {% block beforeContent %}
-  {% include "../../_includes/phase-banner.html" %}
+{% include "../../_includes/phase-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-  }) }}
+
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">

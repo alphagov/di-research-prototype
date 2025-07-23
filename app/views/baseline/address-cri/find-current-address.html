@@ -4,9 +4,14 @@
 Find your address - GOV.UK One Login - GOV.UK
 {% endblock %}
 
+{% block header %}
+{% include "../../_includes/header-sign-out.html" %}
+{% endblock %}
+
 {% block beforeContent %}
 {% include "../../_includes/phase-banner.html" %}
 {% endblock %}
+
 
 {% if data.prototype['appComplete'] === 'true'%}
   {% set input = 'LS1 2NE' %}
