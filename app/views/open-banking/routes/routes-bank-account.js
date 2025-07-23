@@ -54,4 +54,6 @@ router.post(`${parentDir}/banking-cri/open-banking-device-post`, function (req, 
     }
 });
 
+
+
 module.exports = router;
