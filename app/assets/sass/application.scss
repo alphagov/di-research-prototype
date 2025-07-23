@@ -130,3 +130,86 @@ code {
 .bank-masthead p {
 	color: #ffffff;
 }
+
+/* ----------------------------------------------
+  Base header layout: use flexbox to position items
+  ---------------------------------------------- */
+  .govuk-header__container {
+	display: flex;
+	justify-content: space-between; /* Logo on left, sign out on right */
+	align-items: center;
+	flex-wrap: nowrap; /* Prevent wrapping unless absolutely necessary */
+  }
+   /* ----------------------------------------------
+	 Logo section: allow logo + product name to sit side-by-side
+	 ---------------------------------------------- */
+  .govuk-header__logo {
+	display: flex;             /* Align SVG and product name horizontally */
+	align-items: center;       /* Vertically align items */
+	flex: 1 1 auto;            /* Allow logo section to grow/shrink */
+	min-width: 0;              /* Prevent overflow on small screens */
+  }
+   /* ----------------------------------------------
+	 Product name styling (e.g. "One Login")
+	 ---------------------------------------------- */
+  .govuk-header__product-name {
+	display: inline-block;     /* Ensure it respects margin */
+	margin-left: 10px;         /* Space between logo and text */
+	font-size: 19px;
+	font-weight: normal;
+	color: #ffffff;
+	line-height: 1;
+  }
+   /* ----------------------------------------------
+	 Responsive layout: stack logo and product name on mobile
+	 ---------------------------------------------- */
+  @media (max-width: 48.06125em) {
+	.govuk-header__logo {
+	  flex-direction: column;    /* Stack logo and product name */
+	  align-items: flex-start;   /* Align to left edge */
+	}
+	 .govuk-header__product-name {
+	  margin-left: 0;
+	  margin-top: 5px;           /* Add spacing above when stacked */
+	  font-size: 16px;
+	}
+  }
+   /* ----------------------------------------------
+	 Sign out container: push it to far right and don’t allow it to shrink
+	 ---------------------------------------------- */
+  .govuk-header__signout {
+	flex-shrink: 0;         /* Don’t let it shrink if space gets tight */
+	margin-left: auto;      /* Push to far right of flex container */
+  }
+   /* ----------------------------------------------
+	 Sign out link: style and keep it on a single line
+	 ---------------------------------------------- */
+  .govuk-header__link--signout {
+	white-space: nowrap;        /* Prevent line break */
+	font-weight: bold;
+	font-size: 16px;
+	color: #ffffff;
+	text-decoration: none;
+	display: inline-block;
+  }
+   /* ----------------------------------------------
+	 Sign out link focus style (standard GOV.UK accessibility pattern)
+	 ---------------------------------------------- */
+  .govuk-header__link--signout:focus {
+	background-color: #fd0;
+	color: #0b0c0c;
+	outline: 3px solid #fd0;
+  }
+   /* ----------------------------------------------
+	 Desktop layout override: ensures legacy support
+	 for layout where logo might be floated
+	 ---------------------------------------------- */
+  @media (min-width: 48.0625em) {
+	.govuk-header__logo {
+	  width: 33.33%;                /* Optional: constrain width if needed */
+	  padding-right: 0px !important; /* Remove default GOV.UK padding */
+	  float: left;                   /* Support older layouts */
+	  vertical-align: top;
+	}
+  } 
+ 
