@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Do you live in the UK, the Channel Islands or the Isle of Man? - GOV.UK One Login - GOV.UK
+Where do you live? - GOV.UK One Login - GOV.UK
 {% endblock %}
 
 {% block header %}
@@ -28,7 +28,7 @@ Do you live in the UK, the Channel Islands or the Isle of Man? - GOV.UK One Logi
         idPrefix: "live-in-uk-choose",
         fieldset: {
         legend: {
-        text: "Do you live in the UK, the Channel Islands or the Isle of Man?",
+        text: "Where do you live?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
         }
@@ -39,11 +39,11 @@ Do you live in the UK, the Channel Islands or the Isle of Man? - GOV.UK One Logi
         items: [
         {
         value: "yes",
-        text: "Yes"
+        text: "UK, Channel Islands or Isle of Man"
         },
         {
         value: "no",
-        text: "No"
+        text: "Another country"
         }
         ]
         }) }}
