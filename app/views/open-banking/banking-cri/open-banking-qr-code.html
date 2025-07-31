@@ -4,6 +4,10 @@
 Scan the QR code to prove your identity with your bank account 
 {% endblock %}
 
+{% block header %}
+{% include "../../_includes/header-sign-out.html" %}
+{% endblock %}
+
 {% block beforeContent %}
 {% include "../../_includes/phase-banner.html" %}
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
