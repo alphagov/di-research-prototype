@@ -19,12 +19,12 @@ Continue proving your identity online
   <div class="govuk-grid-column-two-thirds">
  
 
-      <form class="form" action="bank-start-photo-id" method="post">
+      <form class="form" action="doc-screener" method="post">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
-          name: "doc-check",
+          name: "document",
           fieldset: {
             legend: {
               text: "Select photo ID",
