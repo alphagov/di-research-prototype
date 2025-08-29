@@ -324,7 +324,7 @@ router.post(`${parentDir}/ipv-core/triage/app-download`, function (request, resp
 			response.redirect("../app-drop-off-buffer");
 		}
 	} else {
-		response.redirect("../app-download");
+		response.redirect("../app-L3");
 	}
 });
 
