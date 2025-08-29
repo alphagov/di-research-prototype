@@ -4,8 +4,12 @@
 What is your National Insurance number? - GOV.UK One Login - GOV.UK
 {% endblock %}
 
+{% block header %}
+{% include "../../_includes/header-sign-out.html" %}
+{% endblock %}
+
 {% block beforeContent %}
-  {% include "../../_includes/phase-banner.html" %}
+{% include "../../_includes/phase-banner.html" %}
 {% endblock %}
 
 {% block content %}
