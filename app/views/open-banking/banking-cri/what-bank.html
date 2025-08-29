@@ -7,7 +7,6 @@
 {% endblock %}
 
 
-
 {% block header %}
 {% include "../../_includes/header-sign-out.html" %}
 {% endblock %}
@@ -25,12 +24,10 @@
       <h1 class="govuk-label-wrapper">
         <label class="govuk-label govuk-label--l" for="location">What is the name of your bank or building society?</label>
       </h1>
-      <form class="form" action="open-banking-device-post" method="post">
+      <form class="form" action="open-banking-consent" method="post">
         <select class="govuk-select" id="location" name="location" data-module="autocomplete" data-autoselect="" data-display-menu="inline" data-min-length="" data-show-all-values="true" data-show-no-options-found="">
           <option value=""></option>
-          <option value="AIB">AIB</option>
-          <option value="Airwallex Buisness">Airwallex Buisness</option>
-          <option value="Arbuthnot Latham & CO">Arbuthnot Latham & CO</option>
+  
           <option value="Bank Of Ireland">Bank Of Ireland</option>
           <option value="Bank Of Ireland Business">Bank Of Ireland Business</option>
           <option value="Bank of Scotland">Bank of Scotland</option>
@@ -41,59 +38,35 @@
           <option value="Barclays Corporate">Barclays Corporate</option>
           <option value="Barclays Wealth">Barclays Wealth</option>
           <option value="Barclaycard">Barclaycard</option>
-          <option value="C.Hoare & Co.">C.Hoare & Co.</option>
-          <option value="Capital One">Capital One</option>
-          <option value="Cashplus">Cashplus</option>
-          <option value="Cater Allen">Cater Allen</option>
-          <option value="Chase">Chase</option>
+   
+        
+       
           <option value="Chelsea Building Society">Chelsea Building Society</option>
-          <option value="Coutts">Coutts</option>
-          <option value="Cumberland">Cumberland</option>
-          <option value="Cynergy Bank">Cynergy Bank</option>
-          <option value="Danske">Danske</option>
-          <option value="Danske">Danske Business</option>
+   
+
           <option value="First Direct">First Direct</option>
-          <option value="Ghana International">Ghana International</option>
-          <option value="GoHenry">GoHenry</option>
+     
           <option value="Halifax">Halifax</option>
           <option value="HSBC">HSBC</option>
-          <option value="Investec">Investec</option>
-          <option value="Kleinwort Hambros">Kleinwort Hambros</option>
+          
           <option value="Lloyds Personal">Lloyds</option>
           <option value="Lloyds Commercial">Lloyds Commercial</option>
           <option value="Lloyds Business">Lloyds Business</option>
-          <option value="MBNA">MBNA</option>
-          <option value="Mettle">Mettle</option>
-          <option value="Mock Bank">Mock Bank</option>
-          <option value="Model Bank">Model Bank</option>
-          <option value="Monzo">Monzo</option>
           <option value="Nationwide Buidling Society">Nationwide Building Society</option>
           <option value="NatWest">NatWest</option>
           <option value="NatWest One Account">NatWest One Account</option>
           <option value="NatWest ClearSpend">NatWest ClearSpend</option>
-          <option value="NewDay">NewDay</option>
-          <option value="Punjab National Bank">Punjab National Bank Corporate</option>
+     
           <option value="Royal Bank of Scotland">Royal Bank of Scotland</option>
-          <option value="Revolut">Revolut/option>
+
           <option value="Santander">Santander</option>
-          <option value="Smile">Smile</option>
-          <option value="Soldo">Soldo</option>
-          <option value="Soldo Business">Soldo Business</option>
-          <option value="Starling">Starling</option>
-          <option value="Tesco">Tesco</option>
-          <option value="The Co-operative Bank">The Co-operative Bank</option>
-          <option value="The Co-operative Bank Business">The Co-operative Bank Business</option>
-          <option value="Thinkmoney">Thinkmoney</option>
-          <option value="Tide">Tide</option>
+
+
+        
           <option value="TSB Bank">TSB Bank</option>
-          <option value="Turkish Bank Business">Turkish Bank Business</option>
-          <option value="Ulster Bank">Ulster Bank</option>
-          <option value="Unity Trust Bank Business">Unity Trust Bank Business</option>
-          <option value="Vanquis">Vanquis</option>
-          <option value="Virgin Money">Virgin Money</option>
-          <option value="Wise">Wise</option>
+  
           <option value="Yorkshire Building Society">Yorkshire Building Society</option>
-          <option value="Zempler">Zempler</option>
+     
         </select>
         <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
       </form>

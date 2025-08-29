@@ -11,7 +11,7 @@ router.post(`${parentDir}/ipv-core/triage/online-photoid`, function (request, re
 	var photoID = request.session.data['photo-id']
 	var confidence = request.session.data['confidence']
 	if (photoID === "Yes") {
-		response.redirect("../fake-app-dropout-screen")
+		response.redirect("../triage/computer-tablet")
 	} else if (photoID === "No" && confidence === "medium") {
 		response.redirect("../prove-identity-bank-account")
 	} else if (photoID === "No" && confidence === "low") {
@@ -24,11 +24,11 @@ router.post(`${parentDir}/ipv-core/triage/online-photoid`, function (request, re
 
 // App drop off buffer
 router.post(`${parentDir}/ipv-core/app-drop-off-buffer`, function (request, response) {
-	var photoID = request.session.data['app-drop-off-buffer']
+	var photoID = request.session.data['document-selection']
 	if (photoID == "another way") {
 		response.redirect("page-multiple-doc-check")
 	} else {
-		response.redirect("app-download")
+		response.redirect("triage-document-choice")
 	}
 })
 
@@ -73,7 +73,7 @@ router.post(`${parentDir}/ipv-core/f2f-screener`, function (request, response) {
 router.post(`${parentDir}/ipv-core/bank-account`, function (request, response) {
 	var account = request.session.data['bank-account']
 	if (account == "yes") {
-		response.redirect("../banking-cri/open-banking-start-page") // no photo ID route
+		response.redirect("../banking-cri/bank-start-no-photo-id") // no photo ID route
 	} else {
 		response.redirect("../ipv-core/prove-identity-bank-account")
 	}
@@ -434,18 +434,18 @@ router.post(`${parentDir}/ipv-core/app-success-page`, function (request, respons
 // routing for the research screener for Open banking
 router.post(`${parentDir}/ipv-core/document-check`, function (req, res) {
     var docCheck = req.session.data['doc-check']
-	console.log(docCheck); // Added for debugging
+	console.log(docCheck); 
     if (docCheck == "driving-licence") {
-        res.redirect('../banking-cri/open-banking-start-page-license')
+        res.redirect('../banking-cri/bank-start-photo-id')
     }  else if (docCheck == "passport") {
-        res.redirect('../banking-cri/open-banking-start-page-passport')
+        res.redirect('../banking-cri/bank-start-photo-id')
     } else {
         res.redirect('..//ipv-core/page-multiple-doc-check')
     }
 })
 router.post(`${parentDir}/banking-cri/document-check-post`, function (req, res) {
     var docCheck = req.session.data['doc-check'];
-    console.log(docCheck);  // Debug to check the session value
+    console.log(docCheck);  
     if (docCheck === "driving-licence") {
         res.redirect('../driving-licence-cri/photocard-authority');
     } else {

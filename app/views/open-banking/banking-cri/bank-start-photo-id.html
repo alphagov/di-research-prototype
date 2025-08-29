@@ -1,0 +1,101 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Prove your identity by signing in to your online banking
+{% endblock %}
+
+{% block header %}
+{% include "../../_includes/header-sign-out.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+<style>.govuk-inset-text {
+  background-color: #F3F2F1;
+  border-left: none; /* Or set to a transparent color if needed */
+  padding-top: 15px; /* Adjust this value to reduce the top padding */
+  margin-top: 5px; /* Adjust this value to reduce the top margin */
+}</style>
+
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="doc-check" method="post">
+
+        
+        <h1 class="govuk-heading-l">Use online banking to prove your identity</h1>
+
+  
+        <p class="govuk-body">We’ll walk you through what to do. You’ll need a UK bank or building society account and your photo ID.</p>
+
+     
+
+        <ol class="radio__border govuk-list">
+          <h2 class="govuk-heading-m">Steps to proving your identity</h2>
+    
+        <li class="l3__list">
+          <div class="container">
+            <img src="/public/images/photo-id.svg" alt="" />
+            <div class="text__container">
+              <h2 class="govuk-heading-s small__override">1. Enter ID details</h2>
+              <p>Have photo ID ready. </p>
+            </div>
+          </div>
+        </li>
+        <hr class="govuk-!-margin-bottom-2 grey-border">
+        <li class="l3__list">
+          <div class="container">
+            <img  src="/public/images/address.svg" alt="" />
+             <div class="text__container">
+              <h2 class="govuk-heading-s small__override">2. Enter your address</h2>
+              <p>And previous address if recently moved.</p>
+            </div>
+            </div>
+        </li>
+        <hr class="govuk-!-margin-bottom-2 grey-border">
+        <p class="govuk-hint govuk-!-margin-top-3">Continue on your banking website or app for step 3</p>
+        <li class="l3__list1">
+          <div class="container">
+            <img src="/public/images/open-banking.svg" alt="" />
+            <div class="text__container">
+              <h2 class="govuk-heading-s small__override">3. Sign in to your online banking</h2>
+              <p>Identity check using bank account details.</p>
+            </div>
+            </div>
+            <div class="govuk-inset-text">
+              This uses ‘open banking’. It will not share your sign-in details or take payments.
+            </div>
+        </li>
+      </ol>
+   
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+      <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            I do not have a UK bank or building society account or online banking
+          </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">
+               <a href="/triage/v2/page-index/app-cri/app-abandon" class="govuk-link govuk-link--no-visited-state">Prove your identity another way.</a>
+            </p>
+          </div>
+        </details>
+
+
+    </div>
+  </div>
+
+{% endblock %}

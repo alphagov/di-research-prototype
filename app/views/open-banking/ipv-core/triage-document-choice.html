@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Continue proving your identity online
+{% endblock %}
+
+{% block header %}
+{% include "../../_includes/header-sign-out.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+ 
+
+      <form class="form" action="bank-start-photo-id" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "doc-check",
+          fieldset: {
+            legend: {
+              text: "Select photo ID",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+        
+          items: [
+          {
+            value: "passport",
+            text: "UK passport",
+            hint: {
+              text: "You can use a UK passport up to 18 months after its expiry date."
+            }
+          },
+          {
+            value: "driving-licence",
+            text: "UK photocard driving licence",
+            hint: {
+              text: "It must not have expired."
+            }
+          },
+          { divider: "or" },
+          {
+            value: "Prove your identity another way",
+            text: "I do not have either of these"
+            
+          }
+        ]
+      }) }}
+          
+        <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

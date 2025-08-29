@@ -147,7 +147,7 @@ Prove your identity by signing in to your online banking
           </span>
         </summary>
         <div class="govuk-details__text">
-          We use 2 companies to help us check your bank account information and confirm your identity: Crosina Capital and Judentia. Both companies are regulated by the <a href="">Financial Conduct Authority (opens in a new tab)</a>.</p>
+          We use 2 companies to hel23p us check your bank account information and confirm your identity: Crosina Capital and Judentia. Both companies are regulated by the <a href="">Financial Conduct Authority (opens in a new tab)</a>.</p>
         </div>
       </details>
       <p class="govuk-body">Your bank will share your:</p>
@@ -206,6 +206,97 @@ Prove your identity by signing in to your online banking
     <p><a href="">I want to prove my identity another way</a></p>
   </div>
 </div>
+
+
+
+
+
+<style>
+  .govuk-list--number li::marker {
+    font-weight: bold;
+  }
+</style>
+
+<style>
+  .step-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .step-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .step-list img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .step-content {
+    flex: 1;
+  }
+
+  .step-title {
+    font-weight: bold;
+    display: inline;
+  }
+
+  .step-number {
+    font-weight: bold;
+    margin-right: 6px;
+  }
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div style="border: 2px solid #B1B4B6; padding: 20px;">
+      <h2 class="govuk-heading-m">Steps to proving your identity</h2>
+<ul class="step-list">
+  <li>
+    <img src="/public/images/open-banking-qr-code.png" alt="" aria-hidden="true">
+    <div class="step-content">
+      <p class="govuk-body">
+        <span class="step-number">1.</span>
+        <span class="step-title">Get your details checked</span>
+      </p>
+      <p class="govuk-body">This includes your passport, driving licence, or other official ID.</p>
+    </div>
+   
+  </li>
+  <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-top-3 govuk-!-margin-bottom-3">
+  <li>
+    <img src="/public/images/open-banking-qr-code.png" alt="" aria-hidden="true">
+    <div class="step-content">
+      <p class="govuk-body">
+        <span class="step-number">2.</span>
+        <span class="step-title">Enter your address</span>
+      </p>
+      <p class="govuk-body">Make sure both are clear and well-lit for verification purposes.</p>
+    </div>
+  </li>
+  <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-top-3 govuk-!-margin-bottom-3">
+  <li>
+    <img src="/public/images/open-banking-qr-code.png" alt="" aria-hidden="true">
+    <div class="step-content">
+      <p class="govuk-body">
+        <span class="step-number">3.</span>
+        <span class="step-title">Sign into your online banking </span>
+      </p>
+      <p class="govuk-body">You'll get a confirmation once your identity is verified.</p>
+    </div>
+  </li>
+  
+</ul>
+</div>
+</div>
+</div>
+
 
 
 {% endblock %}
