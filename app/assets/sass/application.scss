@@ -131,6 +131,8 @@ code {
 	color: #ffffff;
 }
 
+//new header rebrand css 
+
 /* ----------------------------------------------
   Base header layout: use flexbox to position items
   ---------------------------------------------- */
@@ -212,4 +214,49 @@ code {
 	  vertical-align: top;
 	}
   } 
- 
+
+  /* ----------------------------------------------
+	 L3 central UCD pattern 
+	 ---------------------------------------------- */
+
+  .radio__border {
+	padding: govuk-spacing(3);
+	border: 1px solid $govuk-border-colour;
+	margin-bottom: govuk-spacing(3);
+  }
+  
+  .l3__list {
+	padding-top: govuk-spacing(3);
+  }
+  
+  .l3__list1 {
+	padding-top: govuk-spacing(3);
+	margin-bottom: 0;
+  }
+  
+  .container {
+	display: flex;
+	align-items: start;
+	gap: govuk-spacing(3);
+	align-self: stretch;
+  }
+  
+  .small__override {
+	margin-bottom: 10px;
+  }
+  
+  .text__container {
+	flex: 1 0 0;
+	margin-bottom: 0px;
+  }
+  
+  .grey-border {
+	display: block;
+	width: 100%;
+	height: 1px;
+	border: none;
+	background-color: $govuk-border-colour;
+	margin-top: 0px;
+	margin-bottom: govuk-spacing(3);
+	border-top: #b1b4b6;
+  }
