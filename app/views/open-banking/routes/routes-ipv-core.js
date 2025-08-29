@@ -431,25 +431,30 @@ router.post(`${parentDir}/ipv-core/app-success-page`, function (request, respons
 		response.redirect("../address-cri/find-current-address")
 	}
 })
-// routing for the research screener for Open banking
-router.post(`${parentDir}/ipv-core/document-check`, function (req, res) {
-    var docCheck = req.session.data['doc-check']
-	console.log(docCheck); 
-    if (docCheck == "driving-licence") {
-        res.redirect('../banking-cri/bank-start-photo-id')
-    }  else if (docCheck == "passport") {
+
+
+// routing for the doc select before open banking 
+router.post(`${parentDir}/ipv-core/doc-screener`, function (req, res) {
+    var deviceType = req.session.data['document']
+    if (deviceType == "passport") {
         res.redirect('../banking-cri/bank-start-photo-id')
     } else {
-        res.redirect('..//ipv-core/page-multiple-doc-check')
+        res.redirect('../banking-cri/bank-start-photo-id')
     }
 })
-router.post(`${parentDir}/banking-cri/document-check-post`, function (req, res) {
-    var docCheck = req.session.data['doc-check'];
-    console.log(docCheck);  
-    if (docCheck === "driving-licence") {
-        res.redirect('../driving-licence-cri/photocard-authority');
-    } else {
+
+
+
+router.post(`${parentDir}/banking-cri/doc-screener-post`, function (req, res) {
+    var deviceType = req.session.data['document'];
+    console.log(deviceType);  // Debug to check the session value
+    if (deviceType === "passport") {
         res.redirect('../passport-cri/enter-passport-details');
+    } else {
+        res.redirect('../driving-licence-cri/photocard-authority');
     }
 });
+
+
+
 module.exports = router;
