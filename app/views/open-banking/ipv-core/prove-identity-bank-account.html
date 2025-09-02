@@ -4,6 +4,11 @@
 Prove your identity another way - GOV.UK One Login - GOV.UK
 {% endblock %}
 
+
+{% block header %}
+{% include "../../_includes/header-sign-out.html" %}
+{% endblock %}
+
 {% block beforeContent %}
 {% include "../../_includes/phase-banner.html" %}
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
