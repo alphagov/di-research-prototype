@@ -22,10 +22,10 @@
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-form-group">
       <h1 class="govuk-label-wrapper">
-        <label class="govuk-label govuk-label--l" for="location">What is the name of your bank or building society?</label>
+        <label class="govuk-label govuk-label--l" for="bank">What is the name of your bank or building society?</label>
       </h1>
       <form class="form" action="open-banking-consent" method="post">
-        <select class="govuk-select" id="location" name="location" data-module="autocomplete" data-autoselect="" data-display-menu="inline" data-min-length="" data-show-all-values="true" data-show-no-options-found="">
+        <select class="govuk-select" id="bank" name="bank" data-module="autocomplete" data-autoselect="" data-display-menu="inline" data-min-length="" data-show-all-values="true" data-show-no-options-found="">
           <option value=""></option>
   
           <option value="Bank Of Ireland">Bank Of Ireland</option>
@@ -70,7 +70,20 @@
         </select>
         <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
       </form>
-      <p><a class="govuk-link" href="">My bank is not listed </a> </p>
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            My bank is not listed 
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          Not all banks or building societies can be used to prove your identity yet. For example, you cannot use newer banks such as Monzo or Starling. 
+<br><br>
+          If your bank is not listed, you’ll need to <a class="govuk-link" href=""> prove your identity another way. </a> 
+        </div>
+      </details>
+
     </div>
   </div>
 </div>

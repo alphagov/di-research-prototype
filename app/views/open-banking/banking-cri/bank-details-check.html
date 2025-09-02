@@ -1,0 +1,112 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Agree to share your name, address and date of birth from this account
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="../ipv-core/page-ipv-success" method="post" id="demo-form">
+
+
+      <h1 class="govuk-heading-l">Finish checking your details </h1>
+
+      <p class="govuk-body"> We’ll confirm the details you gave us with information from your bank. This is the final step in proving your identity. You need to finish checking your details before you can finish proving your identity. </p>
+
+  
+    
+    <!-- JS-enabled progress button -->
+    <button class="govuk-button" id="progress-btn" type="submit">
+      <span class="govuk-button__text">Continue</span>
+      <span class="govuk-visually-hidden" role="status" aria-live="polite"></span>
+    </button>
+
+  </form>
+  
+  </div>
+
+   
+
+
+
+  <div class="govuk-grid-column-one-third">
+
+
+</main>
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const form  = document.getElementById('demo-form');
+  const btn   = document.getElementById('progress-btn');
+  const label = btn.querySelector('.govuk-button__text');
+  const sr    = btn.querySelector('[role="status"]');
+  const originalText = label.textContent;
+
+  // Change this value to test different delays (milliseconds)
+  const REDIRECT_AFTER = 10000; // example: 10000 = 10 seconds
+
+  form.addEventListener('submit', function (e) {
+    // Skip if already loading
+    if (btn.classList.contains('govuk-button--loading')) return;
+
+    // Stop immediate submit
+    e.preventDefault();
+
+    // Add spinner before label if not already present
+    if (!btn.querySelector('.govuk-button__spinner')) {
+      const spin = document.createElement('span');
+      spin.className = 'govuk-button__spinner';
+      spin.setAttribute('aria-hidden', 'true');
+      btn.insertBefore(spin, label);
+    }
+
+    // Enter loading state
+    btn.classList.add('govuk-button--loading');
+    btn.setAttribute('aria-busy', 'true');
+    btn.disabled = true;
+
+    // Update text after 0.1s
+    setTimeout(() => {
+      if (btn.classList.contains('govuk-button--loading')) {
+        label.textContent = 'Wait';
+        if (sr) sr.textContent = 'Wait';
+      }
+    }, 100);
+
+    // Update text again after 5s
+    setTimeout(() => {
+      if (btn.classList.contains('govuk-button--loading')) {
+        label.textContent = 'Keep waiting';
+        if (sr) sr.textContent = 'Keep waiting';
+      }
+    }, 5000);
+
+    // Submit the form after chosen delay
+    setTimeout(() => {
+      if (btn.classList.contains('govuk-button--loading')) {
+        form.submit();
+      }
+    }, REDIRECT_AFTER);
+  });
+});
+</script>
+{% endblock %}
+
+

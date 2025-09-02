@@ -11,25 +11,7 @@ Prove your identity another way - GOV.UK One Login - GOV.UK
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Tell us if you have a UK bank or building society account</h1>
-    <p>Based on what you told us, you do not have photo ID that you can use to prove your identity.  </p>
-    <p>You may be able to prove your identity by signing in to your online banking to confirm your details instead. This is called 'open banking'.  </p>
-    <details class="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          How does online banking prove my identity?
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        Signing in to online banking can help us be sure you are who you say you are.<br><br>
 
-        This is because banks have very strong security, so they can be sure it is you signing in, not someone with your details pretending to be you. <br><br>
-
-        Your bank will confirm the information you give us to prove your identity.
-      </div>
-    </details>
     <form class="form" action="bank-account" method="post">
       {{ govukRadios({
       classes: "govuk-radios",
@@ -37,14 +19,12 @@ Prove your identity another way - GOV.UK One Login - GOV.UK
       idPrefix: "bank-account",
       fieldset: {
         legend: {
-          text: "Do you have a UK bank or building society current account in your name?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
+          text: "Do you have a National Insurance number?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
         }
       },
-      hint: {
-        text: "Your account must have been open for at least 3 months.  "
-      },
+    
       items: [
         {
           value: "yes",
