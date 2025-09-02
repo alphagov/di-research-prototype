@@ -260,3 +260,75 @@ code {
 	margin-bottom: govuk-spacing(3);
 	border-top: #b1b4b6;
   }
+
+  /* -------------------------------
+   Progress button styles
+   Variant of GOV.UK button with loading state
+--------------------------------- */
+
+.govuk-button--loading {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #505A5F;
+    pointer-events: none;
+    background-image: none;           /* some mobile UAs add gradients */
+    -webkit-appearance: none;         /* belt-and-braces reset for iOS */
+    appearance: none;
+    /* Reapply GOV.UK defaults */
+    padding: 8px 10px 7px;
+    line-height: 1;
+}
+
+/* Spinner: hidden by default */
+.govuk-button__spinner {
+    display: none;
+    width: 20px; height: 20px; flex-shrink: 0;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,.35); /* track */
+    border-top-color: #fff;                  /* active arc */
+    margin-right: 8px;                       /* gap between spinner and label */
+    animation: govuk-spinner-rotate 1s linear infinite;
+}
+
+/* Show spinner when button is in loading state */
+.govuk-button--loading .govuk-button__spinner {
+    display: inline-block;
+}
+
+/* Disabled state – prevents interaction, keeps colours accessible */
+.govuk-button--loading:disabled {
+    background-color:#505A5F; 
+    background-image: none;
+    color:#fff; 
+    border-color:#505A5F;
+    opacity:1; 
+    cursor:not-allowed; /* no-entry cursor */
+}
+
+/* Spinner animation */
+@keyframes govuk-spinner-rotate {
+    from { transform:rotate(0) } 
+    to   { transform:rotate(1turn) }
+}
+
+/* Accessibility: remove animation for reduced motion users */
+@media (prefers-reduced-motion: reduce) {
+    .govuk-button__spinner { display:none; animation:none; }
+}
+
+/* Accessibility: ensure visible in forced colour modes */
+@media (forced-colors: active) {
+    .govuk-button__spinner { border: 3px solid CanvasText; border-top-color: Highlight; }
+}
+
+
+.govuk-button.govuk-button--loading,
+.govuk-button.govuk-button--loading:hover,
+.govuk-button.govuk-button--loading:focus,
+.govuk-button.govuk-button--loading:active {
+  background-color: #505A5F;
+  border-color: #505A5F;
+  color: #fff;
+  background-image: none;
+}
