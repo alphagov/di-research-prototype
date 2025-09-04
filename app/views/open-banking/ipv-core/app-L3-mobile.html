@@ -1,0 +1,105 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Are you sure you want to try to prove your identity another way? - GOV.UK One Login - GOV.UK
+{% endblock %}
+
+{% block header %}
+{% include "../../_includes/header-sign-out.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="app-download-smartphone" method="post">
+
+        
+        <h1 class="govuk-heading-l">Prove your identity using the GOV.UK One Login app</h1>
+
+  
+        <p class="govuk-body">In a moment we’ll walk you through how to get the app on your phone, including if you started on a computer.</p>
+
+        <p class="govuk-body">It usually takes about 5 minutes this way because the app can check your identity quickly.</p>
+
+        <ol class="radio__border govuk-list">
+          <h2 class="govuk-heading-m">Steps to proving your identity</h2>
+          <p class="govuk-hint govuk-!-margin-top-3">Download the app on your phone to complete steps 1 and 2</p>
+        <li class="l3__list">
+          <div class="container">
+            <img src="/public/images/scanl3.svg" alt="Scanning a photo ID using a smartphone" />
+            <div class="text__container">
+              <h2 class="govuk-heading-s small__override">1. Get your photo ID checked</h2>
+              <p>Have ID ready to scan</p>
+            </div>
+          </div>
+        </li>
+        <hr class="govuk-!-margin-bottom-2 grey-border">
+        <li class="l3__list">
+          <div class="container">
+            <img  src="/public/images/facel3.svg" alt="A selfie" />
+             <div class="text__container">
+              <h2 class="govuk-heading-s small__override">2. Prove you are who you say you are</h2>
+              <p>Take a selfie</p>
+            </div>
+            </div>
+        </li>
+        <hr class="govuk-!-margin-bottom-2 grey-border">
+        <p class="govuk-hint govuk-!-margin-top-3">Continue in a web browser for step 3</p>
+        <li class="l3__list1">
+          <div class="container">
+            <img src="/public/images/checkl3.svg" alt="A magnifying glass" />
+            <div class="text__container">
+              <h2 class="govuk-heading-s small__override">3. Quick background checks</h2>
+              <p>We check your details</p>
+            </div>
+            </div>
+        </li>
+      </ol>
+   
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+      <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            The app uses a face scan with flashing colours
+          </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">
+              The face scan checks that you’re a real person. It uses different colours that change less than 3 times per second.</a>
+            </p>
+            <p class="govuk-body">
+              You can <a href="triage-document-choice" class="govuk-link govuk-link--no-visited-state">prove your identity another way if you think you might be sensitive to flashing colours</a>.
+            </p>
+          </div>
+        </details>
+
+      <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            If you cannot use the app
+          </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">
+              It normally takes 5 minutes if you can use the app. Without it, proving your identity can take a lot longer. But if you’d prefer not to use the app, see if you can <a href="app-drop-off-buffer" class="govuk-link govuk-link--no-visited-state">prove your identity another way</a>.
+            </p>
+          </div>
+        </details>
+
+    </div>
+  </div>
+
+{% endblock %}

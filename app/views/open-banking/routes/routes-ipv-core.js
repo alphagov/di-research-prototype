@@ -106,9 +106,9 @@ router.post(`${parentDir}/ipv-core/triage/device-check`, function (request, resp
 router.post(`${parentDir}/ipv-core/triage/app-download-smartphone`, function (request, response) {
 	var appDeviceCheck = request.session.data['app-download-smartphone']
 	if (appDeviceCheck == "iphone") {
-		response.redirect("../app-download-smartphone")
+		response.redirect("../app-L3-mobile")
 	} else if (appDeviceCheck == "android") {
-		response.redirect("../app-download-smartphone")
+		response.redirect("../appL3-mobile")
 	} else {
 		response.redirect("smartphone-access")
 	}
