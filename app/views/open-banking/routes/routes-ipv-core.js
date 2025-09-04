@@ -108,7 +108,7 @@ router.post(`${parentDir}/ipv-core/triage/app-download-smartphone`, function (re
 	if (appDeviceCheck == "iphone") {
 		response.redirect("../app-L3-mobile")
 	} else if (appDeviceCheck == "android") {
-		response.redirect("../appL3-mobile")
+		response.redirect("../app-L3-mobile")
 	} else {
 		response.redirect("smartphone-access")
 	}
@@ -438,11 +438,12 @@ router.post(`${parentDir}/ipv-core/doc-screener`, function (req, res) {
     var deviceType = req.session.data['document']
     if (deviceType == "passport") {
         res.redirect('../banking-cri/bank-start-photo-id')
+	} else if (deviceType === 'driving-licence') {
+		res.redirect('../banking-cri/bank-start-photo-id');
     } else {
-        res.redirect('../banking-cri/bank-start-photo-id')
+        res.redirect('../ipv-core/prove-identity-bank-account')
     }
 })
-
 
 
 router.post(`${parentDir}/banking-cri/doc-screener-post`, function (req, res) {
@@ -450,6 +451,7 @@ router.post(`${parentDir}/banking-cri/doc-screener-post`, function (req, res) {
     console.log(deviceType);  // Debug to check the session value
     if (deviceType === "passport") {
         res.redirect('../passport-cri/enter-passport-details');
+
     } else {
         res.redirect('../driving-licence-cri/photocard-authority');
     }
