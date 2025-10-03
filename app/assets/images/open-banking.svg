@@ -17,10 +17,8 @@
 <rect x="32.6133" y="48.3367" width="1.76013" height="1.76013" fill="black"/>
 <rect x="35.0781" y="48.3367" width="1.76013" height="1.76013" fill="black"/>
 <rect x="37.541" y="48.3367" width="1.76013" height="1.76013" fill="black"/>
-<circle cx="50.7957" cy="53.007" r="8.20394" fill="#005A30"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M56.0618 50.5951L49.1126 57.5444L45.4238 53.8557L46.9113 52.3682L49.1126 54.5695L54.5744 49.1077L56.0618 50.5951Z" fill="white"/>
 <path d="M28 19.6L34.6921 17L41.6 19.6V21.176H28V19.6Z" fill="#0B0C0C" stroke="black" stroke-width="0.8"/>
-<rect x="30.1559" y="21.5761" width="1.39354" height="5.23199" fill="black" stroke="#0B0C0C" stroke-width="0.8"/>
+<rect x="30.1539" y="21.5761" width="1.39354" height="5.23199" fill="black" stroke="#0B0C0C" stroke-width="0.8"/>
 <rect x="34.1031" y="21.5761" width="1.39354" height="5.23199" fill="black" stroke="black" stroke-width="0.8"/>
 <rect x="38.0523" y="21.5761" width="1.39354" height="5.23199" fill="black" stroke="#0B0C0C" stroke-width="0.8"/>
 <rect x="28.4" y="27" width="12.8" height="1.6" fill="#0B0C0C" stroke="black" stroke-width="0.8"/>

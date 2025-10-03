@@ -1,21 +1,8 @@
 <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="35" cy="35" r="35" fill="#E8F1F8"/>
-<path d="M54.5 18.5V52.4707H14.5V18.5H54.5Z" fill="#CCE2D8" stroke="black"/>
-<path d="M28.3857 41.8158H27.2236V45.7357H21.1943V41.8158H20.0312L24.209 39.1029L28.3857 41.8158Z" fill="black"/>
-<path d="M32.0879 26.4412H36.9114V27.6616H32.0879V26.4412Z" fill="#0B0C0C"/>
-<path d="M38.1172 26.4412H42.9407V27.6616H38.1172V26.4412Z" fill="#0B0C0C"/>
-<path d="M32.0879 30.0588H34.4997V31.2792H32.0879V30.0588Z" fill="#0B0C0C"/>
-<path d="M35.7051 30.0588H38.1168V31.2792H35.7051V30.0588Z" fill="#0B0C0C"/>
-<path d="M39.3242 30.0588H41.736V31.2792H39.3242V30.0588Z" fill="#0B0C0C"/>
-<path d="M32.0879 38.5H42.9408V39.7059H32.0879V38.5Z" fill="#0B0C0C"/>
-<path d="M32.0879 40.9117H42.9408V42.1176H32.0879V40.9117Z" fill="#0B0C0C"/>
-<path d="M32.0879 43.3235H42.9408V44.5294H32.0879V43.3235Z" fill="#0B0C0C"/>
-<path d="M32.0879 45.7354H36.9114V46.9412H32.0879V45.7354Z" fill="#0B0C0C"/>
-<mask id="mask0_41964_20575" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="20" y="24" width="9" height="9">
-<rect x="20.0293" y="24.0294" width="8.44118" height="8.44118" fill="white"/>
-</mask>
-<g mask="url(#mask0_41964_20575)">
-<circle cx="24.2488" cy="27.2649" r="1.68824" fill="#0B0C0C"/>
-<circle cx="24.2495" cy="32.6462" r="3.27096" fill="#0B0C0C"/>
-</g>
+<path d="M53.5 24.5V44.5H17.5V24.5H53.5Z" fill="#CCE2D8" stroke="black"/>
+<path d="M32.3545 33.8158H31.1914V37.7357H25.1621V33.8158H24L28.1768 31.1029L32.3545 33.8158Z" fill="black"/>
+<path d="M36.0566 32H46.9096V33.2059H36.0566V32Z" fill="#0B0C0C"/>
+<path d="M36.0566 34.4117H46.9096V35.6176H36.0566V34.4117Z" fill="#0B0C0C"/>
+<path d="M35.9688 36.9H40.9688V37.9H35.9688V36.9Z" fill="#0B0C0C"/>
 </svg>

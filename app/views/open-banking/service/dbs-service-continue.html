@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Request a basic DBS check
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+ <div class="govuk-grid-column-two-thirds">
+  <form id="generate-url" action="" method="POST">
+
+   <h1 class="govuk-heading-l">
+    You’re nearly there 
+   </h1>
+   <p>We have entered details from your GOV.UK One Login into your basic DBS application.</p>
+
+   <p>We now need some further information for you to complete your application.</p>
+
+
+
+
+   <button id="button" class="govuk-button" data-module="govuk-button">Continue</button>
+
+
+
+
+ </div>
+</div>
+{% endblock %}
+
+
+
