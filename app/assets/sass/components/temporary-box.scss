@@ -1,0 +1,14 @@
+// Add extra styles here
+.temporary-box {
+  padding: 1.5rem 2rem 0.5rem 2rem;
+  background-color: rgb(243, 242, 241);
+  margin: 2rem 0 3rem 0;
+}
+// change the background colour of the radio buttons
+.temporary-box .govuk-radios__label::before {
+  background-color: white;
+}
+// bold the fieldset legend to match the Figma
+.temporary-box fieldset legend {
+  font-weight: 700;
+}
