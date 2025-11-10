@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Prove your identity online without photo ID 
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../../_includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="bank-account" method="post">
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Prove your identity online without photo ID </h1>
+       
+        <p>You can prove your identity by entering some details about yourself and signing in to your online banking.</p>
+        <p>Banks have very strong security, so when you sign in, they know it’s really you. The bank can then tell us you are who you say you are, using technology called ‘open banking’. </p>
+     
+        <div class="govuk-inset-text">
+          None of your bank account information will be shared with GOV.UK One Login or the government service you’re using.
+        </div>
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Who you share your information with
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">We use a company called Ecospend to securely connect to your bank or building society. </p>
+            <p class="govuk-body">When you sign in to online banking, you’ll be asked to share some details, such as sort code and account number, with Ecospend in order to confirm your identity.</p>
+            <p class="govuk-body">Ecospend is regulated by the <a href="">Financial Conduct Authority (opens in a new tab).</a></p>
+          </div>
+        </details>
+        
+            <button id="button2" class="govuk-button" data-module="govuk-button">Continue</button>
+         
+          </form>
+          <p><a class="govuk-link" href="">Prove your identity with photo ID instead</a> </p>
+        </div>
+      </div>
+{% endblock %}
+
