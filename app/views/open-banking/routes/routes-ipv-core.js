@@ -73,7 +73,7 @@ router.post(`${parentDir}/ipv-core/f2f-screener`, function (request, response) {
 router.post(`${parentDir}/ipv-core/bank-account`, function (request, response) {
 	var account = request.session.data['bank-account']
 	if (account == "yes") {
-		response.redirect("../banking-cri/bank-start-no-photo-id") // no photo ID route
+		response.redirect("../banking-cri/bank-start-photo-id") // no photo ID route
 	} else {
 		response.redirect("../ipv-core/prove-identity-bank-account")
 	}
