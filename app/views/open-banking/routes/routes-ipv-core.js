@@ -437,9 +437,9 @@ router.post(`${parentDir}/ipv-core/app-success-page`, function (request, respons
 router.post(`${parentDir}/ipv-core/doc-screener`, function (req, res) {
     var deviceType = req.session.data['document']
     if (deviceType == "passport") {
-        res.redirect('../banking-cri/bank-start-photo-id')
+        res.redirect('../ipv-core/prove-identity-bank-account-photo-id')
 	} else if (deviceType === 'driving-licence') {
-		res.redirect('../banking-cri/bank-start-photo-id');
+		res.redirect('../ipv-core/prove-identity-bank-account-photo-id');
     } else {
         res.redirect('../ipv-core/prove-identity-bank-account')
     }
