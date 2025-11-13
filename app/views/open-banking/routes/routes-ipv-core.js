@@ -441,7 +441,7 @@ router.post(`${parentDir}/ipv-core/doc-screener`, function (req, res) {
 	} else if (deviceType === 'driving-licence') {
 		res.redirect('../ipv-core/open-banking-introduction-photo-id');
     } else {
-        res.redirect('../ipv-core/open-banking-introduction-photo-id')
+        res.redirect('../ipv-core/open-banking-introduction-no-id')
     }
 })
 
