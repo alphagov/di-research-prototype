@@ -13,11 +13,11 @@ router.post(`${parentDir}/ipv-core/triage/online-photoid`, function (request, re
 	if (photoID === "Yes") {
 		response.redirect("../triage/computer-tablet")
 	} else if (photoID === "No" && confidence === "medium") {
-		response.redirect("../prove-identity-bank-account")
+		response.redirect("../open-banking-introduction-no-id")
 	} else if (photoID === "No" && confidence === "low") {
-		response.redirect("../prove-identity-bank-account")
+		response.redirect("../open-banking-introduction-no-id")
 	} else {
-		response.redirect("../prove-identity-bank-account")
+		response.redirect("../open-banking-introduction-no-id")
 
 	}
 })
@@ -437,11 +437,11 @@ router.post(`${parentDir}/ipv-core/app-success-page`, function (request, respons
 router.post(`${parentDir}/ipv-core/doc-screener`, function (req, res) {
     var deviceType = req.session.data['document']
     if (deviceType == "passport") {
-        res.redirect('../ipv-core/prove-identity-bank-account-photo-id')
+        res.redirect('../ipv-core/open-banking-introduction-photo-id')
 	} else if (deviceType === 'driving-licence') {
-		res.redirect('../ipv-core/prove-identity-bank-account-photo-id');
+		res.redirect('../ipv-core/open-banking-introduction-photo-id');
     } else {
-        res.redirect('../ipv-core/prove-identity-bank-account')
+        res.redirect('../ipv-core/open-banking-introduction-photo-id')
     }
 })
 
