@@ -75,7 +75,7 @@ router.post(`${parentDir}/ipv-core/bank-account`, function (request, response) {
 	if (account == "yes") {
 		response.redirect("../banking-cri/bank-start-photo-id") // no photo ID route
 	} else {
-		response.redirect("../ipv-core/bank-start-photo-id")
+		response.redirect("../banking-cri/bank-start-photo-id")
 	}
 })
 
