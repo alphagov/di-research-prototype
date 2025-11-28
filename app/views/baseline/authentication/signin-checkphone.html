@@ -35,7 +35,7 @@ Check your phone
     <!-- Else display the default SMS method with its respective content -->
 
     {% else %}
-    <form class="form" action="signin-success" method="POST">
+    <form class="form" action="../ipv-core/triage/live-in-uk" method="POST">
       <h1 class="govuk-heading-l">Check your phone</h1>
       <div class="govuk-inset-text">
         <p>We have sent a code to your phone number ending with  <strong>{{ data['obfNumber'] or '789' }}</strong></p>
